@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Raiting } from '../Raiting/Raiting';
 import './clothesCart.scss';
 
-export const ClothesCart = ({ image, name, price, raiting, sale }) => {
+export const ClothesCart = ({ id, image, name, price, raiting, sale, productType }) => {
   return (
-    <div>
+    <Link to={`/${productType}/${id}`} data-test-id={`clothes-card-${productType}`}>
       <div className="clothes-img">
         <img src={image} alt={image} />
       </div>
@@ -16,6 +17,6 @@ export const ClothesCart = ({ image, name, price, raiting, sale }) => {
           <Raiting raiting={raiting} />
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
