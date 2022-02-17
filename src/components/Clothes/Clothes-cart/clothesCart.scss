@@ -1,0 +1,39 @@
+.clothes-img {
+  cursor: pointer;
+}
+.clothes-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clothes-name {
+  margin-top: 16px;
+  margin-bottom: 12px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.clothes-sale {
+  display: inline;
+  position: relative;
+  right: 60px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration-line: line-through;
+  color: #121212;
+  opacity: 0.4;
+}
+.clothes-price {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #121212;
+}

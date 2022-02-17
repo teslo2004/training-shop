@@ -1,0 +1,111 @@
+.benefits {
+  height: 106px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid #f8f8f8;
+}
+
+.shipping {
+  margin-left: 85px;
+  img {
+    position: relative;
+    top: 40px;
+    left: 5px;
+  }
+  h5 {
+    position: relative;
+    bottom: 20px;
+    left: 55px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+  }
+  span {
+    position: relative;
+    bottom: 40px;
+    left: 55px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    color: #121212;
+    opacity: 0.9;
+  }
+}
+.guarantee {
+  img {
+    position: relative;
+    top: 40px;
+    right: 25px;
+  }
+  h5 {
+    position: relative;
+    bottom: 20px;
+    left: 25px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+  }
+  span {
+    position: relative;
+    bottom: 40px;
+    left: 25px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    color: #121212;
+    opacity: 0.9;
+  }
+}
+.support {
+  margin-right: 85px;
+  img {
+    position: relative;
+    top: 40px;
+    right: 120px;
+  }
+  h5 {
+    position: relative;
+    bottom: 20px;
+    right: 65px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+  }
+  span {
+    position: relative;
+    bottom: 40px;
+    right: 65px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    color: #121212;
+    opacity: 0.9;
+  }
+}

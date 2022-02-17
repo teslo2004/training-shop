@@ -1,0 +1,41 @@
+.footer-pay {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 85px;
+  background: #f8f8f8;
+}
+
+.copyright {
+  span {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 22px;
+    color: #121212;
+    opacity: 0.8;
+  }
+}
+
+.pay-img {
+  img {
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+  }
+}
+
+.site {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 22px;
+  text-align: right;
+  text-decoration-line: underline;
+  a {
+    color: #121212;
+  }
+}

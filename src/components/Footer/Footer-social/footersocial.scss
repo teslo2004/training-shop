@@ -1,0 +1,60 @@
+.social {
+  height: 56px;
+  display: flex;
+  background: #121212;
+  align-items: center;
+  justify-content: space-between;
+}
+.social-text {
+  padding: 0 85px;
+  h2 {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+}
+
+.social-mail {
+  display: flex;
+  input {
+    width: 400px;
+    height: 32px;
+    margin-right: 12px;
+    padding: 0 12px;
+    border: 0;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    color: #ffffff;
+    opacity: 0.4;
+  }
+  button {
+    width: 108px;
+    height: 32px;
+    background-color: #000000;
+    border: 1px solid #ffffff;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0.9;
+  }
+}
+
+.social-icon {
+  padding: 0 85px;
+  img {
+    margin-right: 12px;
+  }
+}

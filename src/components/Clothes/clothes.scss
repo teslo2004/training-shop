@@ -1,0 +1,73 @@
+.clothes-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clothes-header {
+  height: 25;
+  width: 134;
+  margin-left: 85px;
+  margin-top: 20px;
+  h2 {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+}
+.clothes-menu {
+  margin-right: 85px;
+  margin-top: 96px;
+  a {
+    text-decoration: none;
+    &:not(:last-child) {
+      margin-right: 32px;
+    }
+  }
+  span {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 0.06em;
+    color: #121212;
+    opacity: 0.6;
+    cursor: pointer;
+    &:hover {
+      color: #121212;
+      font-weight: 500;
+      opacity: 1;
+    }
+  }
+}
+
+.clothes-cart {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 30px;
+  margin: 51px 85px 51px;
+}
+
+.all-btn {
+  button {
+    width: 1110px;
+    height: 48px;
+    box-sizing: border-box;
+    background: #f8f8f8;
+    border: 2px solid #f8f8f8;
+    cursor: pointer;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    opacity: 0.8;
+  }
+}

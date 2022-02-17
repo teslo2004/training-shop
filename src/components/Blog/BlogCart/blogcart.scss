@@ -1,0 +1,40 @@
+.blog-cart {
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blog-cart-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 302px;
+  height: 174px;
+  bottom: 50px;
+  background: #ffffff;
+  z-index: 2;
+  h2 {
+    margin-top: 24px;
+    margin-bottom: 0;
+    padding-left: 16px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #121212;
+  }
+  p {
+    margin-top: 12px;
+    padding: 0 16px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #121212;
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,149 @@
+.banner {
+  display: flex;
+  align-items: center;
+  margin-left: 85px;
+  margin-top: 32px;
+}
+
+.banner-list {
+  position: absolute;
+  width: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner-info {
+  width: 289px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+
+  span {
+    padding-top: 24px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    opacity: 0.4;
+  }
+
+  p {
+    margin-top: 14px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+  }
+}
+
+.prev-btn {
+  padding-left: 24px;
+  cursor: pointer;
+}
+.next-btn {
+  padding-right: 24px;
+  cursor: pointer;
+}
+
+.category-list {
+  position: relative;
+  display: grid;
+  grid-template-rows: 200px 260px;
+  grid-template-columns: 255px 255px;
+  grid-gap: 30px;
+  margin-left: 30px;
+}
+.accessories-img {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+
+  span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 166px;
+    height: 48px;
+    left: 187px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    background: #ffffff;
+    border-radius: 4px;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+.women-img {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+
+  span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 118px;
+    height: 48px;
+    left: 69px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    background: #ffffff;
+    border-radius: 4px;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+.men-img {
+  display: flex;
+  align-items: center;
+  z-index: 1;
+
+  span {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 118px;
+    height: 48px;
+    left: 354px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    background: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 2;
+  }
+}

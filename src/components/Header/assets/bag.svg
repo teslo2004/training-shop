@@ -1,0 +1,13 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 28" width="27" height="28">
+	<title>Group 53-svg</title>
+	<defs>
+		<image  width="6" height="8" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAICAMAAADtGH4KAAAAAXNSR0IB2cksfwAAADNQTFRF////////////////////////////////////////////////////////////////////5RDoRwAAABF0Uk5TACB/QO/g/1CAEMCgYK+PP7CfH2A3AAAAL0lEQVR4nCWIRw4AIAyAcLRu6/9fq40cIAFCjAlCFtFClYZ0nJ/xpntCW7rNOOpcFbkBBN34X8wAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		.s0 { fill: none;stroke: #121212;stroke-linecap: round;stroke-linejoin: round } 
+		.s1 { fill: #121212;stroke: #ffffff;stroke-width: 2 } 
+	</style>
+	<path id="Layer" class="s0" d="m5 17v-4c0-1.1 0.4-2.1 1.2-2.8c0.7-0.8 1.7-1.2 2.8-1.2c1.1 0 2.1 0.4 2.8 1.2c0.8 0.7 1.2 1.7 1.2 2.8v4zm-3-2h14l1 12h-16z" />
+	<path id="Layer" class="s1" d="m17 19c-5 0-9-4-9-9c0-5 4-9 9-9c5 0 9 4 9 9c0 5-4 9-9 9z" />
+	<use id="Слой 1" href="#img1" x="14" y="6" />
+</svg>

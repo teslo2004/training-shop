@@ -1,0 +1,7 @@
+.news {
+  display: flex;
+  margin-bottom: 96px;
+  &:not(last-child) {
+    margin-left: 85px;
+  }
+}
