@@ -1,0 +1,53 @@
+.statistic {
+  display: flex;
+  justify-content: space-between;
+  background: #f8f8f8;
+  padding: 0 85px;
+}
+.counter {
+  span {
+    &:not(:last-child) {
+      padding-right: 25px;
+    }
+  }
+}
+.raiting {
+  display: flex;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.bold {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 18px;
+  color: #121212;
+}
+
+.sku {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.availability {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: right;
+  color: #121212;
+  opacity: 0.6;
+}

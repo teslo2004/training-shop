@@ -1,0 +1,31 @@
+.troussers {
+  margin: 32px 85px;
+  display: flex;
+}
+
+.trousers-img {
+  display: flex;
+  flex-direction: column;
+  img {
+    margin: 8px 16px 8px 0;
+  }
+}
+
+.trousers-next {
+  margin-left: 6px;
+}
+
+.trousers-big {
+  display: flex;
+  align-items: center;
+}
+
+.prev {
+  position: relative;
+  left: 55px;
+}
+
+.next {
+  position: relative;
+  right: 55px;
+}

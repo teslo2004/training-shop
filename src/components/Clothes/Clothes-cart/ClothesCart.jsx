@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Raiting } from '../Raiting/Raiting';
 import './clothesCart.scss';
 
-export const ClothesCart = ({ card: { img, name, price, raiting, sale, id, productType } }) => {
+export const ClothesCart = ({ card: { img, name, price, raiting, sale, id }, productType }) => {
   return (
     <Link to={`/${productType}/${id}`} data-test-id={`clothes-card-${productType}`}>
       <div className="clothes-img">
