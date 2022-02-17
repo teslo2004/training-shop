@@ -12,15 +12,7 @@ export const ProductsPage = ({ productType }) => {
       <ProductFilter />
       <div className="clothes-cart">
         {CARDS[productType].map((card) => (
-          <ClothesCart
-            key={card.id}
-            image={card.img}
-            name={card.name}
-            price={card.price}
-            sale={card.sale}
-            raiting={card.raiting}
-            productType={productType}
-          />
+          <ClothesCart key={card.id} card={card} productType={productType} />
         ))}
       </div>
     </div>

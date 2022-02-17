@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Raiting } from '../Raiting/Raiting';
 import './clothesCart.scss';
 
-export const ClothesCart = ({ id, image, name, price, raiting, sale, productType }) => {
+export const ClothesCart = ({ card: { img, name, price, raiting, sale, id, productType } }) => {
   return (
     <Link to={`/${productType}/${id}`} data-test-id={`clothes-card-${productType}`}>
       <div className="clothes-img">
-        <img src={image} alt={image} />
+        <img src={img} alt={img} />
       </div>
       <div className="clothes-name">{name}</div>
       <div className="clothes-footer">
