@@ -29,22 +29,22 @@ export const FooterNav = () => {
       <div className="contact">
         <h2>CONTACT US</h2>
         <ul>
-          <a href="#">
+          <Link to="#">
             <img src={location} alt="location" />
             <span>Belarus, Gomel, Lange 17</span>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src={tel} alt="tel" />
             <span>+375 29 100 20 30</span>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src={clock} alt="clock" />
             <span>All week 24/7</span>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <img src={mail} alt="mail" />
             <span>info@clevertec.ru</span>
-          </a>
+          </Link>
         </ul>
       </div>
     </div>

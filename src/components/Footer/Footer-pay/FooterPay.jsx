@@ -7,6 +7,7 @@ import mastercard from '../assets/mastercard.svg';
 import discover from '../assets/discover.svg';
 import americanExpress from '../assets/american-express.svg';
 import './footerpay.scss';
+import { Link } from 'react-router-dom';
 
 export const FooterPay = () => {
   return (
@@ -24,7 +25,7 @@ export const FooterPay = () => {
         <img src={americanExpress} alt="americanExpress" />
       </div>
       <div className="site">
-        <a href="#">Clevertec.ru/training</a>
+        <Link to="#">Clevertec.ru/training</Link>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import './clothes.scss';
 import { CARDS } from '../../data/data-clothes';
 import { ClothesCart } from './Clothes-cart/ClothesCart';
+import { Link } from 'react-router-dom';
 
 const Clothes = ({ productType }) => {
   return (
@@ -11,21 +12,21 @@ const Clothes = ({ productType }) => {
           <h2>{productType}'s</h2>
         </div>
         <div className="clothes-menu">
-          <a href="#">
+          <Link to="#">
             <span>NEW ARRIVALS</span>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <span>SPECIALS</span>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <span>BESTSELLERS</span>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <span>MOST VIEWED</span>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to="#">
             <span>FEATURED PRODUCTS</span>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="clothes-cart">

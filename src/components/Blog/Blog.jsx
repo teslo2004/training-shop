@@ -2,6 +2,7 @@ import React from 'react';
 import './blog.scss';
 import { BlogCart } from './BlogCart/BlogCart';
 import { BLOGS } from '../../data/data-blog';
+import { Link } from 'react-router-dom';
 
 export const Blog = () => {
   return (
@@ -11,7 +12,7 @@ export const Blog = () => {
           <h2>LATEST FROM BLOG</h2>
         </div>
         <div className="blog-all">
-          <a href="#">see all</a>
+          <Link to="/blog">see all</Link>
         </div>
       </div>
       <div className="blog-list">

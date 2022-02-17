@@ -6,7 +6,7 @@ export const ClothesCart = ({ image, name, price, raiting, sale }) => {
   return (
     <div>
       <div className="clothes-img">
-        <img src={image} alt="image" />
+        <img src={image} alt={image} />
       </div>
       <div className="clothes-name">{name}</div>
       <div className="clothes-footer">

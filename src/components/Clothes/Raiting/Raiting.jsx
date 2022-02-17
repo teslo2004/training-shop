@@ -8,7 +8,7 @@ export const Raiting = ({ raiting }) => {
   return (
     <div>
       {arr.map((star, id) => (
-        <img key={id} src={star < raiting ? starY : starG} />
+        <img key={id} src={star < raiting ? starY : starG} alt={star} />
       ))}
     </div>
   );
