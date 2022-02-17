@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Clothes = ({ productType }) => {
   return (
-    <div>
+    <div className="clothes" data-test-id={`clothes-${productType}`}>
       <div className="clothes-container">
         <div className="clothes-header">
           <h2>{productType}'s</h2>

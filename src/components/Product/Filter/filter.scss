@@ -1,0 +1,32 @@
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 37px 85px;
+  img {
+    width: 21.33px;
+  }
+}
+
+.filter-left {
+  display: flex;
+  align-items: center;
+  span {
+    padding-top: 5px;
+    padding-left: 15px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    opacity: 0.6;
+  }
+}
+
+.filter-right {
+  img {
+    padding-left: 15px;
+  }
+}

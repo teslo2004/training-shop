@@ -6,7 +6,7 @@ import './footer.scss';
 
 export const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer" data-test-id="footer">
       <div>
         <FooterSocial />
       </div>

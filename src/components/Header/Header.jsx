@@ -1,4 +1,5 @@
 import React from 'react';
+import { MENU } from '../../data/data-menu';
 import './header.scss';
 import logo from '../Header/assets/logo.svg';
 import search from '../Header/assets/search.svg';
@@ -39,38 +40,20 @@ function Header() {
       </div>
       <nav>
         <div className="logo">
-          <Link to="/" data-test-id="header-logo-link">
+          <Link to="/" className="header-nav-logo" data-test-id="header-logo-link">
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="nav-menu">
-          <Link to="/about">
-            <span>About Us</span>
-          </Link>
-
-          <Link to="/women">
-            <span>Women</span>
-          </Link>
-
-          <Link to="/men">
-            <span>Men</span>
-          </Link>
-
-          <Link to="/beauty">
-            <span>Beauty</span>
-          </Link>
-
-          <Link to="/accessories">
-            <span>Accesssories</span>
-          </Link>
-
-          <Link to="/blog">
-            <span>Blog</span>
-          </Link>
-
-          <Link to="contact">
-            <span>Contact</span>
-          </Link>
+        <div className="menu" data-test-id="menu">
+          {MENU.map((item) => (
+            <Link
+              key={item.id}
+              to={`/${item.path}`}
+              className="menu-item"
+              data-test-id={`menu-link-${item.path}`}>
+              <span>{item.name}</span>
+            </Link>
+          ))}
         </div>
         <div className="user-menu">
           <img src={search} alt="search" />

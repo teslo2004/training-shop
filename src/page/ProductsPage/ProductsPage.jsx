@@ -7,7 +7,7 @@ import './productspage.scss';
 
 export const ProductsPage = ({ productType }) => {
   return (
-    <div>
+    <div className="products-page" data-test-id={`products-page-${productType}`}>
       <ProductHeader productType={productType} />
       <ProductFilter />
       <div className="clothes-cart">
