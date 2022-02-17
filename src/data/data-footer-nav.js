@@ -3,9 +3,9 @@ export const FOOTER_NAV = [
     id: 1,
     navItem: 'CATEGORIES',
     links: [
-      { href: '#', title: 'Men' },
-      { href: 'men', title: 'Women' },
-      { href: 'women', title: 'Accessories' },
+      { href: 'men', title: 'Men' },
+      { href: 'women', title: 'Women' },
+      { href: '#', title: 'Accessories' },
       { href: '#', title: 'Beauty' },
     ],
   },
