@@ -1,5 +1,5 @@
 .troussers {
-  margin: 32px 85px;
+  margin: 32px 0px;
   display: flex;
 }
 
@@ -17,15 +17,17 @@
 
 .trousers-big {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .prev {
   position: relative;
   left: 55px;
+  top: 255px;
 }
 
 .next {
   position: relative;
   right: 55px;
+  top: 255px;
 }

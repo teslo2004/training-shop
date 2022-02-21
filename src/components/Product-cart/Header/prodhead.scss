@@ -22,15 +22,6 @@
   opacity: 0.6;
 }
 
-.bold {
-  font-family: Spartan;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 11px;
-  line-height: 18px;
-  color: #121212;
-}
-
 .sku {
   font-family: Spartan;
   font-style: normal;
@@ -38,7 +29,15 @@
   font-size: 11px;
   line-height: 18px;
   color: #121212;
-  opacity: 0.6;
+}
+.bold {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 18px;
+  color: #121212;
+  opacity: 1;
 }
 
 .availability {
@@ -49,5 +48,4 @@
   line-height: 18px;
   text-align: right;
   color: #121212;
-  opacity: 0.6;
 }

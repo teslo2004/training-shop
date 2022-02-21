@@ -1,0 +1,30 @@
+.rewiev-cart {
+  margin-bottom: 48px;
+  &:last-child {
+    margin-bottom: 32px;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  .name {
+    font-family: Spartan;
+    font-style: bold;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: #121212;
+  }
+}
+
+.text {
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #121212;
+  opacity: 0.8;
+}

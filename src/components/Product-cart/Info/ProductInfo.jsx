@@ -16,12 +16,14 @@ import { REVIEW } from '../../../data/data-review';
 import { Raiting } from '../../Clothes/Raiting/Raiting';
 import { Rewiev } from '../Rewiev/Rewiev';
 
+import './productinfo.scss';
+
 export const ProductInfo = ({ price, raiting }) => {
   return (
-    <div>
+    <div className="product-info-main">
       <div className="color">
         <span>
-          COLOR:<span>Blue</span>
+          COLOR:<span className="product-bold">Blue</span>
         </span>
       </div>
       <div className="info-image">
@@ -32,20 +34,20 @@ export const ProductInfo = ({ price, raiting }) => {
       </div>
       <div className="size">
         <span>
-          SIZE:<span>S</span>
+          SIZE:<span className="product-bold">S</span>
         </span>
       </div>
-      <div>
+      <div className="size-btn">
         <div>XS</div>
         <div>S</div>
         <div>M</div>
         <div>L</div>
       </div>
-      <div>
+      <div className="hanger">
         <img src={hanger} alt={hanger} />
         <span>Size guide</span>
       </div>
-      <div>
+      <div className="product-card">
         <span>${price}</span>
         <button>ADD TO CARD</button>
         <img src={heart} alt={heart} />
@@ -65,8 +67,8 @@ export const ProductInfo = ({ price, raiting }) => {
           <span>Ask a question</span>
         </div>
       </div>
-      <div>
-        <span>
+      <div className="guarant">
+        <span className="guarant-title">
           GUARANTEED SAFE CHECKOUT <hr />
         </span>
         <div className="checkout-img">
@@ -92,14 +94,20 @@ export const ProductInfo = ({ price, raiting }) => {
           </div>
         </div>
       </div>
-      <div>
-        <div>
+      <div className="review">
+        <div className="review-header">
           <span>REVIEWS</span>
         </div>
-        <Raiting raiting={raiting} />
-        <span>2 Reviews</span>
-        <img src={annotation} alt={annotation} />
-        <span>Write a review</span>
+        <div className="raiting-raview">
+          <div className="raiting-star">
+            <Raiting raiting={raiting} />
+            <span>2 Reviews</span>
+          </div>
+          <div className="raiting-write">
+            <img src={annotation} alt={annotation} />
+            <span>Write a review</span>
+          </div>
+        </div>
         {REVIEW.map((item) => (
           <Rewiev key={item.id} item={item} />
         ))}

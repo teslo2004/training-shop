@@ -1,0 +1,237 @@
+.product-info-main {
+  display: flex;
+  flex-direction: column;
+  column-gap: 10px;
+  align-items: flex-start;
+  margin-top: 35px;
+  .color {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.06em;
+    color: #121212;
+    .product-bold {
+      font-family: Spartan;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      color: #121212;
+    }
+  }
+}
+
+.info-image {
+  display: flex;
+  margin-top: 16px;
+  margin-bottom: 32px;
+  column-gap: 16px;
+}
+
+.size {
+  margin-bottom: 16px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: #121212;
+  .product-bold {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #121212;
+  }
+}
+
+.size-btn {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+  div {
+    width: 20px;
+    text-align: center;
+    padding: 14px;
+    background: #f8f8f8;
+    cursor: pointer;
+    &:hover {
+      border: 2px solid black;
+      padding: 12px;
+    }
+  }
+}
+
+.hanger {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-top: 16px;
+  margin-bottom: 35px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.product-card {
+  width: 570px;
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+  padding: 38px 0;
+  border-top: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;
+  span {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 36px;
+    text-transform: uppercase;
+    color: #121212;
+  }
+  button {
+    padding: 16px 24px;
+    background: #121212;
+    border: 2px solid #121212;
+    box-sizing: border-box;
+    color: white;
+    line-height: 15px;
+    cursor: pointer;
+  }
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  column-gap: 54px;
+  margin-top: 37px;
+  margin-bottom: 32px;
+}
+
+.car,
+.arrow,
+.mail {
+  display: flex;
+  align-items: center;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  color: #121212;
+  opacity: 0.6;
+}
+
+.guarant {
+  width: 570px;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #121212;
+  .guarant-title {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 23px;
+  }
+  hr {
+    width: calc(100% - 230px);
+    height: 2px;
+    background-color: #e6e6e6;
+    border: none;
+  }
+  .checkout-img {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+}
+
+.description {
+  .title {
+    width: 570px;
+    padding: 32px 0;
+    border-top: 2px solid #e6e6e6;
+    border-bottom: 2px solid #e6e6e6;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+    opacity: 0.6;
+  }
+  .text-title {
+    padding: 32px 0;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+  }
+
+  .specifications div {
+    margin-bottom: 12px;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: black;
+    .black {
+      font-family: Spartan;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 22px;
+      color: #121212;
+      opacity: 0.6;
+    }
+  }
+  .text-material {
+    width: 570px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid #e6e6e6;
+  }
+}
+
+.review {
+  width: 570px;
+  padding-bottom: 32px;
+  padding-top: 32px;
+  margin-bottom: 196px;
+  border-bottom: 2px solid #e6e6e6;
+  .review-header {
+    padding-bottom: 34px;
+  }
+  .raiting-raview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 28px;
+    .raiting-star {
+      display: flex;
+      column-gap: 16px;
+    }
+    .raiting-write {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

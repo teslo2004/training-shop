@@ -18,7 +18,9 @@ export const ProdHead = ({ productType, name, raiting }) => {
             {productType.substring(0, 1).toUpperCase() + productType.substring(1)}
           </span>
           &#9658;
-          <span>{name}</span>
+          <span>
+            <strong>{name}</strong>
+          </span>
         </div>
         <div className="product-header-share">
           <img src={share} alt="share" />
