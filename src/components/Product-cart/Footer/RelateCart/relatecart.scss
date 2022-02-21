@@ -1,0 +1,38 @@
+.relate-cart {
+  display: flex;
+  flex-direction: column;
+  .relate-cart-text {
+    .relate-cart-name {
+      font-family: Spartan;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      color: #121212;
+      opacity: 0.6;
+    }
+    margin-top: 16px;
+    .relate-cart-price {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      font-family: Spartan;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 16px;
+      color: #121212;
+    }
+  }
+}
+
+.sale {
+  text-decoration: line-through;
+  font-family: Spartan;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 13px;
+  color: #121212;
+  opacity: 0.4;
+}

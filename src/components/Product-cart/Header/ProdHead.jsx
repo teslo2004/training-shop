@@ -32,7 +32,7 @@ export const ProdHead = ({ productType, name, raiting }) => {
       </div>
       <div className="statistic">
         <div className="raiting">
-          <Raiting raiting={raiting} />
+          <Raiting raiting={4} />
           <span className="reviews">2 Reviews</span>
         </div>
 

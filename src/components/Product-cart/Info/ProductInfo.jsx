@@ -100,7 +100,7 @@ export const ProductInfo = ({ price, raiting }) => {
         </div>
         <div className="raiting-raview">
           <div className="raiting-star">
-            <Raiting raiting={raiting} />
+            <Raiting raiting={4} />
             <span>2 Reviews</span>
           </div>
           <div className="raiting-write">

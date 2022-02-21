@@ -1,0 +1,28 @@
+.products-footer-title {
+  span {
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #121212;
+  }
+}
+.relate-btn {
+  img {
+    margin-right: 16px;
+    border: 2px solid white;
+    border-radius: 30px;
+    background: #ffffff;
+    opacity: 0.6;
+  }
+}
+
+.relate-prod-image {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+  margin: 48px 0 96px;
+}

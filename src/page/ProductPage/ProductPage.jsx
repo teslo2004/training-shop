@@ -7,6 +7,7 @@ import { Slider } from '../../components/Product-cart/Slider/Slider';
 import { ProductInfo } from '../../components/Product-cart/Info/ProductInfo';
 
 import './productpage.scss';
+import { ProductFooter } from '../../components/Product-cart/Footer/ProductFooter';
 
 export const ProductPage = ({ productType }) => {
   const { id } = useParams();
@@ -21,6 +22,7 @@ export const ProductPage = ({ productType }) => {
         <Slider />
         <ProductInfo price={card?.price} />
       </div>
+      <ProductFooter />
     </div>
   );
 };
