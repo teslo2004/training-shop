@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/training-shop/static/css/main.6b9570ef.css",
-    "main.js": "/training-shop/static/js/main.dd922048.js",
+    "main.css": "/training-shop/static/css/main.a19e50d1.css",
+    "main.js": "/training-shop/static/js/main.cf3bbbb9.js",
     "static/media/daco.png": "/training-shop/static/media/daco.4152b783e591f01bafb6.png",
     "static/media/banner.jpg": "/training-shop/static/media/banner.ba5d4eb3d9420781b5f8.jpg",
     "static/media/blog1.jpg": "/training-shop/static/media/blog1.5cad0183f33abe4f2f35.jpg",
@@ -74,11 +74,11 @@
     "static/media/down.svg": "/training-shop/static/media/down.f0d538c78f70912a72f69422dacc24b2.svg",
     "static/media/up.svg": "/training-shop/static/media/up.801dea7bbb7715c7b60e09c015402893.svg",
     "static/media/line.svg": "/training-shop/static/media/line.f1d242843fc15f61cc5abf04d2079f81.svg",
-    "main.6b9570ef.css.map": "/training-shop/static/css/main.6b9570ef.css.map",
-    "main.dd922048.js.map": "/training-shop/static/js/main.dd922048.js.map"
+    "main.a19e50d1.css.map": "/training-shop/static/css/main.a19e50d1.css.map",
+    "main.cf3bbbb9.js.map": "/training-shop/static/js/main.cf3bbbb9.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b9570ef.css",
-    "static/js/main.dd922048.js"
+    "static/css/main.a19e50d1.css",
+    "static/js/main.cf3bbbb9.js"
   ]
 }
