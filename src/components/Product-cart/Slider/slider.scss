@@ -31,3 +31,9 @@
   right: 55px;
   top: 255px;
 }
+
+@media screen and(max-width: 660px) {
+  .trousers-big {
+    display: none;
+  }
+}

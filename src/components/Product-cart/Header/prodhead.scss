@@ -49,3 +49,10 @@
   text-align: right;
   color: #121212;
 }
+
+@media screen and (max-width: 660px) {
+  .product-header-share,
+  .statistic {
+    display: none;
+  }
+}
