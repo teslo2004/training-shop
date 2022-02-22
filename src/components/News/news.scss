@@ -1,7 +1,9 @@
 .news {
   display: flex;
   margin-bottom: 96px;
-  &:not(last-child) {
-    margin-left: 85px;
+  @media screen and (max-width: 996px) {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
   }
 }

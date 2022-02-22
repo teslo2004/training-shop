@@ -33,9 +33,9 @@ const Clothes = ({ productType }) => {
         {CARDS[productType].map((card) => (
           <ClothesCart key={card.id} card={card} productType={productType} />
         ))}
-        <div className="all-btn">
-          <button>see all</button>
-        </div>
+      </div>
+      <div className="all-btn">
+        <button type="button">see all</button>
       </div>
     </div>
   );

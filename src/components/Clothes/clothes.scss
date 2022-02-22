@@ -6,7 +6,6 @@
 .clothes-header {
   height: 25;
   width: 134;
-  margin-left: 85px;
   margin-top: 20px;
   h2 {
     font-family: Spartan;
@@ -19,7 +18,6 @@
   }
 }
 .clothes-menu {
-  margin-right: 85px;
   margin-top: 96px;
   a {
     text-decoration: none;
@@ -49,12 +47,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
   gap: 30px;
-  margin: 51px 85px 51px;
+  margin: 51px 0;
 }
 
 .all-btn {
   button {
-    width: 1110px;
+    width: 100%;
     height: 48px;
     box-sizing: border-box;
     background: #f8f8f8;
@@ -69,5 +67,20 @@
     text-transform: uppercase;
     color: #121212;
     opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .clothes-menu {
+    margin-top: 20px;
+    a {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+  .clothes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }

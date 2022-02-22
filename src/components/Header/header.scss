@@ -48,6 +48,7 @@
 
 nav {
   display: flex;
+  justify-content: space-between;
   max-width: 1280px;
   height: 66px;
   margin: 0 auto;
@@ -59,6 +60,7 @@ nav {
   display: flex;
   flex: 1;
   align-items: center;
+
   a {
     text-decoration: none;
     font-family: Spartan;
@@ -92,17 +94,10 @@ nav {
 
 @media screen and (max-width: 996px) {
   .menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 80px;
-    background-color: whitesmoke;
-    opacity: 0.8;
-    z-index: 10;
+    display: none;
     transform: translateX(-100%);
+    z-index: 2;
+
     a {
       margin: 26px 0 26px 10px;
       font-size: 18px;
@@ -111,11 +106,18 @@ nav {
     }
   }
   .menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: whitesmoke;
+    opacity: 0.8;
     transform: translateX(0);
     transition: all 0.2s;
   }
 }
-
 .logo {
   width: 314px;
   a {
@@ -138,7 +140,7 @@ nav {
 .user-menu {
   display: flex;
   align-items: center;
-  flex: 1;
+  margin-right: 85px;
 
   img {
     &:not(:last-child) {
@@ -150,6 +152,9 @@ nav {
       width: 24px;
       margin-bottom: 7px;
     }
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
   }
   .burger-btn {
     display: none;
@@ -158,6 +163,7 @@ nav {
     position: relative;
     transition: all 1s;
     cursor: pointer;
+    z-index: 3;
   }
   .burger-btn:before {
     content: '';
@@ -187,13 +193,9 @@ nav {
   }
 
   @media (max-width: 996px) {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .burger-btn {
-    display: flex;
+    .burger-btn {
+      display: flex;
+    }
   }
 
   .burger-btn.close > span {
@@ -214,5 +216,11 @@ nav {
     bottom: 6px;
     right: 6px;
     transition: all 0.2s;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-bar {
+    display: none;
   }
 }

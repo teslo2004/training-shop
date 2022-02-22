@@ -1,6 +1,10 @@
 .footer-nav {
   display: flex;
   margin: 0 85px;
+  @media screen and (max-width: 1300px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .footer-item {
@@ -17,8 +21,26 @@
       opacity: 0.8;
     }
   }
+  @media screen and (max-width: 880px) {
+    .footer-item {
+      display: flex;
+      flex: 1;
+      div {
+        display: flex;
+        width: 30vw;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-right: 0;
+      }
+    }
+  }
 }
-
+@media screen and (max-width: 450px) {
+  .footer-item {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .contact {
   margin-top: 40px;
   a {

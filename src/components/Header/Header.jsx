@@ -41,16 +41,20 @@ export const Header = () => {
         </div>
       </div>
       <nav>
-        <div className="logo">
+        <div className="logo" onClick={() => setMenuActive(false)}>
           <Link to="/" className="header-nav-logo" data-test-id="header-logo-link">
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <div className={menuActive ? 'menu active' : 'menu'} data-test-id="menu">
+        <div
+          className={menuActive ? 'menu active' : 'menu'}
+          onClick={() => setMenuActive(false)}
+          data-test-id="menu">
           {MENU.map((item) => (
             <Link
               key={item.id}
               to={`/${item.path}`}
+              onClick={() => setMenuActive(false)}
               className="menu-item"
               data-test-id={`menu-link-${item.path}`}>
               <span>{item.name}</span>

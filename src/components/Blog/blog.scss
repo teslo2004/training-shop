@@ -1,7 +1,5 @@
 .blog {
   margin-top: 96px;
-  margin-left: 85px;
-  margin-right: 85px;
 }
 .blog-header {
   display: flex;
@@ -36,4 +34,8 @@
 .blog-list {
   display: flex;
   margin-top: 48px;
+  @media screen and (max-width: 1240px) {
+    display: flex;
+    flex-direction: column;
+  }
 }

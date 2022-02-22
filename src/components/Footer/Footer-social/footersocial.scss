@@ -4,6 +4,14 @@
   background: #121212;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 996px) {
+    display: flex;
+    height: 10%;
+    width: 95vw;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 14px;
+  }
 }
 .social-text {
   padding: 0 85px;
@@ -52,6 +60,13 @@
   }
 }
 
+@media screen and (max-width: 660px) {
+  .social-mail {
+    input {
+      width: 50vw;
+    }
+  }
+}
 .social-icon {
   padding: 0 85px;
   img {

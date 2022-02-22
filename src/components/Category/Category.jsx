@@ -9,9 +9,9 @@ import next from '../Category/assets/next.svg';
 
 function Category() {
   return (
-    <div>
+    <div className="category">
       <div className="banner">
-        <img src={banner} alt="banner" />
+        <img src={banner} alt="banner" className="banner-img" />
         <div className="banner-list">
           <img className="prev-btn" src={prev} alt="prev" />
           <div className="banner-info">
@@ -30,8 +30,8 @@ function Category() {
             <span>men</span>
           </div>
           <div className="accessories-img">
-            <span>accessories</span>
             <img src={accessories} alt="accessories" />
+            <span>accessories</span>
           </div>
         </div>
       </div>

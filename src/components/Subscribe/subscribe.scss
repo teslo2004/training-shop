@@ -1,6 +1,4 @@
 .subscribe {
-  width: 1280px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,10 +82,16 @@
   top: 43px;
   left: 50px;
   z-index: 2;
+  @media screen and (max-width: 996px) {
+    display: none;
+  }
 }
 .second-image {
   position: relative;
   top: 20px;
   right: 20px;
   z-index: 2;
+  @media screen and (max-width: 996px) {
+    display: none;
+  }
 }

@@ -5,6 +5,13 @@
   justify-content: space-between;
   padding: 0 85px;
   background: #f8f8f8;
+  @media screen and (max-width: 1300px) {
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    padding: 0;
+    margin: 0 auto;
+  }
 }
 
 .copyright {

@@ -7,20 +7,26 @@ import support from '../Benefits/assets/support.svg';
 function Benefits() {
   return (
     <div className="benefits">
-      <div className="shipping">
-        <img src={car} alt="shipping" />
-        <h5>FREE SHIPPING</h5>
-        <span>On all UA order or order above $100</span>
+      <div className="benefits-item">
+        <img className="benefits-item-img" src={car} alt="shipping" />
+        <div className="benefits-item-cart">
+          <div className="benefits-item-title">FREE SHIPPING</div>
+          <div className="benefits-item-text">On all UA order or order above $100</div>
+        </div>
       </div>
-      <div className="guarantee">
-        <img src={arrow} alt="guarantee" />
-        <h5>30 DAYS RETURN</h5>
-        <span>Simply return it within 30 days for an exchange</span>
+      <div className="benefits-item">
+        <img className="benefits-item-img" src={arrow} alt="guarantee" />
+        <div className="benefits-item-cart">
+          <div className="benefits-item-title">30 DAYS RETURN</div>
+          <div className="benefits-item-text">Simply return it within 30 days for an exchange</div>
+        </div>
       </div>
-      <div className="support">
-        <img src={support} alt="support" />
-        <h5>SUPPORT 24/7</h5>
-        <span>Contact us 24 hours a day, 7 days a week</span>
+      <div className="benefits-item">
+        <img className="benefits-item-img" src={support} alt="support" />
+        <div className="benefits-item-cart">
+          <div className="benefits-item-title">SUPPORT 24/7</div>
+          <div className="benefits-item-text">Contact us 24 hours a day, 7 days a week</div>
+        </div>
       </div>
     </div>
   );
