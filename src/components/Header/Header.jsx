@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MENU } from '../../data/data-menu';
 import './header.scss';
 import logo from '../Header/assets/logo.svg';
@@ -15,7 +15,9 @@ import insta from '../Footer/assets/insta.svg';
 import twitter from '../Footer/assets/twitter.svg';
 import { Link } from 'react-router-dom';
 
-function Header() {
+export const Header = () => {
+  const [menuActive, setMenuActive] = useState(false);
+
   return (
     <div className="header" data-test-id="header">
       <div className="header-bar">
@@ -44,7 +46,7 @@ function Header() {
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="menu" data-test-id="menu">
+        <div className={menuActive ? 'menu active' : 'menu'} data-test-id="menu">
           {MENU.map((item) => (
             <Link
               key={item.id}
@@ -60,10 +62,16 @@ function Header() {
           <img src={globe} alt="globe" />
           <img src={user} alt="user" />
           <img src={bag} alt="bag" />
+          <div
+            className={menuActive ? 'burger-btn close' : 'burger-btn'}
+            data-test-id="burger-menu-btn"
+            onClick={() => setMenuActive(!menuActive)}>
+            <span></span>
+          </div>
         </div>
       </nav>
     </div>
   );
-}
+};
 
 export default Header;
