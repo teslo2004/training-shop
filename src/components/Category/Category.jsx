@@ -14,7 +14,7 @@ function Category() {
   return (
     <div className="category">
       <div className="banner">
-        <div className="slider">
+        <div className="slider" data-test-id="main-slider">
           <Swiper navigation modules={[Navigation]} spaceBetween={50} slidesPerView={1}>
             <SwiperSlide>
               <div className="banner-slider">
