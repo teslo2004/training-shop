@@ -4,21 +4,46 @@ import banner from '../Category/assets/banner.jpg';
 import women from '../Category/assets/women.jpg';
 import men from '../Category/assets/men.jpg';
 import accessories from '../Category/assets/accessories.jpg';
-import prev from '../Category/assets/prev.svg';
-import next from '../Category/assets/next.svg';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 function Category() {
   return (
     <div className="category">
       <div className="banner">
-        <img src={banner} alt="banner" className="banner-img" />
-        <div className="banner-list">
-          <img className="prev-btn" src={prev} alt="prev" />
-          <div className="banner-info">
-            <span>banner</span>
-            <p>your title text</p>
-          </div>
-          <img className="next-btn" src={next} alt="next" />
+        <div className="slider">
+          <Swiper navigation modules={[Navigation]} spaceBetween={50} slidesPerView={1}>
+            <SwiperSlide>
+              <div className="banner-slider">
+                <img src={banner} alt="banner" className="banner-img" />
+                <div className="banner-info">
+                  <span>banner</span>
+                  <p>your title text</p>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="banner-slider">
+                <img src={banner} alt="banner" className="banner-img" />
+                <div className="banner-info">
+                  <span>banner</span>
+                  <p>your title text</p>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="banner-slider">
+                <img src={banner} alt="banner" className="banner-img" />
+                <div className="banner-info">
+                  <span>banner</span>
+                  <p>your title text</p>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
         <div className="category-list">
           <div className="women-img">

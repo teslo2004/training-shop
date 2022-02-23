@@ -1,41 +1,52 @@
+.category {
+  width: 100%;
+}
+
 .banner {
   display: flex;
-  align-items: center;
-  margin-top: 32px;
-
-  @media screen and(max-width: 1200px) {
+  flex-direction: row;
+  gap: 30px;
+  @media screen and (max-width: 1264px) {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 }
 
-@media screen and(max-width: 1200px) {
-  .banner-img {
-    width: 80vw;
-  }
+.slider {
+  max-width: 540px;
+  max-height: 490px;
 }
+
+.banner-slider {
+  position: relative;
+  width: 100%;
+  height: 490px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 24px;
+}
+
 .banner-list {
   position: absolute;
   width: 540px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media screen and(max-width: 1200px) {
-    top: 300px;
-    width: 80vw;
-  }
-  @media screen and(max-width: 600px) {
-    top: 200px;
-    width: 85vw;
-  }
 }
 
 .banner-info {
+  position: absolute;
   width: 289px;
   height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   background: #ffffff;
   border-radius: 4px;
   cursor: pointer;
@@ -66,15 +77,6 @@
   }
 }
 
-.prev-btn {
-  padding-left: 24px;
-  cursor: pointer;
-}
-.next-btn {
-  padding-right: 24px;
-  cursor: pointer;
-}
-
 .category-list {
   position: relative;
   display: grid;
@@ -82,10 +84,10 @@
   grid-template-columns: 255px 255px;
   grid-gap: 30px;
   margin-left: 30px;
-  @media screen and(max-width: 1200px) {
-    margin-top: 32px;
+  @media screen and(max-width: 996px) {
+    margin-top: 16px;
   }
-  @media screen and(max-width: 500px) {
+  @media screen and (max-width: 600px) {
     display: none;
   }
 }
@@ -168,5 +170,22 @@
     border-radius: 4px;
     cursor: pointer;
     z-index: 2;
+  }
+}
+
+.swiper {
+  .swiper-button-prev,
+  .swiper-button-next {
+    background: rgb(255, 255, 255);
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    color: black;
+  }
+  .swiper-button-prev::after {
+    font-size: 15px;
+  }
+  .swiper-button-next::after {
+    font-size: 15px;
   }
 }
