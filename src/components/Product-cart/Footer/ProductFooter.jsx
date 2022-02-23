@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import next from '../Slider/assets/next.svg';
 import prev from '../Slider/assets/prev.svg';
 
@@ -9,7 +10,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Controller } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useState } from 'react';
 
 export const ProductFooter = () => {
   const [swiper, setSwiper] = useState(null);
