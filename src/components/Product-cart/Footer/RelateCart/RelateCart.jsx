@@ -14,7 +14,6 @@ export const RelateCart = ({ item: { img, name, price, sale, raiting } }) => {
           <div>
             ${price} <span className="sale">{sale && '$ ' + (100 / parseFloat(sale)) * price}</span>
           </div>
-
           <div>
             <Raiting raiting={raiting} />
           </div>
