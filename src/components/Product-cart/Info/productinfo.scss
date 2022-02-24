@@ -82,7 +82,7 @@
 }
 
 .product-card {
-  width: 570px;
+  max-width: 570px;
   display: flex;
   align-items: center;
   column-gap: 24px;
@@ -132,7 +132,7 @@
 }
 
 .guarant {
-  width: 570px;
+  max-width: 570px;
   font-family: Spartan;
   font-style: normal;
   font-weight: 600;
@@ -161,7 +161,7 @@
 
 .description {
   .title {
-    width: 570px;
+    max-width: 570px;
     padding: 32px 0;
     border-top: 2px solid #e6e6e6;
     border-bottom: 2px solid #e6e6e6;
@@ -206,18 +206,17 @@
     }
   }
   .text-material {
-    width: 570px;
     padding-bottom: 32px;
     border-bottom: 2px solid #e6e6e6;
   }
 }
 
 .review {
-  width: 570px;
   padding-bottom: 32px;
   padding-top: 32px;
   margin-bottom: 196px;
   border-bottom: 2px solid #e6e6e6;
+  max-width: 570px;
   .review-header {
     padding-bottom: 34px;
   }
@@ -244,8 +243,33 @@
 }
 
 @media screen and (max-width: 600px) {
+  .product-info-main {
+    margin: 0;
+  }
   .raiting-raview {
     display: flex;
     flex-direction: column;
+  }
+
+  .guarant {
+    display: none;
+  }
+  .benefit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 10px;
+    margin-left: 10px;
+  }
+  .raiting-star,
+  .raiting-write {
+    span {
+      display: none;
+    }
+  }
+  .raiting-write {
+    img {
+      display: none;
+    }
   }
 }
