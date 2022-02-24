@@ -51,13 +51,14 @@ export const Slider = () => {
       </div>
       <div className="trousers-big">
         <Swiper
+          data-test-id="product-slider"
           onSwiper={setSwiper}
           navigation
           modules={[Navigation, Thumbs]}
           spaceBetween={50}
           slidesPerView={1}
           thumbs={{ swiper: thumbs }}>
-          <div className="main-img" data-test-id="product-slider">
+          <div className="main-img">
             <SwiperSlide>
               <img src={trousers} alt={trousers} />
             </SwiperSlide>
