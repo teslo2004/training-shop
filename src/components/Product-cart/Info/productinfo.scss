@@ -5,6 +5,7 @@
   align-items: flex-start;
   margin-top: 35px;
   margin-left: 20px;
+  margin: 0 auto;
   .color {
     font-family: Spartan;
     font-style: normal;
@@ -251,7 +252,8 @@
     flex-direction: column;
   }
 
-  .guarant {
+  .guarant,
+  .review-raiting {
     display: none;
   }
   .benefit {
