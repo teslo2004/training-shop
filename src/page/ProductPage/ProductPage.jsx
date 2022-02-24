@@ -16,7 +16,7 @@ export const ProductPage = ({ productType }) => {
     setCard(CARDS[productType].find((item) => item?.id === id));
   }, [productType, id]);
   return (
-    <div data-test-id={`product-page-${productType}`}>
+    <div data-test-id={`product-page-${productType}`} className="products">
       <ProdHead productType={productType} name={card?.name} rating={card?.rating} />
       <div className="product-main">
         <Slider />
