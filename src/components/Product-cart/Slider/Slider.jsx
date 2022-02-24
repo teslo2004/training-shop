@@ -28,6 +28,7 @@ export const Slider = () => {
 
         <div className="trousers-img">
           <Swiper
+            className="swiper-img"
             onSwiper={setThumbs}
             navigation
             direction={'vertical'}

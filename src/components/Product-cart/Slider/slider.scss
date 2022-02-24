@@ -1,8 +1,11 @@
 .troussers {
-  margin: 32px 0px;
+  margin: 30px auto;
   display: flex;
 }
 
+.trousers-little {
+  margin-left: 25px;
+}
 .trousers-img {
   display: flex;
   flex-direction: column;
@@ -41,7 +44,20 @@
 
 @media screen and(max-width: 660px) {
   .trousers-big {
+    img {
+      max-width: 350px;
+    }
+  }
+  .trousers-little {
     display: none;
+  }
+  .swiper {
+    .swiper-button-next {
+      right: 115px;
+    }
+  }
+  .troussers {
+    margin: 60px;
   }
 }
 

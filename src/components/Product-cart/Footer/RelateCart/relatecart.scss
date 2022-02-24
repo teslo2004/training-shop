@@ -1,6 +1,10 @@
 .relate-cart {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  max-width: 255px;
+  flex-wrap: wrap;
+  margin: 0 auto;
   .relate-cart-text {
     .relate-cart-name {
       font-family: Spartan;

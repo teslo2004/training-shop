@@ -188,3 +188,11 @@
     font-size: 15px;
   }
 }
+
+@media screen and (max-width: 660px) {
+  .swiper {
+    .swiper-button-next {
+      left: 485px;
+    }
+  }
+}

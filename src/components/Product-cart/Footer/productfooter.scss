@@ -1,5 +1,6 @@
 .products-footer-title {
   span {
+    margin-left: 20px;
     font-family: Spartan;
     font-style: normal;
     font-weight: 600;
@@ -27,8 +28,9 @@
 .relate-prod-image {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   column-gap: 30px;
-  margin: 48px 0 96px;
+  margin: 48px 4px 96px 48px;
 }
 
 .relate-prev,
