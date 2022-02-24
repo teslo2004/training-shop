@@ -49,7 +49,7 @@ export const Header = () => {
         <div
           className={menuActive ? 'menu active' : 'menu'}
           onClick={() => setMenuActive(false)}
-          data-test-id="menu">
+          data-test-id="burger-menu">
           {MENU.map((item) => (
             <Link
               key={item.id}
