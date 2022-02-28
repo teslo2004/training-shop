@@ -9,6 +9,9 @@
 
 .clothes-img {
   cursor: pointer;
+  img {
+    width: 100%;
+  }
 }
 .clothes-footer {
   display: flex;
@@ -30,7 +33,7 @@
 .clothes-sale {
   display: inline;
   position: relative;
-  right: 60px;
+  right: 30px;
   font-family: Spartan;
   font-style: normal;
   font-weight: bold;
