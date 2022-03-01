@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import info1 from './assets/info1.jpg';
 import info2 from './assets/info2.jpg';
 import info3 from './assets/info3.jpg';
@@ -18,7 +18,16 @@ import { Rewiev } from '../Rewiev/Rewiev';
 
 import './productinfo.scss';
 
-export const ProductInfo = ({ price, raiting }) => {
+export const ProductInfo = ({ price, rating, material, reviews, sizes, firstSize }) => {
+  const [size, setSize] = useState(firstSize);
+
+  const changeSize = (e) => {
+    setSize(e.target.value);
+  };
+
+  useEffect(() => {
+    setSize(firstSize);
+  }, [firstSize]);
   return (
     <div className="product-info-main">
       <div className="color">
@@ -34,14 +43,18 @@ export const ProductInfo = ({ price, raiting }) => {
       </div>
       <div className="size">
         <span>
-          SIZE:<span className="product-bold">S</span>
+          SIZE:<span className="product-bold">{size}</span>
         </span>
       </div>
       <div className="size-btn">
-        <div>XS</div>
-        <div>S</div>
-        <div>M</div>
-        <div>L</div>
+        {sizes?.map((item) => (
+          <button
+            value={item}
+            className={item === size ? 'size-btn-active' : ''}
+            onClick={(e) => changeSize(e)}>
+            {item}
+          </button>
+        ))}
       </div>
       <div className="hanger">
         <img src={hanger} alt={hanger} />
@@ -86,10 +99,10 @@ export const ProductInfo = ({ price, raiting }) => {
               Color:<span className="black"> Blue, White, Black, Grey</span>
             </div>
             <div className="text-size">
-              Size:<span className="black">XS, S, M, L</span>
+              Size:<span className="black">{sizes?.join(',')}</span>
             </div>
             <div className="text-material">
-              Material:<span className="black">100% Polyester</span>
+              Material:<span className="black">{material}</span>
             </div>
           </div>
         </div>
@@ -101,9 +114,9 @@ export const ProductInfo = ({ price, raiting }) => {
         <div className="raiting-raview">
           <div className="raiting-star">
             <div className="review-raiting">
-              <Raiting raiting={4} />
+              <Raiting raiting={rating} />
             </div>
-            <span>2 Reviews</span>
+            <span>{reviews?.length} reviews</span>
           </div>
           <div className="raiting-write">
             <img src={annotation} alt={annotation} />

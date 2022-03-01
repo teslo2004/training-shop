@@ -1,12 +1,16 @@
 import Header from './components/Header/Header';
 import { Footer } from './components/Footer/Footer';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { MainPage } from './page/MainPage/MainPage';
 import { ProductsPage } from './page/ProductsPage/ProductsPage';
 import { ProductPage } from './page/ProductPage/ProductPage';
 import './app.scss';
-
+import { useEffect } from 'react';
 function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <div className="app" data-test-id="app">
       <Header />

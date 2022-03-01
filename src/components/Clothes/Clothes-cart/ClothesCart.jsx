@@ -12,6 +12,7 @@ export const ClothesCart = ({
       <Link to={`/${productType}/${id}`} data-test-id={`clothes-card-${productType}`}>
         <div className="clothes-img">
           <img src={`https://training.cleverland.by/shop${images[0]?.url}`} alt={name} />
+          <div className={discount !== null ? 'discount' : ''}>{discount}</div>
         </div>
         <div className="clothes-name">{name}</div>
         <div className="clothes-footer">

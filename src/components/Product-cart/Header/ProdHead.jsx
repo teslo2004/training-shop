@@ -5,7 +5,7 @@ import './prodhead.scss';
 
 import share from '../../Product/Header/assets/share.svg';
 
-export const ProdHead = ({ productType, name, raiting }) => {
+export const ProdHead = ({ productType, name, rating, reviews }) => {
   return (
     <div className="product-header">
       <div className="product-header-nav">
@@ -14,9 +14,11 @@ export const ProdHead = ({ productType, name, raiting }) => {
             <span className="home">Home</span>
           </Link>
           &#9658;
-          <span className="page">
-            {productType.substring(0, 1).toUpperCase() + productType.substring(1)}
-          </span>
+          <Link to={`/${productType}`}>
+            <span className="page">
+              {productType.substring(0, 1).toUpperCase() + productType.substring(1)}
+            </span>
+          </Link>
           &#9658;
           <span>
             <strong>{name}</strong>
@@ -32,8 +34,8 @@ export const ProdHead = ({ productType, name, raiting }) => {
       </div>
       <div className="statistic">
         <div className="raiting">
-          <Raiting raiting={4} />
-          <span className="reviews">2 Reviews</span>
+          <Raiting raiting={rating} />
+          <span className="reviews">{reviews?.length} Reviews</span>
         </div>
 
         <div className="counter">

@@ -35,7 +35,12 @@ export const PRODUCTS = {
           rating: 4,
           id: '620136e17d2312f4e7933007',
         },
-        { name: 'Ivan Vorobeynikov', text: 'норм водолазка', rating: 3, id: '620137a577fffe0cd128be85' },
+        {
+          name: 'Ivan Vorobeynikov',
+          text: 'норм водолазка',
+          rating: 3,
+          id: '620137a577fffe0cd128be85',
+        },
       ],
       images: [
         {
@@ -169,7 +174,14 @@ export const PRODUCTS = {
       price: 148.8,
       sizes: ['M INT'],
       discount: null,
-      reviews: [{ name: 'Alesha Popovich', text: 'Хороший товар!', rating: 1, id: '620134b07d2312f4e7932fa5' }],
+      reviews: [
+        {
+          name: 'Alesha Popovich',
+          text: 'Хороший товар!',
+          rating: 1,
+          id: '620134b07d2312f4e7932fa5',
+        },
+      ],
       images: [
         {
           color: 'White',
@@ -397,7 +409,12 @@ export const PRODUCTS = {
       reviews: [
         { name: 'Dmitry', text: 'Отличный вариант', rating: 5, id: '6203adf977fffe0cd128c1c4' },
         { name: 'Andrey', text: 'Пойдёт :)', rating: 4, id: '6203ae1077fffe0cd128c1cd' },
-        { name: 'Nana', text: 'Хороший джемпер,в размер', rating: 4, id: '6203ae2077fffe0cd128c1d8' },
+        {
+          name: 'Nana',
+          text: 'Хороший джемпер,в размер',
+          rating: 4,
+          id: '6203ae2077fffe0cd128c1d8',
+        },
         {
           name: 'Daniil',
           text: 'Качество супер, при носке будем надеяться, что покажет себя также',
@@ -442,7 +459,18 @@ export const PRODUCTS = {
           rating: 5,
           id: '6203af2977fffe0cd128c1f2',
         },
-        { name: 'Olya', text: 'Отлично. Прекрасно сшито, не торчат нитки.', rating: 5, id: '6203af3877fffe0cd128c1f9' },
+        {
+          name: 'Olya',
+          text: 'Отлично. Прекрасно сшито, не торчат нитки.',
+          rating: 5,
+          id: '6203af3877fffe0cd128c1f9',
+        },
+        {
+          name: 'Olya',
+          text: 'Отлично. Прекрасно сшито, не торчат нитки.',
+          rating: 5,
+          id: '6203af3877fffe0cd128c1f9',
+        },
       ],
       images: [
         {
@@ -476,7 +504,18 @@ export const PRODUCTS = {
           rating: 5,
           id: '6203afec77fffe0cd128c203',
         },
-        { name: 'Sergey', text: 'Приятный материал и цвет', rating: 5, id: '6203b00577fffe0cd128c20a' },
+        {
+          name: 'Sergey',
+          text: 'Приятный материал и цвет',
+          rating: 5,
+          id: '6203b00577fffe0cd128c20a',
+        },
+        {
+          name: 'Sergey',
+          text: 'Приятный материал и цвет',
+          rating: 5,
+          id: '6203b00577fffe0cd128c20a',
+        },
       ],
       images: [
         {
@@ -504,7 +543,12 @@ export const PRODUCTS = {
       sizes: ['L INT', 'XXL INT', 'XL INT'],
       discount: '-40%',
       reviews: [
-        { name: 'Aliaksei', text: 'Приятный материал и цвет', rating: 5, id: '6204f6c377fffe0cd128c603' },
+        {
+          name: 'Aliaksei',
+          text: 'Приятный материал и цвет',
+          rating: 5,
+          id: '6204f6c377fffe0cd128c603',
+        },
         {
           name: 'Smirnov',
           text: 'Хорошая,немного колючая. Не подошел размер.',
@@ -543,8 +587,18 @@ export const PRODUCTS = {
       sizes: ['M INT', 'XXL INT', '3XL INT', '5XL INT'],
       discount: null,
       reviews: [
-        { name: 'Sergey', text: 'Не соответствует размеру.', rating: 2, id: '6204f80b77fffe0cd128c61b' },
-        { name: 'Igor', text: 'Качество норм. Маломерка.', rating: 3, id: '6204f81b77fffe0cd128c624' },
+        {
+          name: 'Sergey',
+          text: 'Не соответствует размеру.',
+          rating: 2,
+          id: '6204f80b77fffe0cd128c61b',
+        },
+        {
+          name: 'Igor',
+          text: 'Качество норм. Маломерка.',
+          rating: 3,
+          id: '6204f81b77fffe0cd128c624',
+        },
       ],
       images: [
         {
@@ -561,7 +615,13 @@ export const PRODUCTS = {
       id: '6200f157c110271da7221006',
     },
     {
-      particulars: { isNewArrivals: false, isSpecial: true, isBestseller: false, isMostViewed: true, isFeatured: true },
+      particulars: {
+        isNewArrivals: false,
+        isSpecial: true,
+        isBestseller: false,
+        isMostViewed: true,
+        isFeatured: true,
+      },
       name: 'Кардиган',
       category: 'men',
       brand: 'Brave Soul',
@@ -610,7 +670,12 @@ export const PRODUCTS = {
           rating: 4,
           id: '6204f99777fffe0cd128c63c',
         },
-        { name: 'Ilya', text: 'Приятный к телу. Теплый)', rating: 5, id: '6204f9ad77fffe0cd128c645' },
+        {
+          name: 'Ilya',
+          text: 'Приятный к телу. Теплый)',
+          rating: 5,
+          id: '6204f9ad77fffe0cd128c645',
+        },
       ],
       images: [
         {
@@ -627,7 +692,13 @@ export const PRODUCTS = {
       id: '6200f157c110271da722100a',
     },
     {
-      particulars: { isNewArrivals: true, isSpecial: false, isBestseller: true, isMostViewed: false, isFeatured: true },
+      particulars: {
+        isNewArrivals: true,
+        isSpecial: false,
+        isBestseller: true,
+        isMostViewed: false,
+        isFeatured: true,
+      },
       name: 'Кардиган',
       category: 'men',
       brand: 'Denim Culture',
@@ -636,7 +707,9 @@ export const PRODUCTS = {
       price: 261.2,
       sizes: ['S INT', 'M INT', 'L INT', 'XXL INT', 'XL INT'],
       discount: null,
-      reviews: [{ name: 'Ilya', text: 'Не подошёл по размеру', rating: 2, id: '62050b2a77fffe0cd128c7bd' }],
+      reviews: [
+        { name: 'Ilya', text: 'Не подошёл по размеру', rating: 2, id: '62050b2a77fffe0cd128c7bd' },
+      ],
       images: [
         {
           color: 'White',
@@ -702,7 +775,12 @@ export const PRODUCTS = {
       sizes: ['S INT', 'M INT', 'XXL INT', 'XL INT'],
       discount: null,
       reviews: [
-        { name: 'Aliaksei', text: 'Очень качественная вещь!', rating: 5, id: '62050d9a77fffe0cd128c7e2' },
+        {
+          name: 'Aliaksei',
+          text: 'Очень качественная вещь!',
+          rating: 5,
+          id: '62050d9a77fffe0cd128c7e2',
+        },
         {
           name: 'Sergey',
           text: 'Отличный джемпер - прекрасно сел, цвет соответствует фотографии, материал приятный, на голое тело сел комфортно!',
@@ -787,7 +865,12 @@ export const PRODUCTS = {
       sizes: ['S INT', 'M INT', 'XXL INT', 'XL INT', '3XL INT'],
       discount: '-19%',
       reviews: [
-        { name: 'Andrew', text: 'Немного мал, перезаказали на побольше', rating: 4, id: '620511b177fffe0cd128c828' },
+        {
+          name: 'Andrew',
+          text: 'Немного мал, перезаказали на побольше',
+          rating: 4,
+          id: '620511b177fffe0cd128c828',
+        },
       ],
       images: [
         {
@@ -799,7 +882,13 @@ export const PRODUCTS = {
       id: '6200f157c110271da7221010',
     },
     {
-      particulars: { isNewArrivals: true, isSpecial: false, isBestseller: true, isMostViewed: false, isFeatured: true },
+      particulars: {
+        isNewArrivals: true,
+        isSpecial: false,
+        isBestseller: true,
+        isMostViewed: false,
+        isFeatured: true,
+      },
       name: 'Водолазка',
       category: 'men',
       brand: 'Produkt',
@@ -815,7 +904,12 @@ export const PRODUCTS = {
           rating: 5,
           id: '6205124477fffe0cd128c890',
         },
-        { name: 'Sasha', text: 'Просто хотел водолазку', rating: 5, id: '6205125277fffe0cd128c899' },
+        {
+          name: 'Sasha',
+          text: 'Просто хотел водолазку',
+          rating: 5,
+          id: '6205125277fffe0cd128c899',
+        },
         { name: 'Yuri', text: 'Качество не очень', rating: 3, id: '6205126077fffe0cd128c8a4' },
       ],
       images: [
@@ -1120,7 +1214,12 @@ export const PRODUCTS = {
           rating: 5,
           id: '6205179d77fffe0cd128cafd',
         },
-        { name: 'Inna', text: 'Ткань колится, к телу неприятная, отказ', rating: 2, id: '620517bf77fffe0cd128cb06' },
+        {
+          name: 'Inna',
+          text: 'Ткань колится, к телу неприятная, отказ',
+          rating: 2,
+          id: '620517bf77fffe0cd128cb06',
+        },
         {
           name: 'Bazanova',
           text: 'Очень добротные.На осень,зиму подойдет.Красивый.Люблю эту фирму.Почти всегда в 10.Рекомендую товар.На любой возраст.Только не дамы очень пышных форм.Так как укорочннная кофта.Да и узковатая модель.Всем удачи.',
