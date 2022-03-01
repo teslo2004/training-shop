@@ -18,7 +18,7 @@ import { Rewiev } from '../Rewiev/Rewiev';
 
 import './productinfo.scss';
 
-export const ProductInfo = ({ price, rating, material, reviews, sizes, firstSize }) => {
+export const ProductInfo = ({ price, rating, material, reviews, sizes, firstSize, reviewsAll }) => {
   const [size, setSize] = useState(firstSize);
 
   const changeSize = (e) => {
@@ -123,7 +123,7 @@ export const ProductInfo = ({ price, rating, material, reviews, sizes, firstSize
             <span>Write a review</span>
           </div>
         </div>
-        {REVIEW.map((item) => (
+        {reviewsAll?.map((item) => (
           <Rewiev key={item.id} item={item} />
         ))}
       </div>

@@ -33,6 +33,7 @@ export const ProductPage = ({ productType }) => {
           reviews={card?.reviews}
           sizes={card?.sizes}
           firstSize={card?.sizes[0]}
+          reviewsAll={card?.reviews}
         />
       </div>
       <ProductFooter />
