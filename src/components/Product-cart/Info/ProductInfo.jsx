@@ -12,14 +12,24 @@ import arrow from './assets/arrow.svg';
 import annotation from './assets/annotation.svg';
 
 import { CHECKOUT } from '../../../data/data-product-pay';
-import { REVIEW } from '../../../data/data-review';
 import { Raiting } from '../../Clothes/Raiting/Raiting';
 import { Rewiev } from '../Rewiev/Rewiev';
 
 import './productinfo.scss';
 
-export const ProductInfo = ({ price, rating, material, reviews, sizes, firstSize, reviewsAll }) => {
+export const ProductInfo = ({
+  price,
+  rating,
+  material,
+  sizes,
+  firstSize,
+  reviewsAll,
+  colors,
+  productType,
+}) => {
   const [size, setSize] = useState(firstSize);
+
+  const [color, setColor] = useState(colors);
 
   const changeSize = (e) => {
     setSize(e.target.value);
@@ -27,12 +37,13 @@ export const ProductInfo = ({ price, rating, material, reviews, sizes, firstSize
 
   useEffect(() => {
     setSize(firstSize);
-  }, [firstSize]);
+    setColor(colors);
+  }, [firstSize, colors]);
   return (
     <div className="product-info-main">
       <div className="color">
         <span>
-          COLOR:<span className="product-bold">Blue</span>
+          COLOR:<span className="product-bold">{color[0]}</span>
         </span>
       </div>
       <div className="info-image">
@@ -96,7 +107,7 @@ export const ProductInfo = ({ price, rating, material, reviews, sizes, firstSize
           <div className="text-title">ADDITIONAL INFORMATION</div>
           <div className="specifications">
             <div className="text-color">
-              Color:<span className="black"> Blue, White, Black, Grey</span>
+              Color:<span className="black">{colors?.join(',')}</span>
             </div>
             <div className="text-size">
               Size:<span className="black">{sizes?.join(',')}</span>
@@ -116,7 +127,7 @@ export const ProductInfo = ({ price, rating, material, reviews, sizes, firstSize
             <div className="review-raiting">
               <Raiting raiting={rating} />
             </div>
-            <span>{reviews?.length} reviews</span>
+            <span>{reviewsAll?.length} reviews</span>
           </div>
           <div className="raiting-write">
             <img src={annotation} alt={annotation} />

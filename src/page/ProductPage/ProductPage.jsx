@@ -30,10 +30,10 @@ export const ProductPage = ({ productType }) => {
           price={card?.price}
           material={card?.material}
           rating={card?.rating}
-          reviews={card?.reviews}
           sizes={card?.sizes}
           firstSize={card?.sizes[0]}
           reviewsAll={card?.reviews}
+          colors={[...new Set(card?.images.map((item) => item.color))]}
         />
       </div>
       <ProductFooter />
