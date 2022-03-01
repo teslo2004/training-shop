@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/training-shop/static/css/main.a79d6862.css",
-    "main.js": "/training-shop/static/js/main.e1031be5.js",
+    "main.css": "/training-shop/static/css/main.9169c105.css",
+    "main.js": "/training-shop/static/js/main.22274125.js",
     "static/media/daco.png": "/training-shop/static/media/daco.4152b783e591f01bafb6.png",
     "static/media/banner.jpg": "/training-shop/static/media/banner.ba5d4eb3d9420781b5f8.jpg",
     "static/media/blog1.jpg": "/training-shop/static/media/blog1.5cad0183f33abe4f2f35.jpg",
@@ -9,7 +9,6 @@
     "static/media/trousers.jpg": "/training-shop/static/media/trousers.6b097a1dcd9c26ced50a.jpg",
     "static/media/blog2.jpg": "/training-shop/static/media/blog2.653a844b906171bd2ee2.jpg",
     "static/media/accessories.jpg": "/training-shop/static/media/accessories.ee7f09dd43e5a9912d95.jpg",
-    "static/media/women5.jpg": "/training-shop/static/media/women5.363e0e8c20844e94187f.jpg",
     "static/media/news2.jpg": "/training-shop/static/media/news2.6b1e286dc702ba60be57.jpg",
     "static/media/relate1.jpg": "/training-shop/static/media/relate1.7472a839b6c5d7ed227c.jpg",
     "static/media/blog3.jpg": "/training-shop/static/media/blog3.5f7ce6ec287630e86bf9.jpg",
@@ -17,22 +16,7 @@
     "static/media/news1.jpg": "/training-shop/static/media/news1.50c6caf0e00920727596.jpg",
     "static/media/relate2.jpg": "/training-shop/static/media/relate2.eb178076f9fffbe5ebf2.jpg",
     "static/media/relate4.jpg": "/training-shop/static/media/relate4.746180237ae3cebb8197.jpg",
-    "static/media/men4.jpg": "/training-shop/static/media/men4.8854617b0951c08b172e.jpg",
-    "static/media/women3.jpg": "/training-shop/static/media/women3.0b8f41098b08d3def626.jpg",
-    "static/media/men3.jpg": "/training-shop/static/media/men3.5b0ad8d7935ef1133892.jpg",
-    "static/media/women1.jpg": "/training-shop/static/media/women1.e5b8870686f6058dc55f.jpg",
-    "static/media/men8.jpg": "/training-shop/static/media/men8.2fa1c18acd4a55081abc.jpg",
-    "static/media/men6.jpg": "/training-shop/static/media/men6.1adad684fb3d3decf0cd.jpg",
-    "static/media/women2.jpg": "/training-shop/static/media/women2.c54238646312eaa8b3c6.jpg",
     "static/media/women.jpg": "/training-shop/static/media/women.2e28690d1ff57477ec5d.jpg",
-    "static/media/men7.jpg": "/training-shop/static/media/men7.277fc01846cae27e5868.jpg",
-    "static/media/women6.jpg": "/training-shop/static/media/women6.28f8cc871006491fbe6f.jpg",
-    "static/media/women7.jpg": "/training-shop/static/media/women7.1a05b311f7288c6c0662.jpg",
-    "static/media/men1.jpg": "/training-shop/static/media/men1.440528fcb0af0208533a.jpg",
-    "static/media/women8.jpg": "/training-shop/static/media/women8.47ad6cd3ba7fe24ef0b8.jpg",
-    "static/media/men2.jpg": "/training-shop/static/media/men2.472f7f51d3eb884d5a3f.jpg",
-    "static/media/men5.jpg": "/training-shop/static/media/men5.304a6854b9e470a023b3.jpg",
-    "static/media/women4.jpg": "/training-shop/static/media/women4.46d31ed37fb679717554.jpg",
     "static/media/men.jpg": "/training-shop/static/media/men.b6cd01c12e335cbef2a0.jpg",
     "static/media/inter-v7-latin-regular.woff": "/training-shop/static/media/inter-v7-latin-regular.cefb4aacf5372fc9e6d9.woff",
     "static/media/inter-v7-latin-regular.woff2": "/training-shop/static/media/inter-v7-latin-regular.5e6a773da9d1377fc690.woff2",
@@ -78,11 +62,11 @@
     "static/media/down.svg": "/training-shop/static/media/down.f0d538c78f70912a72f69422dacc24b2.svg",
     "static/media/up.svg": "/training-shop/static/media/up.801dea7bbb7715c7b60e09c015402893.svg",
     "static/media/line.svg": "/training-shop/static/media/line.f1d242843fc15f61cc5abf04d2079f81.svg",
-    "main.a79d6862.css.map": "/training-shop/static/css/main.a79d6862.css.map",
-    "main.e1031be5.js.map": "/training-shop/static/js/main.e1031be5.js.map"
+    "main.9169c105.css.map": "/training-shop/static/css/main.9169c105.css.map",
+    "main.22274125.js.map": "/training-shop/static/js/main.22274125.js.map"
   },
   "entrypoints": [
-    "static/css/main.a79d6862.css",
-    "static/js/main.e1031be5.js"
+    "static/css/main.9169c105.css",
+    "static/js/main.22274125.js"
   ]
 }
