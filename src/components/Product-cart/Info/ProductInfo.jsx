@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import info1 from './assets/info1.jpg';
-import info2 from './assets/info2.jpg';
-import info3 from './assets/info3.jpg';
-import info4 from './assets/info4.jpg';
 import hanger from './assets/hanger.svg';
 import scales from './assets/scales.svg';
 import heart from './assets/heart.svg';
@@ -24,33 +20,51 @@ export const ProductInfo = ({
   sizes,
   firstSize,
   reviewsAll,
-  colors,
-  productType,
+  imagesColor,
 }) => {
   const [size, setSize] = useState(firstSize);
 
-  const [color, setColor] = useState(colors);
+  let colors = [];
+  let images = [];
+  imagesColor?.map((item) => {
+    if (!colors.includes(item.color)) {
+      return colors.push(item.color) && images.push(item);
+    }
+  });
+  const [color, setColor] = useState(colors[0]);
 
   const changeSize = (e) => {
     setSize(e.target.value);
   };
 
+  const changeImage = (e) => {
+    setColor(e.target.alt);
+  };
+
   useEffect(() => {
     setSize(firstSize);
-    setColor(colors);
-  }, [firstSize, colors]);
+  }, [firstSize]);
+
+  useEffect(() => {
+    setColor(colors[0]);
+  }, [colors[0]]);
+
   return (
     <div className="product-info-main">
       <div className="color">
         <span>
-          COLOR:<span className="product-bold">{color[0]}</span>
+          COLOR:<span className="product-bold">{color}</span>
         </span>
       </div>
       <div className="info-image">
-        <img src={info1} alt={info1} />
-        <img src={info2} alt={info2} />
-        <img src={info3} alt={info3} />
-        <img src={info4} alt={info4} />
+        {images?.map((image) => (
+          <img
+            src={`https://training.cleverland.by/shop${image.url}`}
+            alt={image.color}
+            className={color === image.color ? 'image-border' : ''}
+            onClick={(e) => changeImage(e)}
+          />
+        ))}
       </div>
       <div className="size">
         <span>

@@ -25,7 +25,7 @@ export const ProductPage = ({ productType }) => {
         reviews={card?.reviews}
       />
       <div className="product-main">
-        <Slider />
+        <Slider imagesColor={card?.images} />
         <ProductInfo
           price={card?.price}
           material={card?.material}
@@ -33,7 +33,7 @@ export const ProductPage = ({ productType }) => {
           sizes={card?.sizes}
           firstSize={card?.sizes[0]}
           reviewsAll={card?.reviews}
-          colors={[...new Set(card?.images.map((item) => item.color))]}
+          imagesColor={card?.images}
         />
       </div>
       <ProductFooter />

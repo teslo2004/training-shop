@@ -30,6 +30,13 @@
   margin-top: 16px;
   margin-bottom: 32px;
   column-gap: 16px;
+  img {
+    max-height: 64px;
+    width: 64px;
+  }
+}
+.image-border {
+  border: 1px solid black;
 }
 
 .size {
