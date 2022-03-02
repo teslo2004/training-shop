@@ -32,6 +32,7 @@ export const ProductPage = ({ productType }) => {
           rating={card?.rating}
           sizes={card?.sizes}
           firstSize={card?.sizes[0]}
+          firstColor={card?.images[0].color}
           reviewsAll={card?.reviews}
           imagesColor={card?.images}
         />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import hanger from './assets/hanger.svg';
 import scales from './assets/scales.svg';
 import heart from './assets/heart.svg';
@@ -21,6 +22,7 @@ export const ProductInfo = ({
   firstSize,
   reviewsAll,
   imagesColor,
+  firstColor,
 }) => {
   const [size, setSize] = useState(firstSize);
 
@@ -31,7 +33,7 @@ export const ProductInfo = ({
       return colors.push(item.color) && images.push(item);
     }
   });
-  const [color, setColor] = useState(colors[0]);
+  const [color, setColor] = useState(firstColor);
 
   const changeSize = (e) => {
     setSize(e.target.value);
@@ -46,8 +48,8 @@ export const ProductInfo = ({
   }, [firstSize]);
 
   useEffect(() => {
-    setColor(colors[0]);
-  }, [colors[0]]);
+    setColor(firstColor);
+  }, [firstColor]);
 
   return (
     <div className="product-info-main">
