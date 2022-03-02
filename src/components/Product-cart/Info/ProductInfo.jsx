@@ -28,11 +28,12 @@ export const ProductInfo = ({
 
   let colors = [];
   let images = [];
-  imagesColor?.map((item) => {
+  imagesColor?.forEach((item) => {
     if (!colors.includes(item.color)) {
-      return colors.push(item.color) && images.push(item);
+      colors.push(item.color) && images.push(item);
     }
   });
+
   const [color, setColor] = useState(firstColor);
 
   const changeSize = (e) => {
