@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import line from './assets/line.svg';
 import circle from './assets/circle.svg';
 import instruments from './assets/instruments.svg';
+import close from './assets/close.svg';
 
 import './filter.scss';
 
@@ -36,7 +37,11 @@ export const ProductFilter = ({ products }) => {
     <div>
       <div className="filter">
         <div className="filter-left">
-          <img src={instruments} alt={instruments} onClick={() => clickFilterBtn()} />
+          <img
+            src={!filterBtn ? instruments : close}
+            alt={instruments}
+            onClick={() => clickFilterBtn()}
+          />
           <span>FILTERS</span>
         </div>
         <div className="filter-right">
