@@ -17,7 +17,7 @@ export const ProductPage = ({ productType }) => {
     setCard(PRODUCTS[productType].find((item) => item?.id === id));
   }, [productType, id]);
   return (
-    <div data-test-id={`product-page-${productType}`} className="products">
+    <div data-test-id={`product-page-${productType}`} className="product">
       <ProdHead
         productType={productType}
         name={card?.name}
