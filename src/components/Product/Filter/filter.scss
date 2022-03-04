@@ -47,11 +47,9 @@
   background-color: #f8f8f8;
 }
 
-.filter-option {
-  ul {
-    overflow: hidden;
-    overflow-y: scroll;
-    width: 150px;
-    height: 210px;
-  }
+.hidden {
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 150px;
+  height: 210px;
 }

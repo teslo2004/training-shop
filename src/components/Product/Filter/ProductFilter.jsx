@@ -9,6 +9,11 @@ import './filter.scss';
 export const ProductFilter = ({ products }) => {
   const [filterBtn, setFilterBtn] = useState(false);
 
+  const [checkColor, setCheckColor] = useState([]);
+  const [checkSize, setCheckSize] = useState([]);
+  const [checkBrand, setCheckBrand] = useState([]);
+  const [checkPrice, setCheckPrice] = useState([]);
+
   const clickFilterBtn = () => {
     setFilterBtn(!filterBtn);
   };
@@ -33,6 +38,33 @@ export const ProductFilter = ({ products }) => {
     }
   });
 
+  function changeItem(item, value) {
+    switch (item.name) {
+      case 'color':
+        item.checked
+          ? setCheckColor([...checkColor, value])
+          : setCheckColor(checkColor.filter((color) => color !== value));
+        break;
+      case 'size':
+        item.checked
+          ? setCheckSize([...checkSize, value])
+          : setCheckSize(checkSize.filter((size) => size !== value));
+        break;
+      case 'brand':
+        item.checked
+          ? setCheckBrand([...checkBrand, value])
+          : setCheckBrand(checkBrand.filter((brand) => brand !== value));
+        break;
+      case 'price':
+        item.checked
+          ? setCheckPrice([...checkPrice, value])
+          : setCheckPrice(checkPrice.filter((price) => price !== value));
+        break;
+      default:
+        console.log('Nothing marked');
+    }
+  }
+  console.log(checkPrice);
   return (
     <div>
       <div className="filter">
@@ -52,11 +84,16 @@ export const ProductFilter = ({ products }) => {
       <div className={filterBtn ? 'filter-list active' : 'filter-list'}>
         <div className="filter-option">
           <h4>COLOR</h4>
-          <ul>
+          <ul className={colorsFilter.length > 6 ? 'hidden' : ''}>
             {colorsFilter.map((color) => (
               <li key={color}>
                 <label>
-                  <input type="checkbox" value={color} />
+                  <input
+                    type="checkbox"
+                    value={color}
+                    name="color"
+                    onChange={(e) => changeItem(e.target, `${color}`)}
+                  />
                   <span>{color}</span>
                 </label>
               </li>
@@ -65,11 +102,16 @@ export const ProductFilter = ({ products }) => {
         </div>
         <div className="filter-option">
           <h4>SIZE</h4>
-          <ul>
+          <ul className={sizeFilter.length > 6 ? 'hidden' : ''}>
             {sizeFilter.map((size) => (
               <li key={size}>
                 <label>
-                  <input type="checkbox" value={size} />
+                  <input
+                    type="checkbox"
+                    name="size"
+                    value={size}
+                    onChange={(e) => changeItem(e.target, `${size}`)}
+                  />
                   <span>{size}</span>
                 </label>
               </li>
@@ -78,11 +120,16 @@ export const ProductFilter = ({ products }) => {
         </div>
         <div className="filter-option">
           <h4>BRAND</h4>
-          <ul>
+          <ul className={brands.length > 6 ? 'hidden' : ''}>
             {brands.map((brand) => (
               <li key={brand}>
                 <label>
-                  <input type="checkbox" value={brand} />
+                  <input
+                    type="checkbox"
+                    name="brand"
+                    value={brand}
+                    onChange={(e) => changeItem(e.target, `${brand}`)}
+                  />
                   <span>{brand}</span>
                 </label>
               </li>
@@ -94,37 +141,63 @@ export const ProductFilter = ({ products }) => {
           <ul>
             <li>
               <label>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  name="price"
+                  value="0 50"
+                  onChange={(e) => changeItem(e.target, `"$0 - $50"`)}
+                />
                 <span>$0 - $50</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  name="price"
+                  value="50 100"
+                  onChange={(e) => changeItem(e.target, `$50 - $100`)}
+                />
                 <span>$50 - $100</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  name="price"
+                  value="100 200"
+                  onChange={(e) => changeItem(e.target, `$100 - $200`)}
+                />
                 <span>$100 - $200</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  name="price"
+                  value="200 300"
+                  onChange={(e) => changeItem(e.target, `$200 - $300`)}
+                />
                 <span>$200 - $300</span>
               </label>
             </li>
             <li>
               <label>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  name="price"
+                  value="300 1000"
+                  onChange={(e) => changeItem(e.target, `$300 - $1000`)}
+                />
                 <span>$300 - $1000</span>
               </label>
             </li>
           </ul>
         </div>
       </div>
+      <div className=""></div>
     </div>
   );
 };
