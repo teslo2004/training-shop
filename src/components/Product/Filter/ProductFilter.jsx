@@ -133,8 +133,8 @@ export const ProductFilter = ({ products, productType }) => {
         </div>
       </div>
       <div
-        className={filterBtn ? 'filter-list active' : 'filter-list'}
-        data-test-id={`filters-${productType}`}>
+        data-test-id={`filters-${productType}`}
+        className={filterBtn ? 'filter-list active' : 'filter-list'}>
         <div className="filter-option">
           <h4>COLOR</h4>
           <ul className={colorsFilter.length > 6 ? 'hidden' : ''} data-test-id="filters-color">
