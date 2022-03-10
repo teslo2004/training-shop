@@ -137,7 +137,7 @@ export const ProductFilter = ({ products, productType }) => {
         data-test-id={`filters-${productType}`}>
         <div className="filter-option">
           <h4>COLOR</h4>
-          <ul className={colorsFilter.length > 6 ? 'hidden' : ''} data-test-id="filter-color">
+          <ul className={colorsFilter.length > 6 ? 'hidden' : ''} data-test-id="filters-color">
             {colorsFilter.map((color) => (
               <li key={color}>
                 <label>
@@ -156,7 +156,7 @@ export const ProductFilter = ({ products, productType }) => {
         </div>
         <div className="filter-option">
           <h4>SIZE</h4>
-          <ul className={sizeFilter.length > 6 ? 'hidden' : ''} data-test-id="filter-size">
+          <ul className={sizeFilter.length > 6 ? 'hidden' : ''} data-test-id="filters-size">
             {sizeFilter.map((size) => (
               <li key={size}>
                 <label>
@@ -175,7 +175,7 @@ export const ProductFilter = ({ products, productType }) => {
         </div>
         <div className="filter-option">
           <h4>BRAND</h4>
-          <ul className={brands.length > 6 ? 'hidden' : ''} data-test-id="filter-brand">
+          <ul className={brands.length > 6 ? 'hidden' : ''} data-test-id="filters-brand">
             {brands.map((brand) => (
               <li key={brand}>
                 <label>
