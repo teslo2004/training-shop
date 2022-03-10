@@ -128,9 +128,7 @@ export const ProductFilter = ({ products, productType }) => {
           <img src={circle} alt={circle} />
         </div>
       </div>
-      <div
-        data-test-id={`filters-${productType}`}
-        className={filterBtn ? 'filter-list active' : 'filter-list'}>
+      <div data-test-id={`filters-${productType}`} className={filterBtn ? 'active' : 'filter-list'}>
         <div className="filter-option">
           <h4>COLOR</h4>
           <ul className={colorsFilter.length > 6 ? 'hidden' : ''} data-test-id="filters-color">
