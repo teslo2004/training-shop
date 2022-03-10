@@ -38,16 +38,15 @@
 
 .filter-list {
   display: none;
-}
-
-.active {
-  display: flex;
   justify-content: space-between;
   padding: 0 100px;
   margin: 0 85px;
   background-color: #f8f8f8;
 }
 
+.active {
+  display: flex;
+}
 .hidden {
   overflow: hidden;
   overflow-y: scroll;
