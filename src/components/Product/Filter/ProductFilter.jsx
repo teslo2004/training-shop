@@ -119,12 +119,8 @@ export const ProductFilter = ({ products, productType }) => {
   return (
     <div>
       <div className="filter">
-        <div className="filter-left" data-test-id="filter-button">
-          <img
-            src={!filterBtn ? instruments : close}
-            alt={instruments}
-            onClick={() => clickFilterBtn()}
-          />
+        <div className="filter-left" data-test-id="filter-button" onClick={() => clickFilterBtn()}>
+          <img src={!filterBtn ? instruments : close} alt={instruments} />
           <span>FILTERS</span>
         </div>
         <div className="filter-right">
