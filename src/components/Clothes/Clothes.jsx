@@ -21,6 +21,7 @@ const Clothes = ({ productType }) => {
           {MAIN_CLOTHES_BLOCK_MENU.map((item) => (
             <Link to="#">
               <button
+                data-test-id={`clothes-${productType}-${item.particularName}`}
                 type="text"
                 value={item.particularName}
                 onClick={(e) => changeParticular(e)}

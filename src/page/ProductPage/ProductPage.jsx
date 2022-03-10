@@ -37,7 +37,7 @@ export const ProductPage = ({ productType }) => {
           imagesColor={card?.images}
         />
       </div>
-      <ProductFooter />
+      <ProductFooter productType={productType} />
     </div>
   );
 };

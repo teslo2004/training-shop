@@ -3,15 +3,15 @@ import { useState } from 'react';
 import next from '../Slider/assets/next.svg';
 import prev from '../Slider/assets/prev.svg';
 
-import { RELATE_PROD } from '../../../data/data-product-relate';
 import './productfooter.scss';
-import { RelateCart } from './RelateCart/RelateCart';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Controller } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { ClothesCart } from '../../Clothes/Clothes-cart/ClothesCart';
+import { PRODUCTS } from '../../../data/products';
 
-export const ProductFooter = () => {
+export const ProductFooter = ({ productType }) => {
   const [swiper, setSwiper] = useState(null);
   const nextBtn = () => swiper.slideNext();
   const prevBtn = () => swiper.slidePrev();
@@ -46,9 +46,9 @@ export const ProductFooter = () => {
           loop
           modules={[Controller]}
           onSwiper={setSwiper}>
-          {RELATE_PROD.map((item) => (
+          {PRODUCTS[productType].map((card) => (
             <SwiperSlide>
-              <RelateCart key={item.id} item={item} />
+              <ClothesCart key={card} card={card} productType={productType} />
             </SwiperSlide>
           ))}
         </Swiper>

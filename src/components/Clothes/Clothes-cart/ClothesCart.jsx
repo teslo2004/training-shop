@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 import { Raiting } from '../Raiting/Raiting';
 import './clothesCart.scss';
 
@@ -7,6 +8,12 @@ export const ClothesCart = ({
   card: { images, name, price, rating, discount, id },
   productType,
 }) => {
+  const [imagesCard, setImages] = useState([]);
+  const [sizeCard, setSize] = useState([]);
+  useEffect(() => {
+    setImages(imagesCard);
+    setSize(sizeCard);
+  }, [imagesCard, sizeCard]);
   return (
     <div className="clothes-carts">
       <Link to={`/${productType}/${id}`} data-test-id={`clothes-card-${productType}`}>
