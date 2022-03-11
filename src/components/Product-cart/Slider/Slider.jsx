@@ -24,12 +24,13 @@ export const Slider = ({ imagesColor }) => {
 
         <div className="trousers-img">
           <Swiper
+            navigation={false}
             className="swiper-img"
             onSwiper={setThumbs}
             direction={'vertical'}
             modules={[Navigation, Controller, Thumbs]}
-            spaceBetween={15}
-            slidesPerView={imagesColor?.length > 4 ? 4 : imagesColor?.length}>
+            spaceBetween={0}
+            slidesPerView={4}>
             {imagesColor?.map((item) => (
               <SwiperSlide key={item.id}>
                 <img src={`https://training.cleverland.by/shop${item.url}`} alt={item.color} />
@@ -42,10 +43,9 @@ export const Slider = ({ imagesColor }) => {
         <Swiper
           data-test-id="product-slider"
           onSwiper={setSwiper}
-          navigation
+          navigation={true}
           modules={[Navigation, Thumbs]}
-          spaceBetween={50}
-          slidesPerView={1}
+          spaceBetween={10}
           thumbs={{ swiper: thumbs }}>
           <div>
             {imagesColor?.map((item) => (

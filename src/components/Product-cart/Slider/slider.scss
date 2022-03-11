@@ -4,20 +4,20 @@
 }
 
 .trousers-little {
+  width: 100px;
   margin-left: 25px;
 }
-.trousers-img {
+.trousers-img > .swiper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 100px;
-  max-height: 515px;
+  width: 80px;
+  height: 515px;
   margin-right: 30px;
 
   img {
     margin: 0px 16px 8px 0;
-    width: 100px;
-    max-height: 120px;
+    max-width: 100%;
   }
 }
 
@@ -31,7 +31,7 @@
   align-items: flex-start;
   max-height: 520px;
   max-width: 450px;
-  margin-right: 40px;
+  margin-left: 40px;
 }
 
 .main-img {
