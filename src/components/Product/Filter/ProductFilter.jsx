@@ -128,117 +128,117 @@ export const ProductFilter = ({ products, productType }) => {
           <img src={circle} alt={circle} />
         </div>
       </div>
-      <div
-        data-test-id={`filters-${productType}`}
-        className={filterBtn ? 'filter-list active' : 'filter-list'}>
-        <div className="filter-option">
-          <h4>COLOR</h4>
-          <ul className={colorsFilter.length > 6 ? 'hidden' : ''} data-test-id="filters-color">
-            {colorsFilter.map((color) => (
-              <li key={color}>
+      {filterBtn && (
+        <div data-test-id={`filters-${productType}`} className="filter-list active">
+          <div className="filter-option">
+            <h4>COLOR</h4>
+            <ul className={colorsFilter.length > 6 ? 'hidden' : ''} data-test-id="filters-color">
+              {colorsFilter.map((color) => (
+                <li key={color}>
+                  <label>
+                    <input
+                      data-test-id={`filter-color-${color}`}
+                      type="checkbox"
+                      value={color}
+                      name="color"
+                      onChange={(e) => changeItem(e.target, `${color}`)}
+                    />
+                    <span>{color}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="filter-option">
+            <h4>SIZE</h4>
+            <ul className={sizeFilter.length > 6 ? 'hidden' : ''} data-test-id="filters-size">
+              {sizeFilter.map((size) => (
+                <li key={size}>
+                  <label>
+                    <input
+                      data-test-id={`filter-size-${size}`}
+                      type="checkbox"
+                      name="size"
+                      value={size}
+                      onChange={(e) => changeItem(e.target, `${size}`)}
+                    />
+                    <span>{size}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="filter-option">
+            <h4>BRAND</h4>
+            <ul className={brands.length > 6 ? 'hidden' : ''} data-test-id="filters-brand">
+              {brands.map((brand) => (
+                <li key={brand}>
+                  <label>
+                    <input
+                      data-test-id={`filter-brand-${brand}`}
+                      type="checkbox"
+                      name="brand"
+                      value={brand}
+                      onChange={(e) => changeItem(e.target, `${brand}`)}
+                    />
+                    <span>{brand}</span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="filter-option">
+            <h4>PRICE</h4>
+            <ul>
+              <li key={'0'}>
                 <label>
                   <input
-                    data-test-id={`filter-color-${color}`}
                     type="checkbox"
-                    value={color}
-                    name="color"
-                    onChange={(e) => changeItem(e.target, `${color}`)}
+                    name="price"
+                    value="0 100"
+                    onChange={(e) => changeItem(e.target, `0$ - 100$`)}
                   />
-                  <span>{color}</span>
+                  <span>$0 - $100</span>
                 </label>
               </li>
-            ))}
-          </ul>
-        </div>
-        <div className="filter-option">
-          <h4>SIZE</h4>
-          <ul className={sizeFilter.length > 6 ? 'hidden' : ''} data-test-id="filters-size">
-            {sizeFilter.map((size) => (
-              <li key={size}>
-                <label>
-                  <input
-                    data-test-id={`filter-size-${size}`}
-                    type="checkbox"
-                    name="size"
-                    value={size}
-                    onChange={(e) => changeItem(e.target, `${size}`)}
-                  />
-                  <span>{size}</span>
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="filter-option">
-          <h4>BRAND</h4>
-          <ul className={brands.length > 6 ? 'hidden' : ''} data-test-id="filters-brand">
-            {brands.map((brand) => (
-              <li key={brand}>
-                <label>
-                  <input
-                    data-test-id={`filter-brand-${brand}`}
-                    type="checkbox"
-                    name="brand"
-                    value={brand}
-                    onChange={(e) => changeItem(e.target, `${brand}`)}
-                  />
-                  <span>{brand}</span>
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="filter-option">
-          <h4>PRICE</h4>
-          <ul>
-            <li key={'0'}>
-              <label>
-                <input
-                  type="checkbox"
-                  name="price"
-                  value="0 100"
-                  onChange={(e) => changeItem(e.target, `0$ - 100$`)}
-                />
-                <span>$0 - $100</span>
-              </label>
-            </li>
 
-            <li key={'1'}>
-              <label>
-                <input
-                  type="checkbox"
-                  name="price"
-                  value="100 200"
-                  onChange={(e) => changeItem(e.target, `100$ - 200$`)}
-                />
-                <span>$100 - $200</span>
-              </label>
-            </li>
-            <li key={'2'}>
-              <label>
-                <input
-                  type="checkbox"
-                  name="price"
-                  value="200 300"
-                  onChange={(e) => changeItem(e.target, `200$ - 300$`)}
-                />
-                <span>$200 - $300</span>
-              </label>
-            </li>
-            <li key={'3'}>
-              <label>
-                <input
-                  type="checkbox"
-                  name="price"
-                  value="300 1000"
-                  onChange={(e) => changeItem(e.target, `300$ - 1000$`)}
-                />
-                <span>$300 - $1000</span>
-              </label>
-            </li>
-          </ul>
+              <li key={'1'}>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="price"
+                    value="100 200"
+                    onChange={(e) => changeItem(e.target, `100$ - 200$`)}
+                  />
+                  <span>$100 - $200</span>
+                </label>
+              </li>
+              <li key={'2'}>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="price"
+                    value="200 300"
+                    onChange={(e) => changeItem(e.target, `200$ - 300$`)}
+                  />
+                  <span>$200 - $300</span>
+                </label>
+              </li>
+              <li key={'3'}>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="price"
+                    value="300 1000"
+                    onChange={(e) => changeItem(e.target, `300$ - 1000$`)}
+                  />
+                  <span>$300 - $1000</span>
+                </label>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
+      )}
       <div className="color-item">
         <span>
           {filterProd?.length < PRODUCTS[productType].length
