@@ -13,7 +13,6 @@ import { Raiting } from '../../Clothes/Raiting/Raiting';
 import { Rewiev } from '../Rewiev/Rewiev';
 
 import './productinfo.scss';
-import { useSelector } from 'react-redux';
 
 export const ProductInfo = ({
   id,
@@ -31,8 +30,6 @@ export const ProductInfo = ({
 }) => {
   const [size, setSize] = useState(firstSize);
   const [isLoadings, setIsLoading] = useState(false);
-
-  const { items } = useSelector(({ shop }) => shop);
 
   let colors = [];
   let images = [];
@@ -83,7 +80,6 @@ export const ProductInfo = ({
     const obj = {
       id,
     };
-
     onclickDeleteProduct(obj.id);
     //console.log(obj.id);
     setIsLoading(!isLoadings);

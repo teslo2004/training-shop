@@ -8,19 +8,13 @@ import { ProductInfo } from '../../components/Product-cart/Info/ProductInfo';
 
 import './productpage.scss';
 import { ProductFooter } from '../../components/Product-cart/Footer/ProductFooter';
-import { useDispatch, useSelector } from 'react-redux';
-import { addProduct } from '../../redux/actions/shop';
+import { useDispatch } from 'react-redux';
 
 export const ProductPage = ({ productType }) => {
   const { id } = useParams();
   const [card, setCard] = useState();
   const dispatch = useDispatch();
 
-  const cart = useSelector((state) => state.shop.items);
-  //cart.some((item) => item.id === id && item.color === color && item.size === size);
-
-  //const arrCart = cart.some((item) => item.id === id && item.color === color && item.size === size);
-  //console.log(arrCart);
   useEffect(() => {
     setCard(PRODUCTS[productType].find((item) => item?.id === id));
   }, [productType, id]);
@@ -30,7 +24,6 @@ export const ProductPage = ({ productType }) => {
   };
 
   const onclickDeleteProductToCart = (id) => {
-    console.log(id);
     dispatch({ type: 'REMOVE_CART_ITEM', payload: id });
   };
 

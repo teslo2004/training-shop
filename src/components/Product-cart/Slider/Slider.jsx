@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Controller, Navigation, Thumbs } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { isVisible } from '@testing-library/user-event/dist/utils';
 
 export const Slider = ({ imagesColor }) => {
   const [thumbs, setThumbs] = useState(null);
