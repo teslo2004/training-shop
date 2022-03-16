@@ -66,7 +66,7 @@ export const Header = () => {
           <img className="user-menu-image" src={search} alt="search" />
           <img className="user-menu-image" src={globe} alt="globe" />
           <img className="user-menu-image" src={user} alt="user" />
-          <Cart />
+
           <div
             className={menuActive ? 'burger-btn close' : 'burger-btn'}
             data-test-id="burger-menu-btn"

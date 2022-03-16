@@ -70,6 +70,7 @@ export const ProductInfo = ({
       color: color,
       size: size,
       imageUrl: handleImage(),
+      num: 1,
     };
     onClickAddProduct(obj);
     setIsLoading(!isLoadings);
@@ -79,8 +80,13 @@ export const ProductInfo = ({
   const onDeleteProduct = () => {
     const obj = {
       id,
+      color: color,
+      size: size,
+      imageUrl: handleImage(),
+
+      //isLoading: false,
     };
-    onclickDeleteProduct(obj.id);
+    onclickDeleteProduct(obj.imageUrl, obj.size);
     //console.log(obj.id);
     setIsLoading(!isLoadings);
   };

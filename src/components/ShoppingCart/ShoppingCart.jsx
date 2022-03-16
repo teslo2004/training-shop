@@ -1,11 +1,34 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import del from '../ShoppingCart/assets/delete.svg';
 import close from '../ShoppingCart/assets/close.svg';
 import './shoppingcart.scss';
 
-export const ShoppingCart = ({ onClick }) => {
+export const ShoppingCart = ({ id, onClick }) => {
   const cart = useSelector((state) => state.shop.items);
+  const dispatch = useDispatch();
+  const totalPrice = cart.reduce((accumulator, item) => (accumulator += item.num * item.price), 0);
+
+  const onclickDeleteProductToCart = (imageUrl, size) => {
+    dispatch({ type: 'REMOVE_CART_ITEM', payload: { imageUrl, size } });
+  };
+
+  const onPlus = (item) => {
+    dispatch({ type: 'PLUS_PRODUCT', payload: item });
+  };
+
+  const onMinus = (item) => {
+    console.log(item);
+    dispatch({ type: 'MINUS_PRODUCT', payload: item });
+  };
+
+  const onDeleteProduct = (imageUrl, size) => {
+    const obj = {
+      imageUrl,
+      size,
+    };
+    onclickDeleteProductToCart(obj.imageUrl, obj.size);
+  };
 
   return (
     <div>
@@ -25,8 +48,8 @@ export const ShoppingCart = ({ onClick }) => {
             <span className="third"> Payment</span>
           </div>
           {cart.length > 0 ? (
-            cart.map((item) => (
-              <div className="shopping-cart-container" key={item.id}>
+            cart.map((item, id) => (
+              <div className="shopping-cart-container" key={id}>
                 <div className="shopping-cart-info">
                   <div>
                     <img
@@ -45,16 +68,28 @@ export const ShoppingCart = ({ onClick }) => {
                     <div>
                       <div className="shopping-cart-num-price">
                         <div className="shopping-cart-num">
-                          <button>-</button>
-                          <input type="text" value="1" />
-                          <button>+</button>
+                          <button onClick={() => onMinus(item)} data-test-id="minus-product">
+                            -
+                          </button>
+                          <span>{item.num}</span>
+                          <button onClick={() => onPlus(item)} data-test-id="plus-product">
+                            +
+                          </button>
                         </div>
-                        <div className="shopping-cart-price">${item.price}</div>
+                        <div className="shopping-cart-price">
+                          ${(item.price * item.num).toFixed(2)}
+                        </div>
                       </div>
                     </div>
                   </div>
+
                   <div className="shopping-cart-del">
-                    <img src={del} alt="delete" />
+                    <img
+                      onClick={() => onDeleteProduct(item.imageUrl, item.size)}
+                      src={del}
+                      alt="delete"
+                      data-test-id="remove-product"
+                    />
                   </div>
                 </div>
               </div>
@@ -69,6 +104,14 @@ export const ShoppingCart = ({ onClick }) => {
             </div>
           )}
         </div>
+        {cart.length > 0 ? (
+          <div className="shopping-cart-total-price">
+            <span>Total</span>
+            {totalPrice.toFixed(2)}$
+          </div>
+        ) : (
+          ''
+        )}
         {cart.length > 0 ? (
           <div className="shopping-cart-btn">
             <button className="further">FURTHER</button>

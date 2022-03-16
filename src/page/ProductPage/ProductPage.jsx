@@ -9,6 +9,7 @@ import { ProductInfo } from '../../components/Product-cart/Info/ProductInfo';
 import './productpage.scss';
 import { ProductFooter } from '../../components/Product-cart/Footer/ProductFooter';
 import { useDispatch } from 'react-redux';
+import { Cart } from '../../components/Cart/Cart';
 
 export const ProductPage = ({ productType }) => {
   const { id } = useParams();
@@ -23,8 +24,8 @@ export const ProductPage = ({ productType }) => {
     dispatch({ type: 'ADD_PRODUCT', payload: obj });
   };
 
-  const onclickDeleteProductToCart = (id) => {
-    dispatch({ type: 'REMOVE_CART_ITEM', payload: id });
+  const onclickDeleteProductToCart = (imageUrl, size) => {
+    dispatch({ type: 'REMOVE_CART_ITEM', payload: { imageUrl, size } });
   };
 
   return (
@@ -52,6 +53,7 @@ export const ProductPage = ({ productType }) => {
           onclickDeleteProduct={onclickDeleteProductToCart}
         />
       </div>
+      <Cart onclickDeleteProduct={onclickDeleteProductToCart} id={card?.id} />
       <ProductFooter productType={productType} />
     </div>
   );
