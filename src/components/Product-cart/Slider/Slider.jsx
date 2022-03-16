@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Controller, Navigation, Thumbs } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { isVisible } from '@testing-library/user-event/dist/utils';
 
 export const Slider = ({ imagesColor }) => {
   const [thumbs, setThumbs] = useState(null);
@@ -49,7 +50,7 @@ export const Slider = ({ imagesColor }) => {
           thumbs={{ swiper: thumbs }}>
           <div>
             {imagesColor?.map((item) => (
-              <SwiperSlide key={item.id}>
+              <SwiperSlide key={item.id} style={{ opacity: '1' }}>
                 <img
                   src={`https://training.cleverland.by/shop${item.url}`}
                   alt={item.color}

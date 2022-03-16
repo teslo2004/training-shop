@@ -8,14 +8,32 @@ import { ProductInfo } from '../../components/Product-cart/Info/ProductInfo';
 
 import './productpage.scss';
 import { ProductFooter } from '../../components/Product-cart/Footer/ProductFooter';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from '../../redux/actions/shop';
 
 export const ProductPage = ({ productType }) => {
   const { id } = useParams();
   const [card, setCard] = useState();
+  const dispatch = useDispatch();
 
+  const cart = useSelector((state) => state.shop.items);
+  //cart.some((item) => item.id === id && item.color === color && item.size === size);
+
+  //const arrCart = cart.some((item) => item.id === id && item.color === color && item.size === size);
+  //console.log(arrCart);
   useEffect(() => {
     setCard(PRODUCTS[productType].find((item) => item?.id === id));
   }, [productType, id]);
+
+  const onclickAddProductToCart = (obj) => {
+    dispatch({ type: 'ADD_PRODUCT', payload: obj });
+  };
+
+  const onclickDeleteProductToCart = (id) => {
+    console.log(id);
+    dispatch({ type: 'REMOVE_CART_ITEM', payload: id });
+  };
+
   return (
     <div data-test-id={`product-page-${productType}`} className="product">
       <ProdHead
@@ -27,6 +45,8 @@ export const ProductPage = ({ productType }) => {
       <div className="product-main">
         <Slider imagesColor={card?.images} />
         <ProductInfo
+          id={card?.id}
+          name={card?.name}
           price={card?.price}
           material={card?.material}
           rating={card?.rating}
@@ -35,6 +55,8 @@ export const ProductPage = ({ productType }) => {
           firstColor={card?.images[0].color}
           reviewsAll={card?.reviews}
           imagesColor={card?.images}
+          onClickAddProduct={onclickAddProductToCart}
+          onclickDeleteProduct={onclickDeleteProductToCart}
         />
       </div>
       <ProductFooter productType={productType} />

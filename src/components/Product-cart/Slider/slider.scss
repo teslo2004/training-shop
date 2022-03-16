@@ -85,11 +85,13 @@
     font-size: 15px;
   }
 }
-
-.swiper-slide-visible {
+.swiper-slide {
   opacity: 0.6;
 }
 
 .swiper-slide-thumb-active {
+  opacity: 1;
+}
+.swiper-horizontal {
   opacity: 1;
 }

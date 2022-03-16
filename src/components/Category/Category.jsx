@@ -16,7 +16,7 @@ function Category() {
       <div className="banner">
         <div className="slider" data-test-id="main-slider">
           <Swiper navigation modules={[Navigation]} spaceBetween={50} slidesPerView={1}>
-            <SwiperSlide>
+            <SwiperSlide style={{ opacity: '1' }}>
               <div className="banner-slider">
                 <img src={banner} alt="banner" className="banner-img" />
                 <div className="banner-info">
@@ -25,7 +25,7 @@ function Category() {
                 </div>
               </div>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide style={{ opacity: '1' }}>
               <div className="banner-slider">
                 <img src={banner} alt="banner" className="banner-img" />
                 <div className="banner-info">
@@ -34,7 +34,7 @@ function Category() {
                 </div>
               </div>
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide style={{ opacity: '1' }}>
               <div className="banner-slider">
                 <img src={banner} alt="banner" className="banner-img" />
                 <div className="banner-info">

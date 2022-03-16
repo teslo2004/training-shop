@@ -5,7 +5,7 @@ import logo from '../Header/assets/logo.svg';
 import search from '../Header/assets/search.svg';
 import globe from '../Header/assets/globe.svg';
 import user from '../Header/assets/user.svg';
-import bag from '../Header/assets/bag.svg';
+
 import tel from '../Header/assets/tel.svg';
 import location from '../Header/assets/location1.svg';
 import time from '../Header/assets/time.svg';
@@ -14,6 +14,7 @@ import facebook from '../Footer/assets/facebook.svg';
 import insta from '../Footer/assets/insta.svg';
 import twitter from '../Footer/assets/twitter.svg';
 import { Link } from 'react-router-dom';
+import { Cart } from '../Cart/Cart';
 
 export const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -62,10 +63,10 @@ export const Header = () => {
           ))}
         </div>
         <div className="user-menu">
-          <img src={search} alt="search" />
-          <img src={globe} alt="globe" />
-          <img src={user} alt="user" />
-          <img src={bag} alt="bag" />
+          <img className="user-menu-image" src={search} alt="search" />
+          <img className="user-menu-image" src={globe} alt="globe" />
+          <img className="user-menu-image" src={user} alt="user" />
+          <Cart />
           <div
             className={menuActive ? 'burger-btn close' : 'burger-btn'}
             data-test-id="burger-menu-btn"

@@ -47,7 +47,7 @@ export const ProductFooter = ({ productType }) => {
           modules={[Controller]}
           onSwiper={setSwiper}>
           {PRODUCTS[productType].map((card) => (
-            <SwiperSlide>
+            <SwiperSlide style={{ opacity: '1' }}>
               <ClothesCart key={card} card={card} productType={productType} />
             </SwiperSlide>
           ))}

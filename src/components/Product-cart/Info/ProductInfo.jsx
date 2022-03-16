@@ -13,8 +13,11 @@ import { Raiting } from '../../Clothes/Raiting/Raiting';
 import { Rewiev } from '../Rewiev/Rewiev';
 
 import './productinfo.scss';
+import { useSelector } from 'react-redux';
 
 export const ProductInfo = ({
+  id,
+  name,
   price,
   rating,
   material,
@@ -23,8 +26,13 @@ export const ProductInfo = ({
   reviewsAll,
   imagesColor,
   firstColor,
+  onClickAddProduct,
+  onclickDeleteProduct,
 }) => {
   const [size, setSize] = useState(firstSize);
+  const [isLoadings, setIsLoading] = useState(false);
+
+  const { items } = useSelector(({ shop }) => shop);
 
   let colors = [];
   let images = [];
@@ -35,6 +43,11 @@ export const ProductInfo = ({
   });
 
   const [color, setColor] = useState(firstColor);
+
+  function handleImage() {
+    const imageClick = [...images].filter((item) => item.color === color).map((el) => el.url);
+    return imageClick;
+  }
 
   const changeSize = (e) => {
     setSize(e.target.value);
@@ -52,11 +65,36 @@ export const ProductInfo = ({
     setColor(firstColor);
   }, [firstColor]);
 
+  const onAddProduct = () => {
+    const obj = {
+      id,
+      name,
+      price,
+      color: color,
+      size: size,
+      imageUrl: handleImage(),
+    };
+    onClickAddProduct(obj);
+    setIsLoading(!isLoadings);
+    //console.log(obj);
+  };
+
+  const onDeleteProduct = () => {
+    const obj = {
+      id,
+    };
+
+    onclickDeleteProduct(obj.id);
+    //console.log(obj.id);
+    setIsLoading(!isLoadings);
+  };
+
   return (
     <div className="product-info-main">
       <div className="color">
         <span>
-          COLOR:<span className="product-bold">{color}</span>
+          COLOR:
+          <span className="product-bold">{color}</span>
         </span>
       </div>
       <div className="info-image">
@@ -90,7 +128,15 @@ export const ProductInfo = ({
       </div>
       <div className="product-card">
         <span>${price}</span>
-        <button>ADD TO CARD</button>
+        {isLoadings ? (
+          <button onClick={() => onDeleteProduct()} className="loading">
+            REMOVE TO CARD
+          </button>
+        ) : (
+          <button onClick={() => onAddProduct()} className="loading">
+            ADD TO CARD
+          </button>
+        )}
         <img src={heart} alt={heart} />
         <img src={scales} alt={scales} />
       </div>
