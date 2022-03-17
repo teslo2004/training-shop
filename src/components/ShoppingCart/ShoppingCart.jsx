@@ -18,7 +18,6 @@ export const ShoppingCart = ({ id, onClick }) => {
   };
 
   const onMinus = (item) => {
-    console.log(item);
     dispatch({ type: 'MINUS_PRODUCT', payload: item });
   };
 
@@ -69,9 +68,13 @@ export const ShoppingCart = ({ id, onClick }) => {
                     <div>
                       <div className="shopping-cart-num-price">
                         <div className="shopping-cart-num">
-                          <button onClick={() => onMinus(item)} data-test-id="minus-product">
-                            -
-                          </button>
+                          {item.num > 1 ? (
+                            <button onClick={() => onMinus(item)} data-test-id="minus-product">
+                              -
+                            </button>
+                          ) : (
+                            <button data-test-id="minus-product">-</button>
+                          )}
                           <span>{item.num}</span>
                           <button onClick={() => onPlus(item)} data-test-id="plus-product">
                             +
