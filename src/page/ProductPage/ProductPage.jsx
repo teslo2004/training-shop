@@ -53,7 +53,6 @@ export const ProductPage = ({ productType }) => {
           onclickDeleteProduct={onclickDeleteProductToCart}
         />
       </div>
-      <Cart onclickDeleteProduct={onclickDeleteProductToCart} id={card?.id} />
       <ProductFooter productType={productType} />
     </div>
   );
