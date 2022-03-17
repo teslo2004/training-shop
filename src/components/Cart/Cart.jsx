@@ -23,7 +23,7 @@ export const Cart = () => {
         <img src={cart} alt="cart" className="cart-image" />
         <div className={totalCount > 0 ? 'cart-num-add' : 'hide'}>{totalCount}</div>
       </div>
-      {clickCart ? <ShoppingCart onClick={clickShoppingCart} /> : null}
+      <ShoppingCart onClick={clickShoppingCart} clickCart={clickCart} />
     </div>
   );
 };

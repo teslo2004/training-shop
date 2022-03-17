@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import del from '../ShoppingCart/assets/delete.svg';
 import close from '../ShoppingCart/assets/close.svg';
 import './shoppingcart.scss';
 
-export const ShoppingCart = ({ id, onClick }) => {
+export const ShoppingCart = ({ id, onClick, clickCart }) => {
   const cart = useSelector((state) => state.shop.items);
+  console.log({ onClick }, 211);
   const dispatch = useDispatch();
+
   const totalPrice = cart.reduce((accumulator, item) => (accumulator += item.num * item.price), 0);
 
   const onclickDeleteProductToCart = (imageUrl, size) => {
@@ -29,10 +31,9 @@ export const ShoppingCart = ({ id, onClick }) => {
     };
     onclickDeleteProductToCart(obj.imageUrl, obj.size);
   };
-
   return (
     <div>
-      <div className="shopping-cart" data-test-id="cart">
+      <div className={!clickCart ? 'shopping-cart visible' : 'shopping-cart '} data-test-id="cart">
         <div className="shopping-cart-header">
           <div className="shopping-cart-title">
             <h4>SHOPPING CART</h4>
@@ -131,7 +132,7 @@ export const ShoppingCart = ({ id, onClick }) => {
           </div>
         )}
       </div>
-      <div className={onClick ? 'open-cart' : ''}></div>
+      <div className={clickCart ? 'open-cart' : 'open-cart visible'}></div>
     </div>
   );
 };
