@@ -20,8 +20,8 @@ export const Cart = () => {
   return (
     <div>
       <div className="cart" data-test-id="cart-button" onClick={clickShoppingCart}>
-        <img src={cart} alt={cart} className="cart-image" />
-        <div className={totalCount > 0 ? 'cart-num-add' : 'cart-num-add hide'}>{totalCount}</div>
+        <img src={cart} alt="cart" className="cart-image" />
+        <div className="cart-num-add">{totalCount}</div>
       </div>
       {clickCart ? <ShoppingCart onClick={clickShoppingCart} /> : null}
     </div>
