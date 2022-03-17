@@ -2,6 +2,9 @@
   padding-top: 15px;
   cursor: pointer;
 }
+.hide {
+  display: none;
+}
 .cart-num-add {
   position: relative;
   width: 15px;
@@ -24,7 +27,4 @@
   width: 25px;
   height: 25px;
   padding-top: 10px;
-}
-.hide {
-  display: none;
 }
