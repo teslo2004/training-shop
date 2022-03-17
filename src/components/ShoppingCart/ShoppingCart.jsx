@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import del from '../ShoppingCart/assets/delete.svg';
 import close from '../ShoppingCart/assets/close.svg';
