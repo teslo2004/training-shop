@@ -9,7 +9,6 @@ import { ProductInfo } from '../../components/Product-cart/Info/ProductInfo';
 import './productpage.scss';
 import { ProductFooter } from '../../components/Product-cart/Footer/ProductFooter';
 import { useDispatch } from 'react-redux';
-import { Cart } from '../../components/Cart/Cart';
 
 export const ProductPage = ({ productType }) => {
   const { id } = useParams();
