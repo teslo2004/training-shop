@@ -19,10 +19,7 @@ export const Cart = () => {
 
   return (
     <div>
-      <div
-        className={clickCart ? 'cart' : ''}
-        data-test-id="cart-button"
-        onClick={clickShoppingCart}>
+      <div className="cart" data-test-id="cart-button" onClick={clickShoppingCart}>
         <img src={cart} alt="cart" className="cart-image" />
         <div className="cart-num-add">{totalCount}</div>
       </div>
