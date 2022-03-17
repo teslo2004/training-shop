@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import del from '../ShoppingCart/assets/delete.svg';
 import close from '../ShoppingCart/assets/close.svg';
@@ -33,7 +33,7 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
   };
   return (
     <div>
-      <div className={!clickCart ? 'shopping-cart visible' : 'shopping-cart '} data-test-id="cart">
+      <div className={clickCart ? 'shopping-cart visible' : 'shopping-cart '} data-test-id="cart">
         <div className="shopping-cart-header">
           <div className="shopping-cart-title">
             <h4>SHOPPING CART</h4>
@@ -132,7 +132,7 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
           </div>
         )}
       </div>
-      <div className={clickCart ? 'open-cart' : 'open-cart visible'}></div>
+      <div className={!clickCart ? 'open-cart' : 'open-cart visible'}></div>
     </div>
   );
 };
