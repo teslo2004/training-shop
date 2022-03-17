@@ -21,7 +21,7 @@ export const Cart = () => {
     <div>
       <div className="cart" data-test-id="cart-button" onClick={clickShoppingCart}>
         <img src={cart} alt="cart" className="cart-image" />
-        <div className="cart-num-add">{totalCount}</div>
+        <div className="cart-num-add">{totalCount > 0}</div>
       </div>
       {clickCart ? <ShoppingCart onClick={clickShoppingCart} /> : null}
     </div>
