@@ -48,66 +48,68 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
             <span className="second">/ Delivery Info /</span>
             <span className="third"> Payment</span>
           </div>
-          {cart.length > 0 ? (
-            cart.map((item, id) => (
-              <div className="shopping-cart-container" key={id} data-test-id="cart-card">
-                <div className="shopping-cart-info">
-                  <div>
-                    <img
-                      src={`https://training.cleverland.by/shop${item.imageUrl}`}
-                      alt={item.color}
-                      className="shopping-cart-image"
-                    />
-                  </div>
-                  <div className="shopping-cart-center">
+          <div className="shopping-cart-container">
+            {cart.length > 0 ? (
+              cart.map((item, id) => (
+                <div key={id} data-test-id="cart-card">
+                  <div className="shopping-cart-info">
                     <div>
-                      <div className="shopping-cart-name">{item.name}</div>
-                      <div className="shopping-cart-color">
-                        {item.color},{item.size}
-                      </div>
+                      <img
+                        src={`https://training.cleverland.by/shop${item.imageUrl}`}
+                        alt={item.color}
+                        className="shopping-cart-image"
+                      />
                     </div>
-                    <div>
-                      <div className="shopping-cart-num-price">
-                        <div className="shopping-cart-num">
-                          {item.num > 1 ? (
-                            <button onClick={() => onMinus(item)} data-test-id="minus-product">
-                              -
+                    <div className="shopping-cart-center">
+                      <div>
+                        <div className="shopping-cart-name">{item.name}</div>
+                        <div className="shopping-cart-color">
+                          {item.color},{item.size}
+                        </div>
+                      </div>
+                      <div>
+                        <div className="shopping-cart-num-price">
+                          <div className="shopping-cart-num">
+                            {item.num > 1 ? (
+                              <button onClick={() => onMinus(item)} data-test-id="minus-product">
+                                -
+                              </button>
+                            ) : (
+                              <button data-test-id="minus-product">-</button>
+                            )}
+                            <span>{item.num}</span>
+                            <button onClick={() => onPlus(item)} data-test-id="plus-product">
+                              +
                             </button>
-                          ) : (
-                            <button data-test-id="minus-product">-</button>
-                          )}
-                          <span>{item.num}</span>
-                          <button onClick={() => onPlus(item)} data-test-id="plus-product">
-                            +
-                          </button>
-                        </div>
-                        <div className="shopping-cart-price">
-                          ${(item.price * item.num).toFixed(2)}
+                          </div>
+                          <div className="shopping-cart-price">
+                            ${(item.price * item.num).toFixed(2)}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="shopping-cart-del">
-                    <img
-                      onClick={() => onDeleteProduct(item.imageUrl, item.size)}
-                      src={del}
-                      alt="delete"
-                      data-test-id="remove-product"
-                    />
+                    <div className="shopping-cart-del">
+                      <img
+                        onClick={() => onDeleteProduct(item.imageUrl, item.size)}
+                        src={del}
+                        alt="delete"
+                        data-test-id="remove-product"
+                      />
+                    </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="shopping-cart-warning">
+                Sorry,
+                <br />
+                your cart
+                <br />
+                is empty
               </div>
-            ))
-          ) : (
-            <div className="shopping-cart-warning">
-              Sorry,
-              <br />
-              your cart
-              <br />
-              is empty
-            </div>
-          )}
+            )}
+          </div>
         </div>
         {cart.length > 0 ? (
           <div className="shopping-cart-total-price">

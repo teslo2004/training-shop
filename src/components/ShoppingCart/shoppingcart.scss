@@ -69,9 +69,11 @@
     opacity: 0.9;
   }
 }
+
 .shopping-cart-products {
   height: 75%;
-  overflow-y: scroll;
+  flex: 1;
+  overflow: auto;
   .shopping-cart-warning {
     max-width: 191px;
     padding: 96px 94px 0 103px;
@@ -112,13 +114,13 @@
 }
 .shopping-cart-container {
   margin: 17px 24px;
-  border-bottom: 2px solid #e6e6e6;
 }
 
 .shopping-cart-info {
   display: flex;
   justify-content: space-between;
-
+  border-bottom: 2px solid #e6e6e6;
+  margin-bottom: 5px;
   .shopping-cart-num {
     background: #f8f8f8;
     input {
@@ -191,6 +193,7 @@
 }
 
 .shopping-cart-total-price {
+  padding-top: 20px;
   span {
     padding-left: 40px;
     padding-right: 180px;
