@@ -24,6 +24,7 @@ export const ShoppingCart = ({ id, onClick }) => {
 
   const onDeleteProduct = (imageUrl, size) => {
     const obj = {
+      id,
       imageUrl,
       size,
     };
@@ -32,7 +33,7 @@ export const ShoppingCart = ({ id, onClick }) => {
 
   return (
     <div>
-      <div className="shopping-cart">
+      <div className="shopping-cart" data-test-id="cart">
         <div className="shopping-cart-header">
           <div className="shopping-cart-title">
             <h4>SHOPPING CART</h4>
@@ -49,7 +50,7 @@ export const ShoppingCart = ({ id, onClick }) => {
           </div>
           {cart.length > 0 ? (
             cart.map((item, id) => (
-              <div className="shopping-cart-container" key={id}>
+              <div className="shopping-cart-container" key={id} data-test-id="cart-card">
                 <div className="shopping-cart-info">
                   <div>
                     <img

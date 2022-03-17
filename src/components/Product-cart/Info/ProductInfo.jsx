@@ -13,6 +13,7 @@ import { Raiting } from '../../Clothes/Raiting/Raiting';
 import { Rewiev } from '../Rewiev/Rewiev';
 
 import './productinfo.scss';
+import { useSelector } from 'react-redux';
 
 export const ProductInfo = ({
   id,
@@ -30,6 +31,7 @@ export const ProductInfo = ({
 }) => {
   const [size, setSize] = useState(firstSize);
   const [isLoadings, setIsLoading] = useState(false);
+  const items = useSelector((state) => state.shop.items);
 
   let colors = [];
   let images = [];
@@ -62,7 +64,8 @@ export const ProductInfo = ({
     setColor(firstColor);
   }, [firstColor]);
 
-  const onAddProduct = () => {
+  const onAddProduct = (e) => {
+    e.stopPropagation();
     const obj = {
       id,
       name,
@@ -71,10 +74,11 @@ export const ProductInfo = ({
       size: size,
       imageUrl: handleImage(),
       num: 1,
+      isLoading: true,
     };
     onClickAddProduct(obj);
     setIsLoading(!isLoadings);
-    //console.log(obj);
+    //console.log(isLoadings);
   };
 
   const onDeleteProduct = () => {
@@ -83,6 +87,7 @@ export const ProductInfo = ({
       color: color,
       size: size,
       imageUrl: handleImage(),
+      isLoading: false,
 
       //isLoading: false,
     };
@@ -91,6 +96,21 @@ export const ProductInfo = ({
     setIsLoading(!isLoadings);
   };
 
+  useEffect(() => {
+    setIsLoading(false);
+    if (
+      items.some(
+        (item) =>
+          item.id === id &&
+          item.size === size &&
+          item.color === color &&
+          item.isLoading === isLoadings,
+      )
+    ) {
+      setIsLoading(true);
+    }
+  }, [isLoadings, color, id, size, items]);
+  console.log(isLoadings);
   return (
     <div className="product-info-main">
       <div className="color">
@@ -131,11 +151,17 @@ export const ProductInfo = ({
       <div className="product-card">
         <span>${price}</span>
         {isLoadings ? (
-          <button onClick={() => onDeleteProduct()} className="loading">
+          <button
+            data-test-id="add-cart-button"
+            onClick={() => onDeleteProduct()}
+            className="loading">
             REMOVE TO CARD
           </button>
         ) : (
-          <button onClick={() => onAddProduct()} className="loading">
+          <button
+            data-test-id="add-cart-button"
+            onClick={(e) => onAddProduct(e)}
+            className="loading">
             ADD TO CARD
           </button>
         )}
