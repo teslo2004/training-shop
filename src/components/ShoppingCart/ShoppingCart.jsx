@@ -6,7 +6,6 @@ import './shoppingcart.scss';
 
 export const ShoppingCart = ({ id, onClick, clickCart }) => {
   const cart = useSelector((state) => state.shop.items);
-  console.log({ onClick }, 211);
   const dispatch = useDispatch();
 
   const totalPrice = cart.reduce((accumulator, item) => (accumulator += item.num * item.price), 0);
@@ -32,7 +31,9 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
     onclickDeleteProductToCart(obj.imageUrl, obj.size);
   };
   return (
-    <div>
+    <div
+      onClick={onClick}
+      className={clickCart ? 'shopping-cart-wrapper' : 'shopping-cart-wrapper hide'}>
       <div className={clickCart ? 'shopping-cart visible' : 'shopping-cart '} data-test-id="cart">
         <div className="shopping-cart-header">
           <div className="shopping-cart-title">
