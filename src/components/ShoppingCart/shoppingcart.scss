@@ -1,7 +1,7 @@
 .shopping-cart-wrapper {
   position: absolute;
   top: 0;
-  width: 390px;
+  right: 370px;
   height: 100%;
 }
 
@@ -13,8 +13,7 @@
   flex-direction: column;
   position: absolute;
   top: 0;
-  right: 158px;
-  width: 390px;
+  width: 370px;
   height: 100%;
   z-index: 6;
   background-color: #fff;

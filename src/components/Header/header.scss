@@ -119,7 +119,7 @@ nav {
   }
 }
 .logo {
-  width: 314px;
+  width: 300px;
   a {
     cursor: pointer;
     img {
@@ -219,11 +219,12 @@ nav {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .header-bar {
     display: none;
   }
-  nav {
-    max-width: 500px;
+
+  .burger-btn {
+    padding-left: 20px;
   }
 }
