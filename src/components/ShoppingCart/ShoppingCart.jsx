@@ -10,8 +10,8 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
 
   const totalPrice = cart.reduce((accumulator, item) => (accumulator += item.num * item.price), 0);
 
-  const onclickDeleteProductToCart = (imageUrl, size) => {
-    dispatch({ type: 'REMOVE_CART_ITEM', payload: { imageUrl, size } });
+  const onclickDeleteProductToCart = (imageUrl, size, color) => {
+    dispatch({ type: 'REMOVE_CART_ITEM', payload: { imageUrl, size, color } });
   };
 
   const onPlus = (item) => {
@@ -22,18 +22,16 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
     dispatch({ type: 'MINUS_PRODUCT', payload: item });
   };
 
-  const onDeleteProduct = (imageUrl, size) => {
+  const onDeleteProduct = (imageUrl, size, color) => {
     const obj = {
-      id,
       imageUrl,
       size,
+      color,
     };
-    onclickDeleteProductToCart(obj.imageUrl, obj.size);
+    onclickDeleteProductToCart(obj.imageUrl, obj.size, obj.color);
   };
   return (
-    <div
-      onClick={onClick}
-      className={clickCart ? 'shopping-cart-wrapper' : 'shopping-cart-wrapper hide'}>
+    <div className={clickCart ? 'shopping-cart-wrapper' : 'shopping-cart-wrapper hide'}>
       <div className={clickCart ? 'shopping-cart visible' : 'shopping-cart '} data-test-id="cart">
         <div className="shopping-cart-header">
           <div className="shopping-cart-title">
@@ -92,7 +90,7 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
 
                     <div className="shopping-cart-del">
                       <img
-                        onClick={() => onDeleteProduct(item.imageUrl, item.size)}
+                        onClick={() => onDeleteProduct(item.imageUrl, item.size, item.color)}
                         src={del}
                         alt="delete"
                         data-test-id="remove-product"
@@ -135,7 +133,7 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
           </div>
         )}
       </div>
-      <div className={!clickCart ? 'open-cart' : 'open-cart visible'}></div>
+      <div className={!clickCart ? 'open-cart' : 'open-cart visible'} onClick={onClick}></div>
     </div>
   );
 };

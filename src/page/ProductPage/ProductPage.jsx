@@ -23,8 +23,8 @@ export const ProductPage = ({ productType }) => {
     dispatch({ type: 'ADD_PRODUCT', payload: obj });
   };
 
-  const onclickDeleteProductToCart = (imageUrl, size) => {
-    dispatch({ type: 'REMOVE_CART_ITEM', payload: { imageUrl, size } });
+  const onclickDeleteProductToCart = (imageUrl, size, color) => {
+    dispatch({ type: 'REMOVE_CART_ITEM', payload: { imageUrl, size, color } });
   };
 
   return (

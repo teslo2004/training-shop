@@ -17,7 +17,12 @@ const shop = (state = initialState, action) => {
     case 'REMOVE_CART_ITEM': {
       //console.log(action.payload);
       const items = state.items.filter(
-        (item) => item.imageUrl !== action.payload.imageUrl && item.size !== action.payload.size,
+        (item) =>
+          !(
+            item.imageUrl === action.payload.imageUrl &&
+            item.size === action.payload.size &&
+            item.color === action.payload.color
+          ),
       );
 
       return {
