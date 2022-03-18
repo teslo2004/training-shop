@@ -254,7 +254,7 @@
 
 @media screen and (max-width: 600px) {
   .product-info-main {
-    margin: 10px;
+    margin: 20px;
   }
   .raiting-raview {
     display: flex;
@@ -265,12 +265,7 @@
   .review-raiting {
     display: none;
   }
-  .benefit {
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    margin: 0 auto;
-  }
+
   .raiting-star,
   .raiting-write {
     span {
@@ -281,5 +276,20 @@
     img {
       display: none;
     }
+  }
+  .product-card,
+  .benefit {
+    width: 100vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .color,
+  .info-image,
+  .size,
+  .size-btn,
+  .hanger {
+    padding-left: 30px;
   }
 }

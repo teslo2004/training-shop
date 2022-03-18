@@ -37,3 +37,9 @@
 .relate-next {
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+  .products-footer-title span {
+    font-size: 14px;
+  }
+}
