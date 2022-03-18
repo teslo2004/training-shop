@@ -61,17 +61,17 @@
     background: #f8f8f8;
     border: 2px solid #f8f8f8;
     cursor: pointer;
+    font-family: Spartan;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #121212;
+    opacity: 0.8;
     a {
       text-decoration: none;
-      font-family: Spartan;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 13px;
-      line-height: 15px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #121212;
-      opacity: 0.8;
     }
   }
 }

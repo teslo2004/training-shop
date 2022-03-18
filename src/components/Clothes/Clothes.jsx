@@ -40,9 +40,9 @@ const Clothes = ({ productType }) => {
           ))}
       </div>
       <div className="all-btn">
-        <button type="button">
-          <Link to={`/${productType}`}>see all</Link>
-        </button>
+        <Link to={`/${productType}`}>
+          <button type="button">see all</button>
+        </Link>
       </div>
     </div>
   );
