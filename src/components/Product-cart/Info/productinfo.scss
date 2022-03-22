@@ -254,7 +254,7 @@
 
 @media screen and (max-width: 600px) {
   .product-info-main {
-    margin: 20px;
+    margin-left: 20px;
   }
   .raiting-raview {
     display: flex;
@@ -280,10 +280,15 @@
   .product-card,
   .benefit {
     width: 100vw;
-    height: 35vh;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+  .benefit {
+    padding-top: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .color,
   .info-image,
