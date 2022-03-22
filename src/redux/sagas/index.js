@@ -1,4 +1,4 @@
-import { all, call, put, spawn, fork, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 
 function* loadClothes() {
   const request = yield call(fetch, 'https://training.cleverland.by/shop/products');
