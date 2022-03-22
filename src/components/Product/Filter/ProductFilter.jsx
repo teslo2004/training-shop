@@ -5,17 +5,18 @@ import instruments from './assets/instruments.svg';
 import close from './assets/close.svg';
 
 import './filter.scss';
-import { PRODUCTS } from '../../../data/products';
 import { ClothesCart } from '../../Clothes/Clothes-cart/ClothesCart';
+import { useSelector } from 'react-redux';
 
 export const ProductFilter = ({ products, productType }) => {
   const [filterBtn, setFilterBtn] = useState(false);
-
   const [checkColor, setCheckColor] = useState([]);
   const [checkSize, setCheckSize] = useState([]);
   const [checkBrand, setCheckBrand] = useState([]);
   const [checkPrice, setCheckPrice] = useState([]);
   let [filterProd, setFilterProd] = useState(products);
+
+  const { data } = useSelector((state) => state);
 
   const clickFilterBtn = () => {
     setFilterBtn(!filterBtn);
@@ -70,7 +71,7 @@ export const ProductFilter = ({ products, productType }) => {
 
   useEffect(() => {
     setFilterProd(() => {
-      let filterProd = [...PRODUCTS[productType]];
+      let filterProd = [...data[productType]];
 
       function priceNum(products) {
         return checkPrice.some((item) => {
@@ -103,7 +104,7 @@ export const ProductFilter = ({ products, productType }) => {
       };
       return [...filterProd].filter(filterItem);
     });
-  }, [checkBrand, checkColor, checkSize, checkPrice, productType]);
+  }, [checkBrand, checkColor, checkSize, checkPrice, productType, data]);
 
   useEffect(() => {
     let check = document.querySelectorAll('input:checked');
@@ -241,7 +242,7 @@ export const ProductFilter = ({ products, productType }) => {
       )}
       <div className="color-item">
         <span>
-          {filterProd?.length < PRODUCTS[productType].length
+          {filterProd?.length < data[productType].length
             ? `${filterProd?.length} items found `
             : ''}
         </span>

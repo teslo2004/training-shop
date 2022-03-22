@@ -1,23 +1,23 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { PRODUCTS } from '../../data/products';
 import { ProdHead } from '../../components/Product-cart/Header/ProdHead';
 import { Slider } from '../../components/Product-cart/Slider/Slider';
 import { ProductInfo } from '../../components/Product-cart/Info/ProductInfo';
 
 import './productpage.scss';
 import { ProductFooter } from '../../components/Product-cart/Footer/ProductFooter';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const ProductPage = ({ productType }) => {
   const { id } = useParams();
   const [card, setCard] = useState();
   const dispatch = useDispatch();
+  const { data } = useSelector((state) => state);
 
   useEffect(() => {
-    setCard(PRODUCTS[productType].find((item) => item?.id === id));
-  }, [productType, id]);
+    setCard(data[productType]?.find((item) => item?.id === id));
+  }, [productType, id, data]);
 
   const onclickAddProductToCart = (obj) => {
     dispatch({ type: 'ADD_PRODUCT', payload: obj });

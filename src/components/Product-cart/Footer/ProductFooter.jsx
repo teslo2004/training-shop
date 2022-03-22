@@ -9,9 +9,9 @@ import { Controller } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { ClothesCart } from '../../Clothes/Clothes-cart/ClothesCart';
-import { PRODUCTS } from '../../../data/products';
-
+import { useSelector } from 'react-redux';
 export const ProductFooter = ({ productType }) => {
+  const { data } = useSelector((state) => state);
   const [swiper, setSwiper] = useState(null);
   const nextBtn = () => swiper.slideNext();
   const prevBtn = () => swiper.slidePrev();
@@ -46,7 +46,7 @@ export const ProductFooter = ({ productType }) => {
           loop
           modules={[Controller]}
           onSwiper={setSwiper}>
-          {PRODUCTS[productType].map((card) => (
+          {data[productType].map((card) => (
             <SwiperSlide style={{ opacity: '1' }}>
               <ClothesCart key={card} card={card} productType={productType} />
             </SwiperSlide>

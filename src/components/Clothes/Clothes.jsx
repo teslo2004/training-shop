@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './clothes.scss';
-import { PRODUCTS } from '../../data/products';
 import { MAIN_CLOTHES_BLOCK_MENU } from '../../data/data-clothes-block';
 import { ClothesCart } from './Clothes-cart/ClothesCart';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Clothes = ({ productType }) => {
+  const { data } = useSelector((state) => state);
   const [arrivals, setArrivals] = useState('isNewArrivals');
 
   const changeParticular = (e) => {
@@ -33,8 +34,8 @@ const Clothes = ({ productType }) => {
         </div>
       </div>
       <div className="clothes-cart">
-        {PRODUCTS[productType]
-          .filter((card) => card.particulars[arrivals])
+        {data[productType]
+          ?.filter((card) => card.particulars[arrivals])
           .map((card) => (
             <ClothesCart key={card.id} card={card} productType={productType} />
           ))}

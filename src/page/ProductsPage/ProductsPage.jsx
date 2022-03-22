@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { ProductFilter } from '../../components/Product/Filter/ProductFilter';
 import { ProductHeader } from '../../components/Product/Header/ProductHeader';
-import { PRODUCTS } from '../../data/products';
 import './productspage.scss';
 
 export const ProductsPage = ({ productType, filterProd }) => {
   const [products, setProducts] = useState();
-
+  const { data } = useSelector((state) => state);
   useEffect(() => {
-    setProducts(PRODUCTS[productType]);
-  }, [productType]);
+    setProducts(data[productType]);
+  }, [data, productType]);
   return (
     <div className="products-page" data-test-id={`products-page-${productType}`}>
       <ProductHeader productType={productType} />
