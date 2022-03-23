@@ -10,6 +10,7 @@ export const ProductsPage = ({ productType, filterProd }) => {
   useEffect(() => {
     setProducts(data[productType]);
   }, [data, productType]);
+
   return (
     <div className="products-page" data-test-id={`products-page-${productType}`}>
       <ProductHeader productType={productType} />
