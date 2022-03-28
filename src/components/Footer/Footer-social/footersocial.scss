@@ -40,8 +40,8 @@
     font-weight: 500;
     font-size: 13px;
     line-height: 18px;
-    color: #ffffff;
-    opacity: 0.4;
+    color: #121212;
+    opacity: 0.7;
   }
   button {
     width: 108px;
@@ -57,6 +57,11 @@
     text-transform: uppercase;
     color: #ffffff;
     opacity: 0.9;
+    cursor: pointer;
+    &:disabled {
+      opacity: 0.7;
+      color: #6e6464;
+    }
   }
 }
 
@@ -72,4 +77,23 @@
   img {
     margin-right: 12px;
   }
+}
+
+@keyframes spinner-border {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.submit-spinner {
+  display: inline-block;
+
+  background-color: #121212;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: -0.325em;
+  border: 0.2em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: 0.75s linear infinite spinner-border;
 }
