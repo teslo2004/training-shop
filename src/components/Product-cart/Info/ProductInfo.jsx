@@ -14,6 +14,7 @@ import { Rewiev } from '../Rewiev/Rewiev';
 
 import './productinfo.scss';
 import { useSelector } from 'react-redux';
+import ReviewForm from '../../ReviewForm/ReviewForm';
 
 export const ProductInfo = ({
   id,
@@ -109,7 +110,13 @@ export const ProductInfo = ({
       setIsLoading(true);
     }
   }, [isLoadings, color, id, size, items]);
-  console.log(isLoadings);
+
+  const [formReview, setFormReview] = useState(false);
+
+  const handleFormReview = () => {
+    setFormReview(!formReview);
+  };
+
   return (
     <div className="product-info-main">
       <div className="color">
@@ -220,8 +227,11 @@ export const ProductInfo = ({
             <span>{reviewsAll?.length} reviews</span>
           </div>
           <div className="raiting-write">
-            <img src={annotation} alt={annotation} />
+            <img src={annotation} alt={annotation} onClick={handleFormReview} />
             <span>Write a review</span>
+            <div className={!formReview ? 'review-form hidden' : 'review-form'}>
+              <ReviewForm />
+            </div>
           </div>
         </div>
         {reviewsAll?.map((item) => (

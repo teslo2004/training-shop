@@ -3,12 +3,12 @@ import starY from './assets/yellow-star.svg';
 import starG from './assets/grey-star.svg';
 
 const maxRaiting = 5;
-export const Raiting = ({ raiting }) => {
+export const Raiting = ({ raiting, onClickStar }) => {
   const arr = Array.from(Array(maxRaiting).keys());
   return (
     <div>
       {arr.map((star, id) => (
-        <img key={id} src={star < raiting ? starY : starG} alt={star} />
+        <img key={id} src={star < raiting ? starY : starG} alt={star + 1} onClick={onClickStar} />
       ))}
     </div>
   );
