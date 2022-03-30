@@ -79,17 +79,17 @@ export const ProductInfo = ({
     };
     onClickAddProduct(obj);
     setIsLoading(!isLoadings);
-    console.log(obj);
   };
 
   const onDeleteProduct = () => {
     const obj = {
+      id,
       color: color,
       size: size,
       imageUrl: handleImage(),
       isLoading: false,
     };
-    onclickDeleteProduct(obj.imageUrl, obj.size, obj.color);
+    onclickDeleteProduct(obj.id, obj.size, obj.color);
 
     setIsLoading(!isLoadings);
   };

@@ -15,19 +15,18 @@ const shop = (state = initialState, action) => {
     }
 
     case 'REMOVE_CART_ITEM': {
-      //console.log(action.payload);
       const items = state.items.filter(
         (item) =>
           !(
-            item.imageUrl === action.payload.imageUrl &&
+            item.id === action.payload.id &&
             item.size === action.payload.size &&
             item.color === action.payload.color
           ),
       );
-
+      console.log(state);
       return {
         ...state,
-        items,
+        items: [...items],
         totalCount: items.length,
       };
     }

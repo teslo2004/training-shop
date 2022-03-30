@@ -9,7 +9,7 @@ import './productpage.scss';
 import { ProductFooter } from '../../components/Product-cart/Footer/ProductFooter';
 import { useDispatch, useSelector } from 'react-redux';
 
-export const ProductPage = ({ productType, handleFormReview }) => {
+export const ProductPage = ({ productType }) => {
   const { id } = useParams();
   const [card, setCard] = useState();
   const dispatch = useDispatch();
@@ -23,8 +23,8 @@ export const ProductPage = ({ productType, handleFormReview }) => {
     dispatch({ type: 'ADD_PRODUCT', payload: obj });
   };
 
-  const onclickDeleteProductToCart = (imageUrl, size, color) => {
-    dispatch({ type: 'REMOVE_CART_ITEM', payload: { imageUrl, size, color } });
+  const onclickDeleteProductToCart = (id, size, color) => {
+    dispatch({ type: 'REMOVE_CART_ITEM', payload: { id, size, color } });
   };
 
   return (

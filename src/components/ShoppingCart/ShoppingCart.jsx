@@ -10,8 +10,8 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
 
   const totalPrice = cart.reduce((accumulator, item) => (accumulator += item.num * item.price), 0);
 
-  const onclickDeleteProductToCart = (imageUrl, size, color) => {
-    dispatch({ type: 'REMOVE_CART_ITEM', payload: { imageUrl, size, color } });
+  const onclickDeleteProductToCart = (id, size, color) => {
+    dispatch({ type: 'REMOVE_CART_ITEM', payload: { id, size, color } });
   };
 
   const onPlus = (item) => {
@@ -22,13 +22,13 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
     dispatch({ type: 'MINUS_PRODUCT', payload: item });
   };
 
-  const onDeleteProduct = (imageUrl, size, color) => {
+  const onDeleteProduct = (id, size, color) => {
     const obj = {
-      imageUrl,
+      id,
       size,
       color,
     };
-    onclickDeleteProductToCart(obj.imageUrl, obj.size, obj.color);
+    onclickDeleteProductToCart(obj.id, obj.size, obj.color);
   };
   return (
     <div className={clickCart ? 'shopping-cart-wrapper' : 'shopping-cart-wrapper hide'}>
@@ -90,7 +90,7 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
 
                     <div className="shopping-cart-del">
                       <img
-                        onClick={() => onDeleteProduct(item.imageUrl, item.size, item.color)}
+                        onClick={() => onDeleteProduct(item.id, item.size, item.color)}
                         src={del}
                         alt="delete"
                         data-test-id="remove-product"

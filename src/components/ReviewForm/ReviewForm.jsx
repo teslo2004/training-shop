@@ -5,7 +5,6 @@ import './review-form.scss';
 
 const ReviewForm = () => {
   const [star, setStar] = useState(1);
-  //const arr = [starY, starG, starG,starG,starG]
   const handleChangeStar = (e) => {
     setStar(e.target.alt);
   };
