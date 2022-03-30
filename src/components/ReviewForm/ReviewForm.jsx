@@ -3,9 +3,6 @@ import React, { useState } from 'react';
 import { Raiting } from '../Clothes/Raiting/Raiting';
 import './review-form.scss';
 
-import starY from '../../components/Clothes/Raiting/assets/yellow-star.svg';
-import starG from '../../components/Clothes/Raiting/assets/grey-star.svg';
-
 const ReviewForm = () => {
   const [star, setStar] = useState(1);
   //const arr = [starY, starG, starG,starG,starG]

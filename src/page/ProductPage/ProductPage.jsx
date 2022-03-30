@@ -9,7 +9,7 @@ import './productpage.scss';
 import { ProductFooter } from '../../components/Product-cart/Footer/ProductFooter';
 import { useDispatch, useSelector } from 'react-redux';
 
-export const ProductPage = ({ productType }) => {
+export const ProductPage = ({ productType, handleFormReview }) => {
   const { id } = useParams();
   const [card, setCard] = useState();
   const dispatch = useDispatch();
