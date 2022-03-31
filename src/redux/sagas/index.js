@@ -1,29 +1,16 @@
-import { call, put } from 'redux-saga/effects';
+import axios from 'axios';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
-function* loadClothes() {
-  const request = yield call(fetch, 'https://training.cleverland.by/shop/products');
-  const data = yield call([request, request.json]);
-  return data;
-}
+function* loadProducts() {
+  try {
+    const { data } = yield call(axios.get, 'https://training.cleverland.by/shop/products');
 
-export function* loadingBasicData() {
-  yield put({ type: 'LOADING_DATA' });
-}
-
-export function* loadSuccessBasicData() {
-  const data = yield loadClothes();
-  yield put({ type: 'LOAD_SUCCESS_DATA', payload: data });
-}
-export function* loadErrorBasicData() {
-  yield put({ type: 'ERROR_LOAD_DATA' });
+    yield put({ type: 'LOAD_SUCCESS_DATA', payload: data });
+  } catch (e) {
+    yield put({ type: 'ERROR_LOAD_DATA', payload: e });
+  }
 }
 
 export default function* rootSaga() {
-  yield loadingBasicData();
-
-  try {
-    yield loadSuccessBasicData();
-  } catch (e) {
-    yield loadErrorBasicData(e);
-  }
+  yield takeEvery('LOADING_DATA', loadProducts);
 }

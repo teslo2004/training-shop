@@ -58,7 +58,7 @@ const Subscribe = () => {
             type="submit"
             onClick={handleSendEmail}
             disabled={!isCorrect}>
-            <span class="submit-spinner submit-spinner_hide"></span> subscribe
+            <span className="submit-spinner submit-spinner_hide"></span> subscribe
           </button>
         ) : (
           <button

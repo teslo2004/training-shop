@@ -60,7 +60,7 @@ export const FooterSocial = () => {
                 type="submit"
                 onClick={handleSendEmail}
                 disabled={!isCorrect}>
-                <span class="submit-spinner submit-spinner_hide"></span> join us
+                <span className="submit-spinner submit-spinner_hide"></span> join us
               </button>
             ) : (
               <button

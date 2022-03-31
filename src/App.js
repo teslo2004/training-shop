@@ -8,15 +8,19 @@ import { ProductPage } from './page/ProductPage/ProductPage';
 import './app.scss';
 import { useEffect } from 'react';
 import Spinner from './components/Spinner/Spinner';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Error from './components/Error/Error';
 
 function App() {
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  useEffect(() => {
+    dispatch({ type: 'LOADING_DATA' });
+  }, [dispatch]);
   const { isLoading, isError } = useSelector((state) => state.data);
   return (
     <div className="app" data-test-id="app">

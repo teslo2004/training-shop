@@ -12,7 +12,6 @@ const data = (state = defaultState, action) => {
     case 'LOADING_DATA': {
       return { ...state, isLoading: true };
     }
-
     case 'LOAD_SUCCESS_DATA': {
       return { ...state, ...state.products, ...action.payload, isLoading: false };
     }

@@ -8,8 +8,10 @@ import { useParams } from 'react-router-dom';
 
 const ReviewForm = ({ setFormReview, handleFormReview }) => {
   const { id } = useParams();
-  const review = useSelector((state) => state.review);
-  console.log(review);
+  const { isSendReview, isLoadings, textSendReviewSuccess, textSendReviewError } = useSelector(
+    (state) => state.review,
+  );
+
   const dispatch = useDispatch();
   let [star, setStar] = useState(1);
 
@@ -18,7 +20,6 @@ const ReviewForm = ({ setFormReview, handleFormReview }) => {
     setStar(e.target.alt);
     //return star;
   };
-  console.log(review.isLoadings);
   const initialValues = {
     id: id,
     nameUser: '',
@@ -29,7 +30,7 @@ const ReviewForm = ({ setFormReview, handleFormReview }) => {
     values.raiting = Number(star);
     dispatch({ type: 'SEND_REVIEW', values });
     formik.resetForm();
-    setFormReview(false);
+    setFormReview(!isLoadings);
     document.querySelector('body').style.overflow = 'visible';
   };
 
@@ -45,10 +46,15 @@ const ReviewForm = ({ setFormReview, handleFormReview }) => {
   });
 
   useEffect(() => {
-    if (review.data) {
-      document.location.reload();
+    if (isLoadings) {
+      dispatch({ type: 'LOADING_DATA' });
     }
-  }, [review]);
+  }, [dispatch, isLoadings]);
+
+  useEffect(() => {
+    dispatch({ type: 'SEND_SUCCESS_REVIEW_CLOSE' });
+  }, [dispatch]);
+
   return (
     <div className="review-form" data-test-id="review-modal">
       <form onSubmit={formik.handleSubmit}>
@@ -86,10 +92,10 @@ const ReviewForm = ({ setFormReview, handleFormReview }) => {
           </div>
           {formik.errors.comment ? <div className="error">{formik.errors.comment}</div> : null}
         </div>
-        {review.isSendReview ? (
+        {isSendReview ? (
           <div className="form-button">
             <button data-test-id="review-submit-button" type="submit" disabled>
-              <span class="submit-spinner"></span>Send
+              <span className="submit-spinner"></span>Send
             </button>
           </div>
         ) : (
@@ -98,15 +104,15 @@ const ReviewForm = ({ setFormReview, handleFormReview }) => {
               data-test-id="review-submit-button"
               type="submit"
               disabled={!(formik.values.nameUser && formik.values.comment) ? true : false}>
-              <span class="submit-spinner submit-spinner-hide"></span>Send
+              <span className="submit-spinner submit-spinner-hide"></span>Send
             </button>
           </div>
         )}
 
-        {review.isLoadings ? (
-          <div className="form-message-success">{review.textSendReviewSuccess} </div>
+        {isLoadings ? (
+          <div className="form-message-success">{textSendReviewSuccess} </div>
         ) : (
-          <div className="form-message-error">{review.textSendReviewError}</div>
+          <div className="form-message-error">{textSendReviewError}</div>
         )}
       </form>
     </div>

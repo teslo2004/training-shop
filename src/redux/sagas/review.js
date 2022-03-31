@@ -3,17 +3,13 @@ import { call, put, all, takeLatest } from 'redux-saga/effects';
 
 export function* sendReview(review) {
   try {
-    const sendReview = yield call(
-      axios.post,
-      'https://training.cleverland.by/shop/product/review',
-      {
-        id: review.values.id,
-        name: review.values.nameUser,
-        text: review.values.comment,
-        rating: review.values.raiting,
-      },
-    );
-    yield put({ type: 'SEND_SUCCESS_REVIEW', payload: sendReview });
+    const data = yield call(axios.post, 'https://training.cleverland.by/shop/product/review', {
+      id: review.values.id,
+      name: review.values.nameUser,
+      text: review.values.comment,
+      rating: review.values.raiting,
+    });
+    yield put({ type: 'SEND_SUCCESS_REVIEW', payload: data });
   } catch (e) {
     yield put({ type: 'SEND_ERROR_REVIEW', payload: e.message });
   }
