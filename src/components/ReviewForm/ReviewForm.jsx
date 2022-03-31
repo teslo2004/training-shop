@@ -2,32 +2,44 @@ import { useFormik } from 'formik';
 import React, { useState } from 'react';
 import { Raiting } from '../Clothes/Raiting/Raiting';
 import './review-form.scss';
+import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 const ReviewForm = () => {
-  const [star, setStar] = useState(1);
+  const { id } = useParams();
+  const review = useSelector((state) => state.review);
+
+  const dispatch = useDispatch();
+  let [star, setStar] = useState(1);
+
   const handleChangeStar = (e) => {
+    //star = e.target.alt;
     setStar(e.target.alt);
+    //return star;
   };
 
-  const formik = useFormik({
-    initialValues: {
-      nameUser: '',
-      comment: '',
-    },
-    onSubmit: (values) => {
-      console.log();
-    },
-    validate: (values) => {
-      let error = {};
-      if (!values.nameUser) {
-        error.nameUser = 'Введите имя';
-      }
-      if (!values.comment) {
-        error.comment = 'Введите отзыв';
-      }
+  const initialValues = {
+    id: id,
+    nameUser: '',
+    comment: '',
+  };
 
-      return error;
-    },
+  const onSubmit = (values) => {
+    values.raiting = Number(star);
+    dispatch({ type: 'SEND_REVIEW', values });
+    formik.resetForm();
+  };
+
+  const validationSchema = Yup.object({
+    nameUser: Yup.string().required('Введите имя'),
+    comment: Yup.string().required('Введите отзыв'),
+  });
+
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema,
   });
   return (
     <div className="review-form">
@@ -36,7 +48,7 @@ const ReviewForm = () => {
           <h2>Write a review</h2>
         </div>
         <div className="form-raiting">
-          <Raiting raiting={star} onClickStar={handleChangeStar} />
+          <Raiting raiting={star} name="rating" onClickStar={handleChangeStar} />
         </div>
         <div className="form">
           <div className="input-form">
@@ -64,9 +76,27 @@ const ReviewForm = () => {
           </div>
           {formik.errors.comment ? <div className="error">{formik.errors.comment}</div> : null}
         </div>
-        <div className="form-button">
-          <button type="submit">Send</button>
-        </div>
+        {review.isSendReview ? (
+          <div className="form-button">
+            <button type="submit" disabled>
+              <span class="submit-spinner"></span>Send
+            </button>
+          </div>
+        ) : (
+          <div className="form-button">
+            <button
+              type="submit"
+              disabled={!(formik.values.nameUser && formik.values.comment) ? true : false}>
+              <span class="submit-spinner submit-spinner-hide"></span>Send
+            </button>
+          </div>
+        )}
+
+        {review.isLoadings ? (
+          <div className="form-message-success">{review.textSendReviewSuccess}</div>
+        ) : (
+          <div className="form-message-error">{review.textSendReviewError}</div>
+        )}
       </form>
     </div>
   );

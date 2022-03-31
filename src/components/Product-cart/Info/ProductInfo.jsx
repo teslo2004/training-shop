@@ -114,6 +114,9 @@ export const ProductInfo = ({
   const handleFormReview = (e) => {
     e.stopPropagation();
     setFormReview(!formReview);
+    !formReview
+      ? (document.querySelector('body').style.overflow = 'hidden')
+      : (document.querySelector('body').style.overflow = 'visible');
   };
 
   return (
