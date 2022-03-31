@@ -42,7 +42,7 @@ const ReviewForm = () => {
     validationSchema,
   });
   return (
-    <div className="review-form">
+    <div className="review-form" data-test-id="review-modal">
       <form onSubmit={formik.handleSubmit}>
         <div className="form-title">
           <h2>Write a review</h2>
@@ -53,6 +53,7 @@ const ReviewForm = () => {
         <div className="form">
           <div className="input-form">
             <input
+              data-test-id="review-name-field"
               id="nameUser"
               type="text"
               name="nameUser"
@@ -66,6 +67,7 @@ const ReviewForm = () => {
         <div className="form">
           <div className="input-form">
             <textarea
+              data-test-id="review-text-field"
               id="comment"
               placeholder="Комментарий"
               name="comment"
@@ -78,13 +80,14 @@ const ReviewForm = () => {
         </div>
         {review.isSendReview ? (
           <div className="form-button">
-            <button type="submit" disabled>
+            <button data-test-id="review-submit-button" type="submit" disabled>
               <span class="submit-spinner"></span>Send
             </button>
           </div>
         ) : (
           <div className="form-button">
             <button
+              data-test-id="review-submit-button"
               type="submit"
               disabled={!(formik.values.nameUser && formik.values.comment) ? true : false}>
               <span class="submit-spinner submit-spinner-hide"></span>Send

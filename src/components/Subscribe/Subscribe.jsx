@@ -40,6 +40,7 @@ const Subscribe = () => {
           <br /> And <span>Get 10% Off</span>
         </p>
         <input
+          data-test-id="main-subscribe-mail-field"
           onChange={(e) => handlerMail(e)}
           name="email"
           type="text"
@@ -52,11 +53,19 @@ const Subscribe = () => {
           <span style={{ color: '#FF0000' }}>{email.mailSendResponse}</span>
         )}
         {email.isMailSendLoading ? (
-          <button type="submit" onClick={handleSendEmail} disabled={!isCorrect}>
+          <button
+            data-test-id="main-subscribe-mail-button"
+            type="submit"
+            onClick={handleSendEmail}
+            disabled={!isCorrect}>
             <span class="submit-spinner submit-spinner_hide"></span> subscribe
           </button>
         ) : (
-          <button type="submit" onClick={handleSendEmail} disabled={!isCorrect}>
+          <button
+            data-test-id="main-subscribe-mail-button"
+            type="submit"
+            onClick={handleSendEmail}
+            disabled={!isCorrect}>
             subscribe
           </button>
         )}

@@ -45,6 +45,7 @@ export const FooterSocial = () => {
         <div className="social-mail">
           <div className="social-input">
             <input
+              data-test-id="footer-mail-field"
               onChange={(e) => handlerMail(e)}
               name="email"
               type="text"
@@ -54,11 +55,19 @@ export const FooterSocial = () => {
           </div>
           <div className="social-btn">
             {email.isMailSendLoading ? (
-              <button type="submit" onClick={handleSendEmail} disabled={!isCorrect}>
+              <button
+                data-test-id="footer-subscribe-mail-button"
+                type="submit"
+                onClick={handleSendEmail}
+                disabled={!isCorrect}>
                 <span class="submit-spinner submit-spinner_hide"></span> join us
               </button>
             ) : (
-              <button type="submit" onClick={handleSendEmail} disabled={!isCorrect}>
+              <button
+                data-test-id="footer-subscribe-mail-button"
+                type="submit"
+                onClick={handleSendEmail}
+                disabled={!isCorrect}>
                 join us
               </button>
             )}

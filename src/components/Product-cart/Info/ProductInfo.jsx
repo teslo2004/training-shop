@@ -229,8 +229,8 @@ export const ProductInfo = ({
               </div>
               <span>{reviewsAll?.length} reviews</span>
             </div>
-            <div className="raiting-write">
-              <img src={annotation} alt={annotation} onClick={handleFormReview} />
+            <div data-test-id="review-button" className="raiting-write" onClick={handleFormReview}>
+              <img src={annotation} alt={annotation} />
               <span>Write a review</span>
             </div>
           </div>
