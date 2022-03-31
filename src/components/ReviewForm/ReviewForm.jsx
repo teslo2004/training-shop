@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-const ReviewForm = ({ setFormReview, handleFormReview }) => {
+const ReviewForm = ({ setFormReview }) => {
   const { id } = useParams();
   const { isSendReview, isLoadings, textSendReviewSuccess, textSendReviewError } = useSelector(
     (state) => state.review,
@@ -48,12 +48,9 @@ const ReviewForm = ({ setFormReview, handleFormReview }) => {
   useEffect(() => {
     if (isLoadings) {
       dispatch({ type: 'LOADING_DATA' });
+      dispatch({ type: 'SEND_SUCCESS_REVIEW_CLOSE' });
     }
   }, [dispatch, isLoadings]);
-
-  useEffect(() => {
-    dispatch({ type: 'SEND_SUCCESS_REVIEW_CLOSE' });
-  }, [dispatch]);
 
   return (
     <div className="review-form" data-test-id="review-modal">

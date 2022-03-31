@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest, all } from 'redux-saga/effects';
 
 function* loadProducts() {
   try {
@@ -12,5 +12,5 @@ function* loadProducts() {
 }
 
 export default function* rootSaga() {
-  yield takeEvery('LOADING_DATA', loadProducts);
+  yield all([takeLatest('LOADING_DATA', loadProducts)]);
 }

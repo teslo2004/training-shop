@@ -13,6 +13,7 @@ const review = (state = defaultState, action) => {
         ...state,
         isSendReview: true,
         textSendReviewSucces: '',
+        textSendReviewError: '',
       };
     }
     case 'SEND_SUCCESS_REVIEW': {

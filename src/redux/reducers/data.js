@@ -13,7 +13,7 @@ const data = (state = defaultState, action) => {
       return { ...state, isLoading: true };
     }
     case 'LOAD_SUCCESS_DATA': {
-      return { ...state, ...state.products, ...action.payload, isLoading: false };
+      return { ...state, ...action.payload, isLoading: false };
     }
 
     case 'ERROR_LOAD_DATA': {
