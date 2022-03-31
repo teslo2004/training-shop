@@ -243,7 +243,7 @@ export const ProductInfo = ({
         className={!formReview ? '.wrapper-form hidden' : 'wrapper-form'}
         onClick={handleFormReview}></div>
       <div className={!formReview ? 'review-form hidden' : 'review-form'}>
-        <ReviewForm />
+        <ReviewForm setFormReview={setFormReview} handleFormReview={handleFormReview} />
       </div>
     </div>
   );

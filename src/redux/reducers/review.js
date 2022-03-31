@@ -17,6 +17,7 @@ const review = (state = defaultState, action) => {
     case 'SEND_SUCCESS_REVIEW': {
       return {
         ...state,
+        data: action.payload,
         isLoadings: true,
         isSendReview: false,
         textSendReviewSuccess: 'Комментарий успешно добавлен',

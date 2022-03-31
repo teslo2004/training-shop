@@ -1,15 +1,15 @@
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Raiting } from '../Clothes/Raiting/Raiting';
 import './review-form.scss';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-const ReviewForm = () => {
+const ReviewForm = ({ setFormReview, handleFormReview }) => {
   const { id } = useParams();
   const review = useSelector((state) => state.review);
-
+  console.log(review);
   const dispatch = useDispatch();
   let [star, setStar] = useState(1);
 
@@ -18,7 +18,7 @@ const ReviewForm = () => {
     setStar(e.target.alt);
     //return star;
   };
-
+  console.log(review.isLoadings);
   const initialValues = {
     id: id,
     nameUser: '',
@@ -29,6 +29,8 @@ const ReviewForm = () => {
     values.raiting = Number(star);
     dispatch({ type: 'SEND_REVIEW', values });
     formik.resetForm();
+    setFormReview(false);
+    document.querySelector('body').style.overflow = 'visible';
   };
 
   const validationSchema = Yup.object({
@@ -41,6 +43,12 @@ const ReviewForm = () => {
     onSubmit,
     validationSchema,
   });
+
+  useEffect(() => {
+    if (review.data) {
+      document.location.reload();
+    }
+  }, [review]);
   return (
     <div className="review-form" data-test-id="review-modal">
       <form onSubmit={formik.handleSubmit}>
@@ -96,7 +104,7 @@ const ReviewForm = () => {
         )}
 
         {review.isLoadings ? (
-          <div className="form-message-success">{review.textSendReviewSuccess}</div>
+          <div className="form-message-success">{review.textSendReviewSuccess} </div>
         ) : (
           <div className="form-message-error">{review.textSendReviewError}</div>
         )}
