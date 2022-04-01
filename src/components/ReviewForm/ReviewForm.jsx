@@ -29,7 +29,9 @@ const ReviewForm = ({ setFormReview }) => {
   const onSubmit = (values) => {
     values.raiting = Number(star);
     dispatch({ type: 'SEND_REVIEW', values });
-    formik.resetForm();
+    if (textSendReviewSuccess) {
+      formik.resetForm();
+    }
     setFormReview(!isLoadings);
     document.querySelector('body').style.overflow = 'visible';
   };

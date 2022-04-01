@@ -135,3 +135,21 @@ textarea {
   height: 100%;
   z-index: 3;
 }
+@media screen and (max-width: 660px) {
+  .form-raiting {
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+      margin-bottom: 10px;
+    }
+  }
+  .review-form {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 15%;
+    width: 50%;
+    height: 80%;
+  }
+}

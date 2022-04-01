@@ -12,6 +12,7 @@ const Clothes = ({ productType }) => {
   const changeParticular = (e) => {
     setArrivals(e.target.value);
   };
+
   return (
     <div className="clothes" data-test-id={`clothes-${productType}`}>
       <div className="clothes-container">

@@ -6,28 +6,27 @@ import './subscribe.scss';
 
 const Subscribe = () => {
   const dispatch = useDispatch();
-  const { email } = useSelector((state) => state);
+  const { isSuccessEmail, mailSendResponse, isMailSendLoading, placeOfSend, isErrorEmail } =
+    useSelector((state) => state.email);
 
   const [mail, setMail] = useState('');
   let [isCorrect, setIsCorrect] = useState(false);
 
   const handleSendEmail = () => {
-    dispatch({ type: 'SEND_EMAIL' });
+    dispatch({ type: 'SEND_EMAIL', payload: 'subscribe' });
     setMail('');
     setIsCorrect(false);
   };
 
   const handlerMail = (e) => {
     setMail(e.target.value);
-    const regExp =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/;
+    const regExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{1,6}$/;
     if (!regExp.test(String(mail).toLowerCase())) {
       setIsCorrect(false);
     } else {
       setIsCorrect(true);
     }
   };
-
   return (
     <div className="subscribe">
       <div className="first-image">
@@ -47,15 +46,17 @@ const Subscribe = () => {
           value={mail}
           placeholder="Enter your email..."
         />
-        {email.isSuccessEmail ? (
-          <span style={{ color: '#008000' }}>{email.mailSendResponse}</span>
-        ) : (
-          <span style={{ color: '#FF0000' }}>{email.mailSendResponse}</span>
+        {placeOfSend === 'subscribe' && isSuccessEmail && (
+          <span style={{ color: '#008000' }}>{mailSendResponse}</span>
         )}
-        {email.isMailSendLoading ? (
+        {placeOfSend === 'subscribe' && isErrorEmail && (
+          <span style={{ color: 'red' }}>{mailSendResponse}</span>
+        )}
+        {isMailSendLoading ? (
           <button
             data-test-id="main-subscribe-mail-button"
             type="submit"
+            name="subscribe"
             onClick={handleSendEmail}
             disabled={!isCorrect}>
             <span className="submit-spinner submit-spinner_hide"></span> subscribe
@@ -64,6 +65,7 @@ const Subscribe = () => {
           <button
             data-test-id="main-subscribe-mail-button"
             type="submit"
+            name="subscribe"
             onClick={handleSendEmail}
             disabled={!isCorrect}>
             subscribe

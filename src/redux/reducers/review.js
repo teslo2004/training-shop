@@ -1,6 +1,7 @@
 const defaultState = {
   isLoadings: false,
   isError: false,
+  isUpdate: false,
   isSendReview: false,
   textSendReviewSuccess: '',
   textSendReviewError: '',
@@ -12,6 +13,7 @@ const review = (state = defaultState, action) => {
       return {
         ...state,
         isSendReview: true,
+        isUpdate: true,
         textSendReviewSucces: '',
         textSendReviewError: '',
       };
@@ -23,6 +25,7 @@ const review = (state = defaultState, action) => {
         isLoadings: true,
         isSendReview: false,
         textSendReviewSuccess: 'Комментарий успешно добавлен',
+        isUpdate: false,
       };
     }
 
@@ -32,6 +35,13 @@ const review = (state = defaultState, action) => {
         isLoadings: false,
         isSendReview: false,
         textSendReviewSuccess: '',
+        textSendReviewError: '',
+      };
+    }
+
+    case 'SEND_UPDATE': {
+      return {
+        ...state,
         textSendReviewError: '',
       };
     }

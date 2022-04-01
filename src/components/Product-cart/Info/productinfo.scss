@@ -253,6 +253,7 @@
   justify-content: space-between;
 }
 
+
 @media screen and (max-width: 600px) {
   .product-info-main {
     margin-left: 20px;
@@ -267,17 +268,12 @@
     display: none;
   }
 
-  .raiting-star,
-  .raiting-write {
+  .raiting-star{
     span {
       display: none;
     }
   }
-  .raiting-write {
-    img {
-      display: none;
-    }
-  }
+  
   .product-card,
   .benefit {
     width: 100vw;

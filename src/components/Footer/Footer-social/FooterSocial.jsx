@@ -8,23 +8,23 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export const FooterSocial = () => {
   const dispatch = useDispatch();
-  const { email } = useSelector((state) => state);
+  const { isSuccessEmail, mailSendResponse, isMailSendLoading, placeOfSend, isErrorEmail } =
+    useSelector((state) => state.email);
   //console.log(email);
 
-  const [mail, setMail] = useState('');
+  const [mailFooter, setMailFooter] = useState('');
   let [isCorrect, setIsCorrect] = useState(false);
 
-  const handleSendEmail = () => {
-    dispatch({ type: 'SEND_EMAIL' });
-    setMail('');
+  const handleSendEmailFooter = () => {
+    dispatch({ type: 'SEND_EMAIL', payload: 'footerEmail' });
+    setMailFooter('');
     setIsCorrect(false);
   };
 
-  const handlerMail = (e) => {
-    setMail(e.target.value);
-    const regExp =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{1,}))$/;
-    if (!regExp.test(String(mail).toLowerCase())) {
+  const handlerMailFooter = (e) => {
+    setMailFooter(e.target.value);
+    const regExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{1,6}$/;
+    if (!regExp.test(String(mailFooter).toLowerCase())) {
       setIsCorrect(false);
     } else {
       setIsCorrect(true);
@@ -33,10 +33,11 @@ export const FooterSocial = () => {
 
   return (
     <div>
-      {email.isSuccessEmail ? (
-        <span style={{ color: '#008000' }}>{email.mailSendResponse}</span>
-      ) : (
-        <span style={{ color: '#FF0000' }}>{email.mailSendResponse}</span>
+      {placeOfSend === 'footerEmail' && isSuccessEmail && (
+        <span style={{ color: '#008000' }}>{mailSendResponse}</span>
+      )}
+      {placeOfSend === 'footerEmail' && isErrorEmail && (
+        <span style={{ color: 'red' }}>{mailSendResponse}</span>
       )}
       <div className="social">
         <div className="social-text">
@@ -46,27 +47,29 @@ export const FooterSocial = () => {
           <div className="social-input">
             <input
               data-test-id="footer-mail-field"
-              onChange={(e) => handlerMail(e)}
+              onChange={(e) => handlerMailFooter(e)}
               name="email"
               type="text"
-              value={mail}
+              value={mailFooter}
               placeholder="Enter your email..."
             />
           </div>
           <div className="social-btn">
-            {email.isMailSendLoading ? (
+            {isMailSendLoading ? (
               <button
                 data-test-id="footer-subscribe-mail-button"
+                name="footer"
                 type="submit"
-                onClick={handleSendEmail}
+                onClick={handleSendEmailFooter}
                 disabled={!isCorrect}>
                 <span className="submit-spinner submit-spinner_hide"></span> join us
               </button>
             ) : (
               <button
                 data-test-id="footer-subscribe-mail-button"
+                name="footer"
                 type="submit"
-                onClick={handleSendEmail}
+                onClick={handleSendEmailFooter}
                 disabled={!isCorrect}>
                 join us
               </button>

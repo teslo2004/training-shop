@@ -14,6 +14,12 @@ export const ProductPage = ({ productType }) => {
   const [card, setCard] = useState();
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state);
+  const { isUpdate } = useSelector((state) => state.review);
+  useEffect(() => {
+    if (isUpdate) {
+      dispatch({ type: 'SEND_UPDATE' });
+    }
+  }, [dispatch, isUpdate]);
 
   useEffect(() => {
     setCard(data[productType]?.find((item) => item?.id === id));
