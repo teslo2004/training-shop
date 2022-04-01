@@ -1,7 +1,7 @@
 .review-form {
   display: flex;
   margin: auto;
-  padding: 0 50px;
+  padding: 0 40px;
   flex-direction: column;
   position: fixed;
   border: 1px solid black;
@@ -10,10 +10,12 @@
   bottom: 0;
   right: 100px;
   left: 100px;
-  width: 30%;
+  max-width: 300px;
+  min-width: 150px;
   height: 530px;
   background: #ffffff;
   z-index: 5;
+  padding-left: 30px;
 }
 
 .hidden {
@@ -21,7 +23,7 @@
 }
 
 .form {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .error {
   color: rgb(201, 31, 31);
@@ -43,8 +45,8 @@
 .form-raiting {
   text-align: center;
   img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
     margin-bottom: 20px;
   }
@@ -68,8 +70,8 @@ textarea {
   button {
     background: #2e2b2b;
     color: #ffffff;
-    width: 150px;
-    height: 50px;
+    width: 130px;
+    height: 40px;
     cursor: pointer;
     &:disabled {
       opacity: 0.5;
@@ -135,21 +137,5 @@ textarea {
   height: 100%;
   z-index: 3;
 }
-@media screen and (max-width: 660px) {
-  .form-raiting {
-    img {
-      width: 20px;
-      height: 20px;
-      margin-right: 5px;
-      margin-bottom: 10px;
-    }
-  }
-  .review-form {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 15%;
-    width: 50%;
-    height: 80%;
-  }
-}
+
+
