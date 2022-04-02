@@ -20,8 +20,8 @@ const Subscribe = () => {
 
   const handlerMail = (e) => {
     setMail(e.target.value);
-    const regExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{1,6}$/;
-    if (!regExp.test(String(mail).toLowerCase())) {
+    const regExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+    if (!regExp.test(String(e.target.value).toLowerCase())) {
       setIsCorrect(false);
     } else {
       setIsCorrect(true);

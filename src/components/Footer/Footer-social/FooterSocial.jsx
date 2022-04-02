@@ -17,14 +17,13 @@ export const FooterSocial = () => {
 
   const handleSendEmailFooter = () => {
     dispatch({ type: 'SEND_EMAIL', payload: 'footerEmail' });
-
     setIsCorrect(false);
   };
 
   const handlerMailFooter = (e) => {
     setMailFooter(e.target.value);
-    const regExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{1,6}$/;
-    if (!regExp.test(String(mailFooter).toLowerCase())) {
+    const regExp = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+    if (!regExp.test(String(e.target.value).toLowerCase())) {
       setIsCorrect(false);
     } else {
       setIsCorrect(true);
