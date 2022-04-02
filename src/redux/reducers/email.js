@@ -16,12 +16,11 @@ const email = (state = defaultState, action) => {
       };
     }
     case 'SEND_SUCCESS_EMAIL': {
-      console.log(state);
       return {
         ...state,
-        ...action.payload,
         isMailSendLoading: false,
         isSuccessEmail: true,
+        isErrorEmail: false,
         mailSendResponse: 'Почта отправлена успешно',
         placeOfSend: state.placeOfSend,
       };
@@ -30,7 +29,6 @@ const email = (state = defaultState, action) => {
     case 'SEND_ERROR_EMAIL': {
       return {
         ...state,
-        ...action.payload,
         isMailSendLoading: false,
         isSuccessEmail: false,
         isErrorEmail: true,
@@ -38,7 +36,13 @@ const email = (state = defaultState, action) => {
         placeOfSend: state.placeOfSend,
       };
     }
-
+    case 'UPDATE_EMAIL_STATUS': {
+      return {
+        ...state,
+        isSuccessEmail: false,
+        isErrorEmail: false,
+      };
+    }
     default:
       return state;
   }

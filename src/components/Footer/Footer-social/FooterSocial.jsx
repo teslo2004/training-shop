@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import pinterest from '../assets/pinterest.svg';
 import facebook from '../assets/facebook.svg';
 import insta from '../assets/insta.svg';
@@ -17,7 +17,7 @@ export const FooterSocial = () => {
 
   const handleSendEmailFooter = () => {
     dispatch({ type: 'SEND_EMAIL', payload: 'footerEmail' });
-    setMailFooter('');
+
     setIsCorrect(false);
   };
 
@@ -30,7 +30,11 @@ export const FooterSocial = () => {
       setIsCorrect(true);
     }
   };
-
+  useEffect(() => {
+    if (isSuccessEmail) {
+      setMailFooter('');
+    }
+  }, [dispatch, isSuccessEmail, placeOfSend]);
   return (
     <div>
       {placeOfSend === 'footerEmail' && isSuccessEmail && (
@@ -60,7 +64,7 @@ export const FooterSocial = () => {
                 data-test-id="footer-subscribe-mail-button"
                 name="footer"
                 type="submit"
-                onClick={handleSendEmailFooter}
+                onClick={() => handleSendEmailFooter()}
                 disabled={!isCorrect}>
                 <span className="submit-spinner submit-spinner_hide"></span> join us
               </button>
@@ -69,7 +73,7 @@ export const FooterSocial = () => {
                 data-test-id="footer-subscribe-mail-button"
                 name="footer"
                 type="submit"
-                onClick={handleSendEmailFooter}
+                onClick={() => handleSendEmailFooter()}
                 disabled={!isCorrect}>
                 join us
               </button>

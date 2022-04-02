@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import first from './assets/daco.png';
 import second from './assets/paco.png';
@@ -14,7 +14,7 @@ const Subscribe = () => {
 
   const handleSendEmail = () => {
     dispatch({ type: 'SEND_EMAIL', payload: 'subscribe' });
-    setMail('');
+
     setIsCorrect(false);
   };
 
@@ -27,6 +27,14 @@ const Subscribe = () => {
       setIsCorrect(true);
     }
   };
+
+  useEffect(() => {
+    if (isSuccessEmail) {
+      setMail('');
+      console.log(isSuccessEmail);
+    }
+  }, [dispatch, isSuccessEmail, placeOfSend]);
+
   return (
     <div className="subscribe">
       <div className="first-image">
@@ -57,7 +65,7 @@ const Subscribe = () => {
             data-test-id="main-subscribe-mail-button"
             type="submit"
             name="subscribe"
-            onClick={handleSendEmail}
+            onClick={() => handleSendEmail()}
             disabled={!isCorrect}>
             <span className="submit-spinner submit-spinner_hide"></span> subscribe
           </button>
@@ -66,7 +74,7 @@ const Subscribe = () => {
             data-test-id="main-subscribe-mail-button"
             type="submit"
             name="subscribe"
-            onClick={handleSendEmail}
+            onClick={() => handleSendEmail()}
             disabled={!isCorrect}>
             subscribe
           </button>
