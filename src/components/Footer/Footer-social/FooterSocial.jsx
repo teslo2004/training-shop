@@ -30,6 +30,7 @@ export const FooterSocial = () => {
       setIsCorrect(true);
     }
   };
+
   useEffect(() => {
     if (isSuccessEmail) {
       setMailFooter('');

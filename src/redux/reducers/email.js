@@ -36,13 +36,7 @@ const email = (state = defaultState, action) => {
         placeOfSend: state.placeOfSend,
       };
     }
-    case 'UPDATE_EMAIL_STATUS': {
-      return {
-        ...state,
-        isSuccessEmail: false,
-        isErrorEmail: false,
-      };
-    }
+
     default:
       return state;
   }

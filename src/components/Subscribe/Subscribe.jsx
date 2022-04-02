@@ -31,9 +31,8 @@ const Subscribe = () => {
   useEffect(() => {
     if (isSuccessEmail) {
       setMail('');
-      console.log(isSuccessEmail);
     }
-  }, [dispatch, isSuccessEmail, placeOfSend]);
+  }, [isSuccessEmail, placeOfSend]);
 
   return (
     <div className="subscribe">
