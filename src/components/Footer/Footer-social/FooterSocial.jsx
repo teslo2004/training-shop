@@ -64,7 +64,7 @@ export const FooterSocial = () => {
                 data-test-id="footer-subscribe-mail-button"
                 name="footer"
                 type="submit"
-                onClick={(e) => handleSendEmailFooter(e)}
+                onClick={handleSendEmailFooter}
                 disabled={!isCorrect}>
                 <span className="submit-spinner submit-spinner_hide"></span> join us
               </button>
@@ -73,7 +73,7 @@ export const FooterSocial = () => {
                 data-test-id="footer-subscribe-mail-button"
                 name="footer"
                 type="submit"
-                onClick={() => handleSendEmailFooter()}
+                onClick={handleSendEmailFooter}
                 disabled={!isCorrect}>
                 join us
               </button>

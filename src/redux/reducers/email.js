@@ -13,6 +13,7 @@ const email = (state = defaultState, action) => {
       return {
         ...state,
         isUpdates: false,
+        isSuccessEmail: false,
         isMailSendLoading: true,
         placeOfSend: action.payload,
       };
