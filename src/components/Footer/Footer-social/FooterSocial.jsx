@@ -17,7 +17,6 @@ export const FooterSocial = () => {
 
   const handleSendEmailFooter = () => {
     dispatch({ type: 'SEND_EMAIL', payload: 'footerEmail' });
-    setIsCorrect(false);
   };
 
   const handlerMailFooter = (e) => {
@@ -33,8 +32,9 @@ export const FooterSocial = () => {
   useEffect(() => {
     if (isSuccessEmail) {
       setMailFooter('');
+      setIsCorrect(false);
     }
-  }, [dispatch, isSuccessEmail, placeOfSend]);
+  }, [isSuccessEmail, placeOfSend]);
   return (
     <div>
       {placeOfSend === 'footerEmail' && isSuccessEmail && (
@@ -64,7 +64,7 @@ export const FooterSocial = () => {
                 data-test-id="footer-subscribe-mail-button"
                 name="footer"
                 type="submit"
-                onClick={() => handleSendEmailFooter()}
+                onClick={(e) => handleSendEmailFooter(e)}
                 disabled={!isCorrect}>
                 <span className="submit-spinner submit-spinner_hide"></span> join us
               </button>

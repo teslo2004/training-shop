@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Benefits from '../../components/Benefits/Benefits';
 import { Blog } from '../../components/Blog/Blog';
 import Category from '../../components/Category/Category';
@@ -11,6 +11,7 @@ import './mainpage.scss';
 
 export const MainPage = () => {
   const { isError } = useSelector((state) => state.data);
+
   return (
     <div>
       <div className="mainpage">

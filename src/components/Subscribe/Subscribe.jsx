@@ -14,8 +14,6 @@ const Subscribe = () => {
 
   const handleSendEmail = () => {
     dispatch({ type: 'SEND_EMAIL', payload: 'subscribe' });
-
-    setIsCorrect(false);
   };
 
   const handlerMail = (e) => {
@@ -31,6 +29,7 @@ const Subscribe = () => {
   useEffect(() => {
     if (isSuccessEmail) {
       setMail('');
+      setIsCorrect(false);
     }
   }, [isSuccessEmail, placeOfSend]);
 
@@ -64,7 +63,7 @@ const Subscribe = () => {
             data-test-id="main-subscribe-mail-button"
             type="submit"
             name="subscribe"
-            onClick={() => handleSendEmail()}
+            onClick={(e) => handleSendEmail(e)}
             disabled={!isCorrect}>
             <span className="submit-spinner submit-spinner_hide"></span> subscribe
           </button>
