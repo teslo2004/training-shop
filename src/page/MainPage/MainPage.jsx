@@ -11,7 +11,14 @@ import './mainpage.scss';
 
 export const MainPage = () => {
   const { isError } = useSelector((state) => state.data);
-
+  const dispatch = useDispatch();
+  const { isUpdates } = useSelector((state) => state.email);
+  useEffect(() => {
+    if (!isUpdates) {
+      dispatch({ type: 'EMAIL_UPDATE' });
+    }
+  }, [dispatch, isUpdates]);
+  console.log(isUpdates);
   return (
     <div>
       <div className="mainpage">

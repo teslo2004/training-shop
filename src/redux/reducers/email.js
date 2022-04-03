@@ -4,7 +4,7 @@ const defaultState = {
   isErrorEmail: false,
   mailSendResponse: '',
   placeOfSend: '',
-  isUpdates: true,
+  isUpdates: false,
 };
 
 const email = (state = defaultState, action) => {
@@ -12,6 +12,7 @@ const email = (state = defaultState, action) => {
     case 'SEND_EMAIL': {
       return {
         ...state,
+        isUpdates: false,
         isMailSendLoading: true,
         placeOfSend: action.payload,
       };
@@ -24,14 +25,13 @@ const email = (state = defaultState, action) => {
         isErrorEmail: false,
         mailSendResponse: 'Почта отправлена успешно',
         placeOfSend: state.placeOfSend,
-        isUpdates: true,
+        isUpdates: false,
       };
     }
     case 'EMAIL_UPDATE': {
-      console.log(action.payload, 111);
       return {
         ...state,
-        mailSendResponse: action.payload,
+        mailSendResponse: '',
       };
     }
     case 'SEND_ERROR_EMAIL': {
