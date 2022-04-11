@@ -18,7 +18,6 @@ export const MainPage = () => {
       dispatch({ type: 'EMAIL_UPDATE' });
     }
   }, [dispatch, isUpdates]);
-  console.log(isUpdates);
   return (
     <div>
       <div className="mainpage">
