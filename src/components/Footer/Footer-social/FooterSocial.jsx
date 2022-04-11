@@ -10,7 +10,6 @@ export const FooterSocial = () => {
   const dispatch = useDispatch();
   const { isSuccessEmail, mailSendResponse, isMailSendLoading, placeOfSend, isErrorEmail } =
     useSelector((state) => state.email);
-  //console.log(email);
 
   const [mailFooter, setMailFooter] = useState('');
   let [isCorrect, setIsCorrect] = useState(false);
