@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import close from '../ShoppingCart/assets/close.svg';
 import './shoppingcart.scss';
 import { DeliveryInfo } from '../DeliveryInfo/DeliveryInfo';
