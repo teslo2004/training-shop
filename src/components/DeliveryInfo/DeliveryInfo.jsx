@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import './../ShoppingCart/shoppingcart.scss';
 import './deliveryInfo.scss';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
   const [checked, setChecked] = useState('Pickup from post offices');
   const [agree, setAgree] = useState(false);
-
+  const [countryName, setCountryName] = useState('Country');
+  const [cityName, setCityName] = useState('');
+  const dispatch = useDispatch();
+  const { country } = useSelector((state) => state.country);
+  const { allCity } = useSelector((state) => state.city);
+  //console.log(allCity);
   const handleSetAgree = () => {
     setAgree(!agree);
   };
+
+  const handleAgree = () => {
+    setAgree(false);
+    formik.handleSubmit();
+  };
+
   const handleChange = (e) => {
     setChecked(e.target.value);
   };
@@ -63,6 +75,27 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
       e.target.value = '+375 (';
     }
   };
+
+  const handleBlurPostCode = (e) => {
+    if (e.target.value === '') {
+      e.target.value = 'BY ';
+    }
+  };
+
+  const handleLoadCountry = () => {
+    dispatch({ type: 'LOADING_COUNTRY' });
+  };
+
+  const handleCityName = (e) => {
+    setCityName(e.target.value);
+  };
+  useEffect(() => {
+    if (cityName && cityName.length > 2) {
+      dispatch({ type: 'LOADING_CITY', payload: { countryName, cityName } });
+    }
+  }, [countryName, cityName, dispatch]);
+
+  //const a = allCity.map((i) => i);
   return (
     <form className="delivery-form">
       <div className="delivery-info-main">
@@ -200,8 +233,34 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
               </div>
             ) : (
               <div>
-                <input type="text" placeholder="Country" />
-                <input type="text" placeholder="Store address" />
+                <select
+                  onClick={handleLoadCountry}
+                  onChange={(e) => setCountryName(e.target.value)}
+                  className={
+                    countryName === 'Country'
+                      ? 'delivery-select-country color'
+                      : 'delivery-select-country'
+                  }>
+                  <option selected disabled hidden>
+                    {countryName}
+                  </option>
+                  {country.map((item) => (
+                    <option key={item.id}>{item.name}</option>
+                  ))}
+                </select>
+                <input
+                  type="text"
+                  list="cities"
+                  placeholder="Store address"
+                  value={cityName}
+                  disabled={countryName !== 'Country' ? false : true}
+                  onChange={(e) => handleCityName(e)}
+                />
+                <datalist id="cities">
+                  {allCity.map((city) => (
+                    <option>{city}</option>
+                  ))}
+                </datalist>
               </div>
             )}
             {checked === 'Pickup from post offices' ? (
@@ -213,6 +272,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   placeholder="BY _ _ _ _ _ _"
                   value={formik.values.postcode}
                   onChange={formik.handleChange}
+                  onFocus={(e) => handleBlurPostCode(e)}
                 />
                 <div className="delivery-errors">
                   {formik.errors.postcode ? (
@@ -252,7 +312,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
               Object.entries(formik.values.phone).length !== 0 &&
               Object.entries(formik.errors).length === 0
                 ? handleNext
-                : handleSetAgree
+                : handleAgree
             }>
             FURTHER
           </button>
