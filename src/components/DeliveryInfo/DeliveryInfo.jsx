@@ -13,7 +13,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
   const dispatch = useDispatch();
   const { country } = useSelector((state) => state.country);
   const { allCity } = useSelector((state) => state.city);
-  //console.log(allCity);
+
   const handleSetAgree = () => {
     setAgree(!agree);
   };
@@ -95,7 +95,6 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
     }
   }, [countryName, cityName, dispatch]);
 
-  //const a = allCity.map((i) => i);
   return (
     <form className="delivery-form">
       <div className="delivery-info-main">
@@ -149,9 +148,9 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                 type="tel"
                 name="phone"
                 placeholder="+375 (_ _) _ _ _ _ _ _ _"
-                value={formik.values.phone}
                 onChange={formik.handleChange}
                 onFocus={(e) => handleBlurPhone(e)}
+                onBlur={formik.handleBlur}
               />
               <div className="delivery-errors">
                 {formik.errors.phone ? <div className="errors">{formik.errors.phone}</div> : null}
@@ -165,6 +164,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                 placeholder="e-mail"
                 value={formik.values.email}
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
               <div className="delivery-errors">
                 {formik.errors.email ? <div className="errors">{formik.errors.email}</div> : null}
@@ -183,6 +183,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   placeholder="Country"
                   value={formik.values.country}
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
                 <div className="delivery-errors">
                   {formik.errors.country ? (
@@ -195,6 +196,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   placeholder="City"
                   value={formik.values.city}
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                 />
                 <div className="delivery-errors">
                   {formik.errors.city ? <div className="errors">{formik.errors.city}</div> : null}
@@ -204,6 +206,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   name="street"
                   placeholder="street"
                   value={formik.values.street}
+                  onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                 />
                 <div className="delivery-errors">
@@ -219,6 +222,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                       placeholder="house"
                       value={formik.values.house}
                       onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                     <div className="delivery-errors">
                       {formik.errors.house ? (
@@ -255,6 +259,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   value={cityName}
                   disabled={countryName !== 'Country' ? false : true}
                   onChange={(e) => handleCityName(e)}
+                  onBlur={formik.handleBlur}
                 />
                 <datalist id="cities">
                   {allCity.map((city) => (
@@ -272,12 +277,15 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   placeholder="BY _ _ _ _ _ _"
                   value={formik.values.postcode}
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   onFocus={(e) => handleBlurPostCode(e)}
                 />
                 <div className="delivery-errors">
                   {formik.errors.postcode ? (
                     <div className="errors">{formik.errors.postcode}</div>
-                  ) : null}
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
             ) : (
@@ -310,13 +318,20 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
               agree &&
               Object.entries(formik.values.email).length !== 0 &&
               Object.entries(formik.values.phone).length !== 0 &&
-              Object.entries(formik.errors).length === 0
+              ((Object.entries(formik.errors).length === 0 &&
+                checked === 'Pickup from post offices') ||
+                (checked === 'Express delivery' &&
+                  Object.entries(formik.values.country).length !== 0 &&
+                  Object.entries(formik.values.city).length !== 0 &&
+                  Object.entries(formik.values.street).length !== 0 &&
+                  Object.entries(formik.values.house).length !== 0) ||
+                (checked === 'Store pickup' && countryName.length !== 0 && cityName.length !== 0))
                 ? handleNext
                 : handleAgree
             }>
             FURTHER
           </button>
-          <button className="view-cart" onClick={handlePrev}>
+          <button type="button" className="view-cart" onClick={handlePrev}>
             VIEW CART
           </button>
         </div>
