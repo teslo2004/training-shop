@@ -8,6 +8,7 @@ import { Payment } from '../Payment/Payment';
 
 export const ShoppingCart = ({ onClick, clickCart }) => {
   const cart = useSelector((state) => state.shop.items);
+
   const totalPrice = cart.reduce((accumulator, item) => (accumulator += item.num * item.price), 0);
   const [activePage, setActivePage] = useState(0);
   const handleNextPage = (activePage) => {
@@ -19,8 +20,9 @@ export const ShoppingCart = ({ onClick, clickCart }) => {
           <DeliveryInfo totalPrice={totalPrice} handleNext={handleNext} handlePrev={handlePrev} />
         );
       case 2:
-        return <Payment totalPrice={totalPrice} />;
+        return <Payment totalPrice={totalPrice} handlePrev={handlePrev} />;
       default:
+        return null;
     }
   };
   const handleNext = () => {
@@ -28,7 +30,7 @@ export const ShoppingCart = ({ onClick, clickCart }) => {
   };
 
   const handlePrev = () => {
-    setActivePage((prevActiveStep) => prevActiveStep - 1);
+    setActivePage(0);
   };
 
   const handleReset = () => {
