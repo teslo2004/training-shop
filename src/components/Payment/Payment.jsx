@@ -12,6 +12,7 @@ export const Payment = ({ totalPrice, handlePrev }) => {
   const [checked, setChecked] = useState('Visa');
   const [dateLen, setDateLen] = useState(0);
   const [cvv, setCvv] = useState(false);
+
   const handleChange = (e) => {
     setChecked(e.target.value);
   };

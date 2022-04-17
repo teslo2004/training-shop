@@ -5,6 +5,10 @@ import del from '../ShoppingCart/assets/delete.svg';
 
 export const CartItem = ({ handleNext, onClick, totalPrice }) => {
   const cart = useSelector((state) => state.shop.items);
+  const { phone, email, countryPickup, city, street, house, postcode, apartment } = useSelector(
+    (state) => state.order.data,
+  );
+
   const dispatch = useDispatch();
 
   const onclickDeleteProductToCart = (id, size, color) => {
@@ -27,6 +31,15 @@ export const CartItem = ({ handleNext, onClick, totalPrice }) => {
     };
     onclickDeleteProductToCart(obj.id, obj.size, obj.color);
   };
+
+  const handleNextPage = () => {
+    dispatch({
+      type: 'SEND_ORDER',
+      payload: { phone, email, countryPickup, city, street, house, postcode, apartment },
+    });
+    handleNext();
+  };
+
   return (
     <div className="shopping-cart-main">
       <div className="shopping-cart-container">
@@ -103,7 +116,7 @@ export const CartItem = ({ handleNext, onClick, totalPrice }) => {
 
       {cart.length > 0 ? (
         <div className="shopping-cart-btn">
-          <button className="further" onClick={handleNext}>
+          <button className="further" onClick={handleNextPage} phone={phone}>
             FURTHER
           </button>
         </div>
