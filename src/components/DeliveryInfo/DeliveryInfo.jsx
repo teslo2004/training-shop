@@ -6,6 +6,10 @@ import './deliveryInfo.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
+  const { phone, email, countryPickup, city, street, house, apartment, postcode } = useSelector(
+    (state) => state.order.data,
+  );
+
   const [checked, setChecked] = useState('Pickup from post offices');
   const [agree, setAgree] = useState(false);
   const [countryName, setCountryName] = useState('Country');
@@ -28,13 +32,14 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
   };
 
   const initialValues = {
-    phone: '',
-    email: '',
-    country: '',
-    city: '',
-    street: '',
-    house: '',
-    postcode: '',
+    phone: '' || phone,
+    email: '' || email,
+    country: '' || countryPickup,
+    city: '' || city,
+    street: '' || street,
+    house: '' || house,
+    apartment: '' || apartment,
+    postcode: '' || postcode,
   };
 
   const validate = (values) => {
@@ -56,7 +61,6 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
   };
 
   const validationSchema = Yup.object({
-    phone: Yup.string().required('Поле должно быть заполнено'),
     country: Yup.string().required('Поле должно быть заполнено'),
     city: Yup.string().required('Поле должно быть заполнено'),
     street: Yup.string().required('Поле должно быть заполнено'),
@@ -95,6 +99,10 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
     }
   }, [countryName, cityName, dispatch]);
 
+  const handleSaveData = () => {
+    dispatch({ type: 'SEND_ORDER', payload: formik.values });
+    handlePrev();
+  };
   return (
     <form className="delivery-form">
       <div className="delivery-info-main">
@@ -148,12 +156,15 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                 type="tel"
                 name="phone"
                 placeholder="+375 (_ _) _ _ _ _ _ _ _"
+                value={formik.values.phone}
                 onChange={formik.handleChange}
                 onFocus={(e) => handleBlurPhone(e)}
                 onBlur={formik.handleBlur}
               />
               <div className="delivery-errors">
-                {formik.errors.phone ? <div className="errors">{formik.errors.phone}</div> : null}
+                {formik.errors.phone && formik.touched.phone ? (
+                  <div className="errors">{formik.errors.phone}</div>
+                ) : null}
               </div>
             </div>
             <div>
@@ -167,7 +178,9 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                 onBlur={formik.handleBlur}
               />
               <div className="delivery-errors">
-                {formik.errors.email ? <div className="errors">{formik.errors.email}</div> : null}
+                {formik.errors.email && formik.touched.email ? (
+                  <div className="errors">{formik.errors.email}</div>
+                ) : null}
               </div>
             </div>
             {checked === 'Pickup from post offices' || checked === 'Express delivery' ? (
@@ -186,7 +199,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   onBlur={formik.handleBlur}
                 />
                 <div className="delivery-errors">
-                  {formik.errors.country ? (
+                  {formik.errors.country && formik.touched.country ? (
                     <div className="errors">{formik.errors.country}</div>
                   ) : null}
                 </div>
@@ -199,7 +212,9 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   onBlur={formik.handleBlur}
                 />
                 <div className="delivery-errors">
-                  {formik.errors.city ? <div className="errors">{formik.errors.city}</div> : null}
+                  {formik.errors.city && formik.touched.city ? (
+                    <div className="errors">{formik.errors.city}</div>
+                  ) : null}
                 </div>
                 <input
                   type="text"
@@ -210,7 +225,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   onChange={formik.handleChange}
                 />
                 <div className="delivery-errors">
-                  {formik.errors.street ? (
+                  {formik.errors.street && formik.touched.street ? (
                     <div className="errors">{formik.errors.street}</div>
                   ) : null}
                 </div>
@@ -225,13 +240,19 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                       onBlur={formik.handleBlur}
                     />
                     <div className="delivery-errors">
-                      {formik.errors.house ? (
+                      {formik.errors.house && formik.touched.house ? (
                         <div className="errors">{formik.errors.house}</div>
                       ) : null}
                     </div>
                   </div>
                   <div>
-                    <input type="text" name="apartment" placeholder="Apartment" />
+                    <input
+                      type="text"
+                      name="apartment"
+                      value={formik.values.apartment}
+                      onChange={formik.handleChange}
+                      placeholder="Apartment"
+                    />
                   </div>
                 </div>
               </div>
@@ -274,14 +295,15 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                 <input
                   type="text"
                   name="postcode"
+                  maxLength={9}
                   placeholder="BY _ _ _ _ _ _"
-                  value={formik.values.postcode}
+                  value={formik.values.postcode?.trim()}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   onFocus={(e) => handleBlurPostCode(e)}
                 />
                 <div className="delivery-errors">
-                  {formik.errors.postcode ? (
+                  {formik.errors.postcode && formik.touched.postcode ? (
                     <div className="errors">{formik.errors.postcode}</div>
                   ) : (
                     ''
@@ -331,7 +353,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
             }>
             FURTHER
           </button>
-          <button type="button" className="view-cart" onClick={handlePrev}>
+          <button type="button" className="view-cart" onClick={handleSaveData}>
             VIEW CART
           </button>
         </div>

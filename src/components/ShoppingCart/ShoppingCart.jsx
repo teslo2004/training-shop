@@ -3,12 +3,12 @@ import close from '../ShoppingCart/assets/close.svg';
 import './shoppingcart.scss';
 import { DeliveryInfo } from '../DeliveryInfo/DeliveryInfo';
 import { CartItem } from './CartItem';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Payment } from '../Payment/Payment';
 
 export const ShoppingCart = ({ onClick, clickCart }) => {
   const cart = useSelector((state) => state.shop.items);
-
+  const dispatch = useDispatch();
   const totalPrice = cart.reduce((accumulator, item) => (accumulator += item.num * item.price), 0);
   const [activePage, setActivePage] = useState(0);
   const handleNextPage = (activePage) => {
@@ -30,12 +30,13 @@ export const ShoppingCart = ({ onClick, clickCart }) => {
   };
 
   const handlePrev = () => {
-    setActivePage(0);
+    setActivePage((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleReset = () => {
     setActivePage(0);
     onClick();
+    dispatch({ type: 'RESET_ORDER' });
   };
 
   //const steps = [<CartItem />, <DeliveryInfo />, <Payment />];
