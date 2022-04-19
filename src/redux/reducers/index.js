@@ -3,7 +3,7 @@ import shop from './shop';
 import data from './data';
 import email from './email';
 import review from './review';
-import country from './country';
+import countries from './country';
 import city from './city';
 import order from './order';
 
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   data,
   email,
   review,
-  country,
+  countries,
   city,
   order,
 });

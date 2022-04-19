@@ -1,16 +1,16 @@
 const defaultState = {
-  country: [],
+  countries: [],
   isLoading: false,
   isError: false,
 };
 
-const country = (state = defaultState, action) => {
+const countries = (state = defaultState, action) => {
   switch (action.type) {
     case 'LOADING_COUNTRY': {
       return { ...state, isLoading: true };
     }
     case 'LOAD_SUCCESS_COUNTRY': {
-      return { ...state, country: action.payload.data, isLoading: false };
+      return { ...state, countries: action.payload.data, isLoading: false };
     }
 
     case 'ERROR_LOAD_COUNTRY': {
@@ -22,4 +22,4 @@ const country = (state = defaultState, action) => {
   }
 };
 
-export default country;
+export default countries;

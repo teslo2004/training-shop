@@ -19,7 +19,11 @@ const city = (state = defaultState, action) => {
     }
     case 'LOAD_SUCCESS_CITY': {
       const cityArr = action.payload.map((item) => item.city);
-      return { ...state, allCity: cityArr };
+      console.log(action.payload.countryName);
+      return {
+        ...state,
+        allCity: cityArr,
+      };
     }
 
     case 'LOAD_ERROR_CITY': {

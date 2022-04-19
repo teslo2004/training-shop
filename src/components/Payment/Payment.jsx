@@ -7,8 +7,14 @@ import visa from './assets/visa.svg';
 import mastercard from './assets/mastercard.svg';
 import eyeClose from './assets/EyeClose.svg';
 import eyeOpen from './assets/EyeOpen.svg';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const Payment = ({ totalPrice, handlePrev }) => {
+export const Payment = ({ totalPrice, handlePrev, handleNext }) => {
+  const { paymentMethod, email, card, cardCVV, cardDate } = useSelector(
+    (state) => state.order.data,
+  );
+  const order = useSelector((state) => state.order.data);
+  const dispatch = useDispatch();
   const [checked, setChecked] = useState('Visa');
   const [dateLen, setDateLen] = useState(0);
   const [cvv, setCvv] = useState(false);
@@ -18,9 +24,11 @@ export const Payment = ({ totalPrice, handlePrev }) => {
   };
 
   const initialValues = {
-    emailPay: '',
-    cardNum: '',
-    cvv: '',
+    paymentMethod: paymentMethod,
+    emailPay: '' || email,
+    cardNum: '' || card,
+    cvv: '' || cardCVV,
+    cardDate: '' || cardDate,
   };
 
   const validate = (values) => {
@@ -40,10 +48,6 @@ export const Payment = ({ totalPrice, handlePrev }) => {
     return errors;
   };
 
-  const formik = useFormik({
-    initialValues,
-    validate,
-  });
   const handleDate = (e) => {
     e.target.value = e.target.value.trim().replace(/[A-Za-zА-Яа-яЁё]/, '');
     const dateVal = e.target.value.split('/');
@@ -61,6 +65,15 @@ export const Payment = ({ totalPrice, handlePrev }) => {
       e.target.value = '';
     }
     setDateLen(e.target.value);
+  };
+  const formik = useFormik({
+    initialValues,
+    validate,
+  });
+
+  const handleData = () => {
+    dispatch({ type: 'SEND_PAY', payload: formik.values });
+    handleNext();
   };
 
   return (
@@ -174,9 +187,13 @@ export const Payment = ({ totalPrice, handlePrev }) => {
                     <input
                       type="text"
                       maxLength="5"
-                      name="dates"
+                      name="cardDate"
                       placeholder="MM/YY"
-                      onChange={handleDate}
+                      value={formik.values.cardDate}
+                      onChange={(e) => {
+                        handleDate(e);
+                        formik.handleChange(e);
+                      }}
                       onBlur={formik.handleBlur}
                     />
                     <div className="payment-errors">
@@ -217,7 +234,7 @@ export const Payment = ({ totalPrice, handlePrev }) => {
           </div>
         </div>
         <div className="payment-cart-btn">
-          <button type="button" className="further">
+          <button type="button" className="further" onClick={handleData}>
             {checked !== 'Cash' ? 'CHECK OUT' : 'READY'}
           </button>
           <button type="button" className="view-cart" onClick={handlePrev}>

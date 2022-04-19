@@ -6,16 +6,14 @@ import './deliveryInfo.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
-  const { phone, email, countryPickup, city, street, house, apartment, postcode } = useSelector(
-    (state) => state.order.data,
-  );
+  const { phone, email, country, city, street, house, apartment, postcode, deliveryMethod } =
+    useSelector((state) => state.order.data);
 
-  const [checked, setChecked] = useState('Pickup from post offices');
   const [agree, setAgree] = useState(false);
   const [countryName, setCountryName] = useState('Country');
   const [cityName, setCityName] = useState('');
   const dispatch = useDispatch();
-  const { country } = useSelector((state) => state.country);
+  const { countries } = useSelector((state) => state.countries);
   const { allCity } = useSelector((state) => state.city);
 
   const handleSetAgree = () => {
@@ -27,14 +25,11 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
     formik.handleSubmit();
   };
 
-  const handleChange = (e) => {
-    setChecked(e.target.value);
-  };
-
   const initialValues = {
+    deliveryMethod: deliveryMethod,
     phone: '' || phone,
     email: '' || email,
-    country: '' || countryPickup,
+    countryPickup: '' || country,
     city: '' || city,
     street: '' || street,
     house: '' || house,
@@ -61,7 +56,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
   };
 
   const validationSchema = Yup.object({
-    country: Yup.string().required('Поле должно быть заполнено'),
+    countryPickup: Yup.string().required('Поле должно быть заполнено'),
     city: Yup.string().required('Поле должно быть заполнено'),
     street: Yup.string().required('Поле должно быть заполнено'),
     house: Yup.string().required('Поле должно быть заполнено'),
@@ -103,6 +98,11 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
     dispatch({ type: 'SEND_ORDER', payload: formik.values });
     handlePrev();
   };
+
+  const handleNextData = () => {
+    dispatch({ type: 'SEND_ORDER', payload: formik.values });
+    handleNext();
+  };
   return (
     <form className="delivery-form">
       <div className="delivery-info-main">
@@ -116,10 +116,10 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
               <input
                 id="1"
                 type="radio"
-                name="delivery"
+                name="deliveryMethod"
                 value="Pickup from post offices"
-                checked={checked === 'Pickup from post offices' ? true : false}
-                onChange={handleChange}
+                checked={formik.values.deliveryMethod === 'Pickup from post offices' ? true : false}
+                onChange={formik.handleChange}
               />
               <label htmlFor="1">Pickup from post offices</label>
             </div>
@@ -128,10 +128,10 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
               <input
                 id="2"
                 type="radio"
-                name="delivery"
+                name="deliveryMethod"
                 value="Express delivery"
-                checked={checked === 'Express delivery' ? true : false}
-                onChange={handleChange}
+                checked={formik.values.deliveryMethod === 'Express delivery' ? true : false}
+                onChange={formik.handleChange}
               />
               <label htmlFor="2">Express delivery</label>
             </div>
@@ -140,10 +140,10 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
               <input
                 id="3"
                 type="radio"
-                name="delivery"
+                name="deliveryMethod"
                 value="Store pickup"
-                checked={checked === 'Store pickup' ? true : false}
-                onChange={handleChange}
+                checked={formik.values.deliveryMethod === 'Store pickup' ? true : false}
+                onChange={formik.handleChange}
               />
               <label htmlFor="3">Store pickup</label>
             </div>
@@ -183,24 +183,26 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                 ) : null}
               </div>
             </div>
-            {checked === 'Pickup from post offices' || checked === 'Express delivery' ? (
+            {formik.values.deliveryMethod === 'Pickup from post offices' ||
+            formik.values.deliveryMethod === 'Express delivery' ? (
               <span>ADDRESS</span>
             ) : (
               <span>ADDRESS OF STORE</span>
             )}
-            {checked === 'Pickup from post offices' || checked === 'Express delivery' ? (
+            {formik.values.deliveryMethod === 'Pickup from post offices' ||
+            formik.values.deliveryMethod === 'Express delivery' ? (
               <div>
                 <input
                   type="text"
-                  name="country"
+                  name="countryPickup"
                   placeholder="Country"
-                  value={formik.values.country}
+                  value={formik.values.countryPickup}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
                 <div className="delivery-errors">
-                  {formik.errors.country && formik.touched.country ? (
-                    <div className="errors">{formik.errors.country}</div>
+                  {formik.errors.countryPickup && formik.touched.countryPickup ? (
+                    <div className="errors">{formik.errors.countryPickup}</div>
                   ) : null}
                 </div>
                 <input
@@ -269,13 +271,14 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                   <option selected disabled hidden>
                     {countryName}
                   </option>
-                  {country.map((item) => (
+                  {countries.map((item) => (
                     <option key={item.id}>{item.name}</option>
                   ))}
                 </select>
                 <input
                   type="text"
                   list="cities"
+                  name="cities"
                   placeholder="Store address"
                   value={cityName}
                   disabled={countryName !== 'Country' ? false : true}
@@ -289,7 +292,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
                 </datalist>
               </div>
             )}
-            {checked === 'Pickup from post offices' ? (
+            {formik.values.deliveryMethod === 'Pickup from post offices' ? (
               <div>
                 <span>POSTCODE</span>
                 <input
@@ -341,14 +344,16 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
               Object.entries(formik.values.email).length !== 0 &&
               Object.entries(formik.values.phone).length !== 0 &&
               ((Object.entries(formik.errors).length === 0 &&
-                checked === 'Pickup from post offices') ||
-                (checked === 'Express delivery' &&
-                  Object.entries(formik.values.country).length !== 0 &&
+                formik.values.deliveryMethod === 'Pickup from post offices') ||
+                (formik.values.deliveryMethod === 'Express delivery' &&
+                  Object.entries(formik.values.countryPickup).length !== 0 &&
                   Object.entries(formik.values.city).length !== 0 &&
                   Object.entries(formik.values.street).length !== 0 &&
                   Object.entries(formik.values.house).length !== 0) ||
-                (checked === 'Store pickup' && countryName.length !== 0 && cityName.length !== 0))
-                ? handleNext
+                (formik.values.deliveryMethod === 'Store pickup' &&
+                  countryName.length !== 0 &&
+                  cityName.length !== 0))
+                ? handleNextData
                 : handleAgree
             }>
             FURTHER
