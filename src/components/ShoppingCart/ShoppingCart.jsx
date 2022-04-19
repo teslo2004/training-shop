@@ -5,6 +5,7 @@ import { DeliveryInfo } from '../DeliveryInfo/DeliveryInfo';
 import { CartItem } from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { Payment } from '../Payment/Payment';
+import { Order } from '../Order/Order';
 
 export const ShoppingCart = ({ onClick, clickCart }) => {
   const cart = useSelector((state) => state.shop.items);
@@ -20,7 +21,11 @@ export const ShoppingCart = ({ onClick, clickCart }) => {
           <DeliveryInfo totalPrice={totalPrice} handleNext={handleNext} handlePrev={handlePrev} />
         );
       case 2:
-        return <Payment totalPrice={totalPrice} handlePrev={handlePrev} />;
+        return <Payment totalPrice={totalPrice} handlePrev={handlePrev} handleNext={handleNext} />;
+      case 3:
+        return (
+          <Order handlePrev={handlePrev} onClick={onClick} handleFirstPage={handleFirstPage} />
+        );
       default:
         return null;
     }
@@ -39,6 +44,11 @@ export const ShoppingCart = ({ onClick, clickCart }) => {
     dispatch({ type: 'RESET_ORDER' });
   };
 
+  const handleFirstPage = () => {
+    setActivePage(0);
+    dispatch({ type: 'RESET_ORDER' });
+  };
+
   //const steps = [<CartItem />, <DeliveryInfo />, <Payment />];
 
   return (
@@ -52,13 +62,17 @@ export const ShoppingCart = ({ onClick, clickCart }) => {
             <img src={close} alt="close cart" />
           </div>
         </div>
-        <div className="shopping-cart-products">
-          <div className="shopping-cart-menu">
-            <span className={activePage === 0 ? 'first' : 'second'}>Item in Cart /</span>
-            <span className={activePage === 1 ? 'first' : 'second'}> Delivery Info /</span>
-            <span className={activePage === 2 ? 'first' : 'second'}> Payment</span>
+        {activePage < 3 ? (
+          <div className="shopping-cart-products">
+            <div className="shopping-cart-menu">
+              <span className={activePage === 0 ? 'first' : 'second'}>Item in Cart /</span>
+              <span className={activePage === 1 ? 'first' : 'second'}> Delivery Info /</span>
+              <span className={activePage === 2 ? 'first' : 'second'}> Payment</span>
+            </div>
           </div>
-        </div>
+        ) : (
+          ''
+        )}
 
         {handleNextPage(activePage)}
       </div>

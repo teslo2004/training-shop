@@ -5,9 +5,19 @@ import del from '../ShoppingCart/assets/delete.svg';
 
 export const CartItem = ({ handleNext, onClick, totalPrice }) => {
   const cart = useSelector((state) => state.shop.items);
-  const { phone, email, countryPickup, city, street, house, postcode, apartment } = useSelector(
-    (state) => state.order.data,
-  );
+
+  const {
+    phone,
+    email,
+    countryPickup,
+    city,
+    street,
+    house,
+    postcode,
+    apartment,
+    deliveryMethod,
+    storeAddress,
+  } = useSelector((state) => state.order.data);
 
   const dispatch = useDispatch();
 
@@ -35,7 +45,19 @@ export const CartItem = ({ handleNext, onClick, totalPrice }) => {
   const handleNextPage = () => {
     dispatch({
       type: 'SEND_ORDER',
-      payload: { phone, email, countryPickup, city, street, house, postcode, apartment },
+      payload: {
+        phone,
+        email,
+        countryPickup,
+        city,
+        street,
+        house,
+        postcode,
+        apartment,
+        deliveryMethod,
+        cart,
+        storeAddress,
+      },
     });
     handleNext();
   };
@@ -116,7 +138,7 @@ export const CartItem = ({ handleNext, onClick, totalPrice }) => {
 
       {cart.length > 0 ? (
         <div className="shopping-cart-btn">
-          <button className="further" onClick={handleNextPage} phone={phone}>
+          <button className="further" onClick={handleNextPage}>
             FURTHER
           </button>
         </div>
