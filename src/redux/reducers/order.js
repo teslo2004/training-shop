@@ -56,7 +56,7 @@ const order = (state = initialState, action) => {
     case 'LOAD_SUCCESS_ORDER': {
       return {
         ...state,
-        ...action.data,
+        ...action.payload,
       };
     }
 

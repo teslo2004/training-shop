@@ -13,6 +13,9 @@ export const Payment = ({ totalPrice, handlePrev, handleNext }) => {
   const { paymentMethod, email, card, cardCVV, cardDate } = useSelector(
     (state) => state.order.data,
   );
+  const order = useSelector((state) => state.order.data);
+  //console.log(order);
+
   const dispatch = useDispatch();
   const [checked, setChecked] = useState('Visa');
   const [dateLen, setDateLen] = useState(0);
@@ -71,7 +74,7 @@ export const Payment = ({ totalPrice, handlePrev, handleNext }) => {
   });
 
   const handleData = () => {
-    dispatch({ type: 'SEND_PAY', payload: formik.values });
+    dispatch({ type: 'SEND_PAY', payload: order });
     handleNext();
   };
 
