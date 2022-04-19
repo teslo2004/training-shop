@@ -1,35 +1,56 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import del from '../ShoppingCart/assets/delete.svg';
+import React, { useState } from 'react';
 import close from '../ShoppingCart/assets/close.svg';
 import './shoppingcart.scss';
+import { DeliveryInfo } from '../DeliveryInfo/DeliveryInfo';
+import { CartItem } from './CartItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { Payment } from '../Payment/Payment';
+import { Order } from '../Order/Order';
 
-export const ShoppingCart = ({ id, onClick, clickCart }) => {
+export const ShoppingCart = ({ onClick, clickCart }) => {
   const cart = useSelector((state) => state.shop.items);
   const dispatch = useDispatch();
-
   const totalPrice = cart.reduce((accumulator, item) => (accumulator += item.num * item.price), 0);
-
-  const onclickDeleteProductToCart = (id, size, color) => {
-    dispatch({ type: 'REMOVE_CART_ITEM', payload: { id, size, color } });
+  const [activePage, setActivePage] = useState(0);
+  const handleNextPage = (activePage) => {
+    switch (activePage) {
+      case 0:
+        return <CartItem totalPrice={totalPrice} handleNext={handleNext} onClick={onClick} />;
+      case 1:
+        return (
+          <DeliveryInfo totalPrice={totalPrice} handleNext={handleNext} handlePrev={handlePrev} />
+        );
+      case 2:
+        return <Payment totalPrice={totalPrice} handlePrev={handlePrev} handleNext={handleNext} />;
+      case 3:
+        return (
+          <Order handlePrev={handlePrev} onClick={onClick} handleFirstPage={handleFirstPage} />
+        );
+      default:
+        return null;
+    }
+  };
+  const handleNext = () => {
+    setActivePage((prevActiveStep) => prevActiveStep + 1);
   };
 
-  const onPlus = (item) => {
-    dispatch({ type: 'PLUS_PRODUCT', payload: item });
+  const handlePrev = () => {
+    setActivePage((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const onMinus = (item) => {
-    dispatch({ type: 'MINUS_PRODUCT', payload: item });
+  const handleReset = () => {
+    setActivePage(0);
+    onClick();
+    dispatch({ type: 'RESET_ORDER' });
   };
 
-  const onDeleteProduct = (id, size, color) => {
-    const obj = {
-      id,
-      size,
-      color,
-    };
-    onclickDeleteProductToCart(obj.id, obj.size, obj.color);
+  const handleFirstPage = () => {
+    setActivePage(0);
+    dispatch({ type: 'RESET_ORDER' });
   };
+
+  //const steps = [<CartItem />, <DeliveryInfo />, <Payment />];
+
   return (
     <div className={clickCart ? 'shopping-cart-wrapper' : 'shopping-cart-wrapper hide'}>
       <div className={clickCart ? 'shopping-cart visible' : 'shopping-cart '} data-test-id="cart">
@@ -37,101 +58,23 @@ export const ShoppingCart = ({ id, onClick, clickCart }) => {
           <div className="shopping-cart-title">
             <h4>SHOPPING CART</h4>
           </div>
-          <div onClick={onClick} className="shopping-cart-close ">
+          <div onClick={handleReset} className="shopping-cart-close ">
             <img src={close} alt="close cart" />
           </div>
         </div>
-        <div className="shopping-cart-products">
-          <div className="shopping-cart-menu">
-            <span className="first">Item in Cart </span>
-            <span className="second">/ Delivery Info /</span>
-            <span className="third"> Payment</span>
-          </div>
-          <div className="shopping-cart-container">
-            {cart.length > 0 ? (
-              cart.map((item, id) => (
-                <div key={id} data-test-id="cart-card">
-                  <div className="shopping-cart-info">
-                    <div>
-                      <img
-                        src={`https://training.cleverland.by/shop${item.imageUrl}`}
-                        alt={item.color}
-                        className="shopping-cart-image"
-                      />
-                    </div>
-                    <div className="shopping-cart-center">
-                      <div>
-                        <div className="shopping-cart-name">{item.name}</div>
-                        <div className="shopping-cart-color">
-                          {item.color},{item.size}
-                        </div>
-                      </div>
-                      <div>
-                        <div className="shopping-cart-num-price">
-                          <div className="shopping-cart-num">
-                            {item.num > 1 ? (
-                              <button onClick={() => onMinus(item)} data-test-id="minus-product">
-                                -
-                              </button>
-                            ) : (
-                              <button data-test-id="minus-product">-</button>
-                            )}
-                            <span>{item.num}</span>
-                            <button onClick={() => onPlus(item)} data-test-id="plus-product">
-                              +
-                            </button>
-                          </div>
-                          <div className="shopping-cart-price">
-                            ${(item.price * item.num).toFixed(2)}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="shopping-cart-del">
-                      <img
-                        onClick={() => onDeleteProduct(item.id, item.size, item.color)}
-                        src={del}
-                        alt="delete"
-                        data-test-id="remove-product"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="shopping-cart-warning">
-                Sorry,
-                <br />
-                your cart
-                <br />
-                is empty
-              </div>
-            )}
-          </div>
-        </div>
-        {cart.length > 0 ? (
-          <div className="shopping-cart-total-price">
-            <span>Total</span>
-            {totalPrice.toFixed(2)}$
+        {activePage < 3 ? (
+          <div className="shopping-cart-products">
+            <div className="shopping-cart-menu">
+              <span className={activePage === 0 ? 'first' : 'second'}>Item in Cart /</span>
+              <span className={activePage === 1 ? 'first' : 'second'}> Delivery Info /</span>
+              <span className={activePage === 2 ? 'first' : 'second'}> Payment</span>
+            </div>
           </div>
         ) : (
           ''
         )}
-        {cart.length > 0 ? (
-          <div className="shopping-cart-btn">
-            <button className="further">FURTHER</button>
-            <button className="view-cart" onClick={onClick}>
-              VIEW CART
-            </button>
-          </div>
-        ) : (
-          <div className="shopping-cart-btn">
-            <button className="back" onClick={onClick}>
-              BACK TO SHOPPING
-            </button>
-          </div>
-        )}
+
+        {handleNextPage(activePage)}
       </div>
       <div className={!clickCart ? 'open-cart' : 'open-cart visible'} onClick={onClick}></div>
     </div>
