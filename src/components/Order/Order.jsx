@@ -4,7 +4,7 @@ import './order.scss';
 
 export const Order = ({ onClick, handlePrev, handleFirstPage }) => {
   const { error } = useSelector((state) => state.order);
-  console.log(error);
+
   return (
     <div>
       {!error ? (

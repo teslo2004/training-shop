@@ -111,11 +111,13 @@ hr {
   margin-top: 60px;
 }
 
-.errors {
+.payment-errors {
   height: 20px;
   max-width: 310px;
-  color: rgb(201, 31, 31);
-  font-size: 11px;
+  .errors {
+    color: rgb(201, 31, 31);
+    font-size: 11px;
+  }
 }
 
 .errors-card {
