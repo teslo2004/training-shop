@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import './order.scss';
 
 export const Order = ({ onClick, handlePrev, handleFirstPage }) => {
-  const order = useSelector((state) => state.order.data);
   const { error } = useSelector((state) => state.order);
   console.log(error);
   return (
