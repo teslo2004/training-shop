@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import './../ShoppingCart/shoppingcart.scss';
 import './deliveryInfo.scss';
 import { useDispatch, useSelector } from 'react-redux';
+import InputMask from 'react-input-mask';
 
 export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
   const { phone, email, country, city, street, house, apartment, postcode, deliveryMethod } =
@@ -42,7 +43,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
 
     if (!values.phone) {
       errors.phone = 'Поле должно быть заполнено';
-    } else if (!/(\+375 \(25|29|33|44)\)(\s|)[0-9]{7}/.test(values.phone)) {
+    } else if (!/(\+375 \(25|29|33|44)\) [0-9]{3}-[0-9]{2}-[0-9]{2}/.test(values.phone)) {
       errors.phone = 'Некорректный телефон';
     }
 
@@ -68,12 +69,6 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
     validate,
     validationSchema,
   });
-
-  const handleBlurPhone = (e) => {
-    if (e.target.value === '') {
-      e.target.value = '+375 (';
-    }
-  };
 
   const handleBlurPostCode = (e) => {
     if (e.target.value === '') {
@@ -103,6 +98,7 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
     dispatch({ type: 'SEND_ORDER', payload: formik.values });
     handleNext();
   };
+  console.log(formik.errors);
   return (
     <form className="delivery-form">
       <div className="delivery-info-main">
@@ -152,14 +148,14 @@ export const DeliveryInfo = ({ handleNext, handlePrev, totalPrice }) => {
           <div className="delivery-info-contacts">
             <div>
               <span>PHONE</span>
-              <input
+              <InputMask
                 type="tel"
                 name="phone"
-                placeholder="+375 (_ _) _ _ _ _ _ _ _"
                 value={formik.values.phone}
                 onChange={formik.handleChange}
-                onFocus={(e) => handleBlurPhone(e)}
                 onBlur={formik.handleBlur}
+                mask={'+375 (99) 999-99-99'}
+                placeholder="+375 (__) ___-__-__"
               />
               <div className="delivery-errors">
                 {formik.errors.phone && formik.touched.phone ? (
